@@ -1,0 +1,20 @@
+# shared object binaries
+# NOTE: Likely will not need this, added just in case I include a package with C/C++ code.
+# Would not want to forget to add later on...
+*.so
+
+# Stores bytecode
+__pycache__/
+
+## python compiled bytecode (.pyc) files shouldn't exist outside of __pycache__, but included just in case
+## a misconfiguration occurs somewhere down the line.
+*.pyc
+
+###
+# NOTE:
+# .pyo (optimized bytecode) was deprecated after version 3.5; some guides suggest ignoring it anyway.
+# .pyd (python dynamic library) files are exclusive to windows; unix-based systems use shared object binaries.
+# (?) Sometimes windows uses .dll.
+
+# If you want to cover all bases, uncomment below and comment line 6. (I just hate including unnecessary code.)
+# *.py[cod]
