@@ -16,7 +16,7 @@ Even proactive consumers commonly misunderstand food labels. The term 'free rang
 Dev Notes
 ---
 
-___ Organize project; define goals
+04/06: Setting up project
 
 
 
