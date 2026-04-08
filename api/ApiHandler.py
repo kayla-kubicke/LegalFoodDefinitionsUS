@@ -1,20 +1,30 @@
+# TO DO: Add requests source code... eventually
+# https://requests.readthedocs.io/en/latest/user/install/#install
+
 # ADD: peudeocode/general class organization
 # Request docs: https://requests.readthedocs.io/en/latest/
 
-## REMOVE
-# https://www.youtube.com/watch?v=N8LFXEfbxdw
-# pip trash error...
-# 'error: externally-managed-environment'
-# Added python virtual environment to directory; added to gitignore.
-#
-# Create python virtual environment
-# m flag calls specified module name, in this case venv module
-# python3 -m venv .venv
-#
+# Reminder...
 # Activate the environment 
 # source .venv/bin/activate
-#
-# Call pip, do stuff
-# pip install <whatever>
-# pip install requests
-## REMOVE
+
+import requests
+
+# https://www.youtube.com/watch?v=-Wtj59opWKg
+# START: ApiHandler Class
+class ApiHandler:
+	# START: Constants
+	ECFR = 'https://www.ecfr.gov'
+	SECTION = '/api/versioner/v1/versions/title-'
+	# END: Constants
+
+	# START: Methods
+	# A simple test call to api
+	def simple_call():
+		simpleRequest = requests.get(f'{ApiHandler.ECFR}{ApiHandler.SECTION}' + '21.json')
+		# Just prints json blob to terminal
+		print(simpleRequest.json())
+	# END: Methods
+# END: ApiHandler Class
+
+ApiHandler.simple_call()
