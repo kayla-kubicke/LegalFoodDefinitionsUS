@@ -1,4 +1,3 @@
-# TO DO: Add basic testing
 # TO DO: Add requests source code... eventually
 # https://requests.readthedocs.io/en/latest/user/install/#install
 
@@ -57,7 +56,6 @@ class ApiHandler:
 			# Can expand later.
 			# Options: https://requests.readthedocs.io/en/latest/_modules/requests/exceptions/
 			print(f'Generic exception: {error}')
-			# https://www.youtube.com/watch?v=LbYxP11rbSM
 			# Triggered with dummy simpleRequest above; get testing set up next.
 			# 'Generic exception: Invalid URL 'garbage': No scheme supplied. Perhaps you meant https://garbage?'
 
