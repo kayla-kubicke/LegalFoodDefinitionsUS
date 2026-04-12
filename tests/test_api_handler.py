@@ -7,44 +7,46 @@
 # END: Mock
 
 
-# Broken: the command itself is likely fine,
-# pretty sure PYTHONPATH isn't correctly set.
 # from api.api_handler import ApiHandler
-
-# Given this, why is 'sys.path' populated with several paths?
-# import sys
-# print(sys.path)
-
-# ?:|
 
 ## REMOVE
 # Super ultra fun import error
 # 'ImportError: attempted relative import with no known parent package'
-# https://www.youtube.com/watch?v=4KeII31qyck
 #
+# .venv vs .env
+# The virtual environment is a directory that contains libraries (and interpreters).
+# The environment contains configuration information.
+#
+# os.environ['whatever']... vs. sys.path.append('whatever')
+# os.environ['...'] directly modifies environmental variables.
+# sys.path.append('...') add specified path to list of paths python will search
+# when attempting to import a module (and packages); as noted previously.
+#
+#
+# So... this combination imports correctly and hits print statement.
 # import sys
-# sys.path.append('..')
-# Code above simply adds specified path to array containing the paths
-# python will search to locate modules (and packages?).
-# Also, the addition is temporary; it's appended during runtime and
-# only kept for the duration of the current process.
-# As suspected, it's bad practice to throw path traversing trash
-# in your code.
+# sys.path.append('/path/to/LegalFoodDefinitionsUS/on/my/machine')
 #
-# I think I figured it out... I need to be build an .env project file.
-# Need to set the evironmental variable(s) properly; specifically PYTHONPATH.
-# Right now, 'echo $PYTHONPATH' returns nothing.
+# from api.api_handler import ApiHandler
+# print ('working')
 #
-# One could do it directly in here, but I'm going to assume that's also
-# bad practice and looks like hacky garbage.
-# It would look something like:
-# import os
-# os.environ['PYTHONPATH']='../wow/that/looks/kinda/dangerous'
 #
-# NOTE: Update .gitignore after confirming this is actually the solution.
+# :|
+# So, I was wrong yesterday; the whole point of using a virtual environment
+# is to avoid messing with your machine's evironmental variables. Although I
+# wasn't completely lost becasue if PYTHONPATH is set, sys.path will pull it.
+# Given that, hard coding PYTHONPATH on my machine is kinda silly for this purpose,
+# but that would work given sys.path's pulling behavior.
+#
+# The solution seems to be to install e.
+# As far I currently know, e basically just adds a .pth file which I could do myself.
+# But, according to Gemini, e adds a 'few safety features'.
+# Just going to go with e for now.
+# 'pip install -e .'
+# 'ERROR: ... does not appear to be a Python project: neither 'setup.py' nor 'pyproject.toml' found.''
+# Ugh, now I need to set those two files or risk adding to .pth myself...
+# https://www.youtube.com/watch?v=gFAXa7lpZmA
 ## REMOVE
-
-print('working')
 
 
 # class TestHandler:
