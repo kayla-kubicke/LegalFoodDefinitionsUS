@@ -1,30 +1,47 @@
+# START: Mock
 # from unittest.mock import patch
 # ADD: import statement here
 
 # class TestApiHandler:
 #	@patch('')
+# END: Mock
 
 
-# Broken
-from ..api.api_handler import simple_call
-# Need to import each method??? Gross.
-# I must be missing something.
-# Maybe it would just be 'import {correct traversal code}api.api_handler'
-# for the class import?
+# Broken: the command itself is likely fine,
+# pretty sure PYTHONPATH isn't correctly set.
+# from api.api_handler import ApiHandler
+
+# Given this, why is 'sys.path' populated with several paths?
+# import sys
+# print(sys.path)
+
+# ?:|
 
 ## REMOVE
 # Super ultra fun import error
 # 'ImportError: attempted relative import with no known parent package'
-# Just need to pop up one directory.
+# https://www.youtube.com/watch?v=4KeII31qyck
 #
-# import sys/sys.path.append('..') suggestion does not work (maybe investigate further?)
-# What is this even doing anyway?...
+# import sys
+# sys.path.append('..')
+# Code above simply adds specified path to array containing the paths
+# python will search to locate modules (and packages?).
+# Also, the addition is temporary; it's appended during runtime and
+# only kept for the duration of the current process.
+# As suspected, it's bad practice to throw path traversing trash
+# in your code.
 #
-# from ..api.api_handler import simple_call suggestion does not work
-# '..' doesn't cause directory traversal as expected
+# I think I figured it out... I need to be build an .env project file.
+# Need to set the evironmental variable(s) properly; specifically PYTHONPATH.
+# Right now, 'echo $PYTHONPATH' returns nothing.
 #
-# __init__.py addition to api/api_handler.py is not needed for ../test_handler.py to function
-# https://www.youtube.com/watch?v=XswVWE0Jq84
+# One could do it directly in here, but I'm going to assume that's also
+# bad practice and looks like hacky garbage.
+# It would look something like:
+# import os
+# os.environ['PYTHONPATH']='../wow/that/looks/kinda/dangerous'
+#
+# NOTE: Update .gitignore after confirming this is actually the solution.
 ## REMOVE
 
 print('working')
