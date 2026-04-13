@@ -1,6 +1,3 @@
-# TO DO: Add requests source code... eventually
-# https://requests.readthedocs.io/en/latest/user/install/#install
-
 # ADD: peudeocode/general class organization
 # Request docs: https://requests.readthedocs.io/en/latest/
 

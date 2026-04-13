@@ -1,6 +1,4 @@
 # Contains project's virtual environment; needed to use pip.
-# NOTE TO SELF: Code will not run on other machines with this 'from scratch' configuration.
-# Will need to write install instructions... or embed requests source code directly in the project.
 *.venv
 ## Also, as a sidenote, the file extension could be named anything; 'venv' is just a convention.
 
