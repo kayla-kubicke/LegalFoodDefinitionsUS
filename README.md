@@ -16,8 +16,7 @@ Even proactive consumers commonly misunderstand food labels. The term 'free rang
 Dev Notes
 ---
 
-04/08: Basic unit testing set up
-
+04/14: Configuration set up
 
 
 API Doc Links:

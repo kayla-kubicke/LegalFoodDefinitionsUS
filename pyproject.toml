@@ -1,0 +1,24 @@
+# Replaced setup.py with pyproject.toml to avoid arbitrary code execution.
+# https://www.youtube.com/watch?v=8NceNkPFbEw
+
+# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+# Do I even need this immediately anyway?
+# I just need to properly configure the virtual environment
+# so the correct path is safely included.
+
+# The solution must be updating something within the virtual
+# environment. But, even if I discover that, I'd need to
+# ensure the project is portable.
+
+# I've included the pip list if, for some horrific reason,
+# pip does not automatically install requests' dependencies as expected.
+# Also, I have a list of what's suppose to be here... In case
+# I nuke something.
+# Package            Version
+# ------------------ ---------
+# certifi            2026.2.25
+# charset-normalizer 3.4.7
+# idna               3.11
+# pip                26.0.1
+# requests           2.33.1
+# urllib3            2.6.3
