@@ -16,7 +16,24 @@ Even proactive consumers commonly misunderstand food labels. The term 'free rang
 Dev Notes
 ---
 
-04/14: Configuration set up
+04/16: Configuration and mock set up
+
+
+Configuration
+---
+NOTE: I need to include package list so step 3 can be eliminated. Package list (pyproject.toml) is not configured.
+
+1. Add a [virtual environment](https://docs.python.org/3/library/venv.html#how-venvs-work) based on your os.
+
+
+2. Add a path.pth file containing the path to your repo in your virtual environment.
+Location can vary slightly based on OS; place in the virtual environment's **site-packages** folder.
+
+3. Manually add package(s) listed. Current pyproject.toml contains pip list if needed.
+- requests
+
+
+
 
 
 API Doc Links:
