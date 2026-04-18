@@ -6,6 +6,7 @@
 # source .venv/bin/activate
 
 import requests
+# Might switch out requests for http.client; didn't know that was an option.
 
 # START: ApiHandler Class
 class ApiHandler:
@@ -36,8 +37,10 @@ class ApiHandler:
 
 	# START: Methods
 	# A simple-ish call to api
+	# UPDATE: Restructure logic to return based on status code.
 	def simple_call(query): # ADD: defaults (if useful)
 		try:
+			# Object type: requests.models.Repsonse
 			simpleRequest = requests.get(f'{ApiHandler.ECFR}{ApiHandler.SEARCH}{ApiHandler.QUERY}' + query + '&'
 				+ f'{ApiHandler.PER_PAGE}' + '3' + '&' + f'{ApiHandler.PAGE}' + '1' + '&'
 				+ f'{ApiHandler.ORDER}' + 'relevance' + '&' + f'{ApiHandler.PAGINATE_BY}' + 'results')
@@ -59,4 +62,4 @@ class ApiHandler:
 	# END: Methods
 # END: ApiHandler Class
 
-ApiHandler.simple_call('chocolate')
+# ApiHandler.simple_call('chocolate')
