@@ -37,7 +37,6 @@ class ApiHandler:
 
 	# START: Methods
 	# A simple-ish call to api
-	# UPDATE: Restructure logic to return based on status code.
 	def simple_call(query): # ADD: defaults (if useful)
 		try:
 			# Object type: requests.models.Repsonse
@@ -45,13 +44,24 @@ class ApiHandler:
 				+ f'{ApiHandler.PER_PAGE}' + '3' + '&' + f'{ApiHandler.PAGE}' + '1' + '&'
 				+ f'{ApiHandler.ORDER}' + 'relevance' + '&' + f'{ApiHandler.PAGINATE_BY}' + 'results')
 
-			# Just prints json blob to terminal
-			print(simpleRequest.json())
 
+			if simpleRequest.status_code == 200:
+				# print(simpleRequest.json())
+				# return simpleRequest.json() # Object type: dict
+				# Could also simply return the request object.
+				return simpleRequest
+			# elif simpleRequest.status_code == 404:
+			# 	print('Status: 404, not found.')
+			elif type(simpleRequest.status_code) == int:
+				# Prints status code.
+				# https://www.youtube.com/watch?v=TVNkxUxhqh0
+				print(f'Status code: {simpleRequest.status_code}')
+				# What should this return? Should I maintain method return consistency?
 			# REMOVE
 			# dummy simpleRequest
 			# simpleRequest = requests.get('garbage')
 			# REMOVE
+		# Exception raised if any error is encountered during request.
 		except requests.exceptions.RequestException as error:
 			# Can expand later.
 			# Options: https://requests.readthedocs.io/en/latest/_modules/requests/exceptions/

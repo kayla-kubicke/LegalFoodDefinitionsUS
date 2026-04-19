@@ -14,21 +14,19 @@ from api.api_handler import ApiHandler as api_handler
 class TestApiHandler:
 	# argument mock_search_term is 'connected' to patch above.
 	# How? I don't quite understand the underlying interaction.
-	def test_simple_call(mock_search_term):
+	def test_simple_call(mock_search_term): # Does this name reflect what it actually is?
 		# Set values for mock_search_term
-		# mock_search_term.return_value.status_code = 202 # Not being used right now.
+		mock_search_term.return_value.status_code = 200
 		mock_search_term.return_value.json.return_value = {'Example key': 'Example value'}
 
-		test_result = api_handler.simple_call(mock_search_term)
+		test_response = api_handler.simple_call(mock_search_term)
 
-		# Add assert statement maybe; right now the method just prints
-		# given json to terminal. Would need to capture and see if objects
-		# are equal... may not be worth the time. Should just focus on
-		# logic restructure and proper testing.
-
+		assert test_response.status_code == 200, 'Fails'
+		# I know this is hacky garbage.
+		# This type of assert should not be used like this; just quickly testing.
 
 # Test:
-# - (?) url is built correctly
+# - (?) url is built correctly (test_response.url)
 # - test all status codes after logic is added
 # - (?) json is printed
 # - (OR) generic exception is triggered
@@ -38,4 +36,3 @@ TestApiHandler.test_simple_call()
 # '{'Example key': 'Example value'}'
 # The exception will never be hit, but shows successful patch.
 # Prints as expected; progress.
-# https://www.youtube.com/watch?v=LeCI9kww3Dk
