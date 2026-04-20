@@ -1,38 +1,25 @@
-# START: imports
+# Test runner command:
+# 'python3 -m unittest tests/test_api_handler.py'
+
+# START: imports & patch(es)
+import unittest
 from unittest.mock import patch
 from api.api_handler import ApiHandler as api_handler
-# END: imports
-
-# START: patch(es)
 @patch('requests.get')
-# END: patch(es)
+# END: imports & patch(es)
 
-# The code below is garbage-ish...
 
-# Including argument 'unittest.TestCase' provides convenient testing tools
-# (such as assert) to class. Add later, not using it right now.
-class TestApiHandler:
-	# argument mock_search_term is 'connected' to patch above.
-	# How? I don't quite understand the underlying interaction.
-	def test_simple_call(mock_search_term): # Does this name reflect what it actually is?
-		# Set values for mock_search_term
-		mock_search_term.return_value.status_code = 200
-		mock_search_term.return_value.json.return_value = {'Example key': 'Example value'}
+class TestApiHandler(unittest.TestCase):
+	def test_successful_simple_call_returns_expected_object(self, mock_response):
+		# Set value(s) for mock_response
+		mock_response.return_value.status_code = 200
+		mock_response.return_value.json.return_value = {'Example key': 'Example value'}
 
-		test_response = api_handler.simple_call(mock_search_term)
+		test_response = api_handler.simple_call(mock_response)
+		self.assertIsInstance(test_response, dict)
 
-		assert test_response.status_code == 200, 'Fails'
-		# I know this is hacky garbage.
-		# This type of assert should not be used like this; just quickly testing.
+	def test_unsucessful_simple_call_raises_exception(self, mock_response):
+		mock_response.return_value.status_code = 404
 
-# Test:
-# - (?) url is built correctly (test_response.url)
-# - test all status codes after logic is added
-# - (?) json is printed
-# - (OR) generic exception is triggered
-
-TestApiHandler.test_simple_call()
-# If method is uncommented it prints to terminal:
-# '{'Example key': 'Example value'}'
-# The exception will never be hit, but shows successful patch.
-# Prints as expected; progress.
+		with self.assertRaises(RuntimeError):
+			test_response = api_handler.simple_call(mock_response)

@@ -1,12 +1,4 @@
-# ADD: peudeocode/general class organization
-# Request docs: https://requests.readthedocs.io/en/latest/
-
-# Reminder...
-# Activate the environment 
-# source .venv/bin/activate
-
 import requests
-# Might switch out requests for http.client; didn't know that was an option.
 
 # START: ApiHandler Class
 class ApiHandler:
@@ -14,12 +6,9 @@ class ApiHandler:
 	ECFR = 'https://www.ecfr.gov'
 	SEARCH = '/api/search/v1/results?'
 	QUERY = 'query='
-	# SPACE = %20 # I'm going to need a massive string and results handler...yikes.
-
-	# NOTE: May not need all parameters; listing to know what I can access.
+	# SPACE = %20
 
 	# START: Date parameters
-	# Way to simply get most updated version? Hm...
 	# DATE = 'date='
 	# LAST_MOD_AFTER = 'last_modified_after='
 	# LAST_MOD_ON_OR_AFTER = 'last_modified_on_or_after='
@@ -36,40 +25,22 @@ class ApiHandler:
 	# END: Constants
 
 	# START: Methods
-	# A simple-ish call to api
-	def simple_call(query): # ADD: defaults (if useful)
+	# A simple call to api
+	def simple_call(query):
 		try:
 			# Object type: requests.models.Repsonse
 			simpleRequest = requests.get(f'{ApiHandler.ECFR}{ApiHandler.SEARCH}{ApiHandler.QUERY}' + query + '&'
 				+ f'{ApiHandler.PER_PAGE}' + '3' + '&' + f'{ApiHandler.PAGE}' + '1' + '&'
 				+ f'{ApiHandler.ORDER}' + 'relevance' + '&' + f'{ApiHandler.PAGINATE_BY}' + 'results')
 
-
 			if simpleRequest.status_code == 200:
-				# print(simpleRequest.json())
-				# return simpleRequest.json() # Object type: dict
-				# Could also simply return the request object.
-				return simpleRequest
-			# elif simpleRequest.status_code == 404:
-			# 	print('Status: 404, not found.')
+				# Object type: dict
+				return simpleRequest.json()
 			elif type(simpleRequest.status_code) == int:
-				# Prints status code.
-				# https://www.youtube.com/watch?v=TVNkxUxhqh0
-				print(f'Status code: {simpleRequest.status_code}')
-				# What should this return? Should I maintain method return consistency?
-			# REMOVE
-			# dummy simpleRequest
-			# simpleRequest = requests.get('garbage')
-			# REMOVE
-		# Exception raised if any error is encountered during request.
-		except requests.exceptions.RequestException as error:
-			# Can expand later.
-			# Options: https://requests.readthedocs.io/en/latest/_modules/requests/exceptions/
-			print(f'Generic exception: {error}')
-			# Triggered with dummy simpleRequest above; get testing set up next.
-			# 'Generic exception: Invalid URL 'garbage': No scheme supplied. Perhaps you meant https://garbage?'
+				raise RuntimeError(f'Status code: {simpleRequest.status_code} returned. Process stopped.')
 
+		# Generic exception raised if any error is encountered during request.
+		except requests.exceptions.RequestException as error:
+			print(f'Generic exception: {error}')
 	# END: Methods
 # END: ApiHandler Class
-
-# ApiHandler.simple_call('chocolate')
