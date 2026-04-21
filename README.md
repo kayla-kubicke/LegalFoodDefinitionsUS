@@ -16,7 +16,8 @@ Even proactive consumers commonly misunderstand food labels. The term 'free rang
 Dev Notes
 ---
 
-04/20: simple_call(query) methods and tests pushed to main
+04/20: simple_call(query) and tests pushed to main
+04/21: prototype list
 
 
 Configuration

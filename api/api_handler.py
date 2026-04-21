@@ -20,6 +20,8 @@ class ApiHandler:
 	PER_PAGE = 'per_page='
 	PAGE = 'page='
 	ORDER = 'order='
+	# Confirm by date returns most recent first.
+	# NOTE:'date' requires one of the last_modified_* options.
 	PAGINATE_BY = 'paginate_by='
 	# END: Page parameters
 	# END: Constants
