@@ -28,18 +28,23 @@ class ApiHandler:
 
 	# START: Methods
 	# A simple call to api
+	# RETURNS
+	# Successful: dict object
+	# Unsuccessful:
+		# If response is returned but status code != 200: raises RuntimeError
+		# If an error is encountered during request: raises RequestException
 	def simple_call(query):
 		try:
 			# Object type: requests.models.Repsonse
-			simpleRequest = requests.get(f'{ApiHandler.ECFR}{ApiHandler.SEARCH}{ApiHandler.QUERY}' + query + '&'
+			simpleResponse = requests.get(f'{ApiHandler.ECFR}{ApiHandler.SEARCH}{ApiHandler.QUERY}' + query + '&'
 				+ f'{ApiHandler.PER_PAGE}' + '3' + '&' + f'{ApiHandler.PAGE}' + '1' + '&'
 				+ f'{ApiHandler.ORDER}' + 'relevance' + '&' + f'{ApiHandler.PAGINATE_BY}' + 'results')
 
-			if simpleRequest.status_code == 200:
+			if simpleResponse.status_code == 200:
 				# Object type: dict
-				return simpleRequest.json()
-			elif type(simpleRequest.status_code) == int:
-				raise RuntimeError(f'Status code: {simpleRequest.status_code} returned. Process stopped.')
+				return simpleResponse.json()
+			elif type(simpleResponse.status_code) == int:
+				raise RuntimeError(f'Status code: {simpleResponse.status_code} returned. Process stopped.')
 
 		# Generic exception raised if any error is encountered during request.
 		except requests.exceptions.RequestException as error:

@@ -8,8 +8,9 @@ from api.api_handler import ApiHandler as api_handler
 @patch('requests.get')
 # END: imports & patch(es)
 
-
+# START: TestApiHandler Class
 class TestApiHandler(unittest.TestCase):
+	# START: Tests
 	def test_successful_simple_call_returns_expected_object(self, mock_response):
 		# Set value(s) for mock_response
 		mock_response.return_value.status_code = 200
@@ -23,3 +24,5 @@ class TestApiHandler(unittest.TestCase):
 
 		with self.assertRaises(RuntimeError):
 			test_response = api_handler.simple_call(mock_response)
+	# END: Tests
+# END: TestApiHandler Class

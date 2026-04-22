@@ -1,28 +1,43 @@
 import json
 from api.api_handler import ApiHandler as api_handler
 
-
+# START: JSONParser Class
+# https://www.youtube.com/watch?v=w-pQLNE26EY
 class JSONParser:
-	# What's the deal with the spans?
-	# https://www.youtube.com/watch?v=Z87gchDzsAA
-
+	# What's the deal with the spans? ?:|
 	# Scrub html.
 		# NOTE: span class=\"elipsis\" eliminate information.
 
-	# Generate list with terms above.
-	def ugly_list(query): # Ugly duckling will transform into swan.
- 		# request = api_handler.simple_call(query)
-		# print(example['results'][2]['headings']['section']) # Update.
-
-		# REMOVE after manual testing.
+	# START: Methods
+	# REMOVE after manual testing or make happy home for specific json examples.
+	# Expand method to accept whatever canned example desired.
+	# RETURNS canned response dict object
+	def example_response():
 		with open('parser/example.json', 'r') as file:
 			example = json.load(file)
 
-		print('\n')
+		return example
+	# REMOVE
 
-		for result in example['results']:
-			print(result['headings']['section'] + '\n')
-		# REMOVE
+	# REMOVE after manual testing or make happy home for printing services.
+	# Longer term maybe override print(...)?
+	# No RETURNS just prints to terminal
+	def array_custom_print(array):
+		print('\n'.join(map(str, array)))
+	# REMOVE
 
+	# Generate list with response results.
+	# Updated query to response to eliminate coupling.
+	# RETURNS
+	# array containing list of unscrubbed search terms
+	def ugly_list(response): # Ugly duckling will transform into swan.
+		ugly_list =[]
 
-JSONParser.ugly_list('milk')
+		for result in response['results']:
+			ugly_list.append(result['headings']['section'])
+
+		return ugly_list
+	# END: Methods
+# END: JSONParser Class
+
+JSONParser.array_custom_print(JSONParser.ugly_list(JSONParser.example_response()))
