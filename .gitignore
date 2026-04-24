@@ -14,5 +14,5 @@ __pycache__/
 # but included just in case a misconfiguration occurs somewhere down the line.
 *.pyc
 
-# Not included in staging area but I added here just in case.
+# Not included in staging area, but added just in case.
 build

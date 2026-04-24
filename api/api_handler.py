@@ -48,6 +48,6 @@ class ApiHandler:
 
 		# Generic exception raised if any error is encountered during request.
 		except requests.exceptions.RequestException as error:
-			print(f'Generic exception: {error}')
+			print(f'Generic exception caught: {error}')
 	# END: Methods
 # END: ApiHandler Class
