@@ -10,16 +10,31 @@ from parser.json_parser import JSONParser as json_parser
 # because both methods will be moved into classes with distinct responsibilities.
 
 # START: TestJSONParser Class
-# https://www.youtube.com/watch?v=VqQmgHcIHN0
 class TestJSONParser(unittest.TestCase):
 	# START: Tests
-	def test_ugly_list(self):
+	def test_search_results_dict(self):
 		# (!) NOTE: Currently coupled with example_response()
 		# REMOVE
 		# Update after example_response() is given new home.
 		example_response = json_parser.example_response()
 		# REMOVE
-		array_returned = json_parser.ugly_list(example_response)
+		dict_returned = json_parser.search_results_dict(example_response)
+
+		comparison_dict = {'<strong>Milk</strong> <strong>chocolate</strong>.': '(a) Description. (1) <strong>Milk</strong> <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more of the optional dairy ingredients<span class=\"elipsis\">…</span>section. (2) <strong>Milk</strong> <strong>chocolate</strong> contains not less than 10 percent by weight of <strong>chocolate</strong> liquor',
+		'Skim <strong>milk</strong> <strong>chocolate</strong>.': '(a) Description. Skim <strong>milk</strong> <strong>chocolate</strong> is the food that conforms to the standard of identity<span class=\"elipsis\">…</span>label declaration of ingredients for <strong>milk</strong> <strong>chocolate</strong> in § 163.130, except that: (1) The optional<span class=\"elipsis\">…</span>are limited to skim <strong>milk</strong>, evaporated skim <strong>milk</strong>, concentrated skim <strong>milk</strong>, sweetened condensed',
+		'<strong>Milk</strong> <strong>chocolate</strong> and vegetable fat coating.': '(a) Description. <strong>Milk</strong> <strong>chocolate</strong> and vegetable fat coating is the food that conforms to<span class=\"elipsis\">…</span>of ingredients for <strong>milk</strong> <strong>chocolate</strong> in § 163.130 or skim <strong>milk</strong> <strong>chocolate</strong> in § 163.140, except<span class=\"elipsis\">…</span>less than 12 percent by weight of nonfat <strong>milk</strong> solids shall be calculated using only those',
+		'Sweet <strong>chocolate</strong>.': '(a) Description. (1) Sweet <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more optional nutritive carbohydrate<span class=\"elipsis\">…</span>(2) Sweet <strong>chocolate</strong> contains not less than 15 percent by weight of <strong>chocolate</strong> liquor complying',
+		'White <strong>chocolate</strong>.': '(a) Description. (1) White <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">…</span>section. White <strong>chocolate</strong> shall be free of coloring material. (2) White <strong>chocolate</strong> contains not<span class=\"elipsis\">…</span>white <strong>chocolate</strong>, and multiplying the quotient by 100. The finished white <strong>chocolate</strong> contains',
+		}
+
+		# Fragile, but wanted to set up basic testing.
+		self.assertEqual(dict_returned, comparison_dict)
+
+	def test_search_results_list(self):
+		# REMOVE
+		example_response = json_parser.example_response()
+		# REMOVE
+		array_returned = json_parser.search_results_list(example_response)
 
 		comparison_array = ['<strong>Milk</strong> <strong>chocolate</strong>.',
 		'Skim <strong>milk</strong> <strong>chocolate</strong>.',
@@ -27,8 +42,7 @@ class TestJSONParser(unittest.TestCase):
 		'Sweet <strong>chocolate</strong>.',
 		'White <strong>chocolate</strong>.']
 
-		# Fragile, but wanted to set up basic testing.
+		# Fragile.
 		self.assertEqual(array_returned, comparison_array)
 	# END: Tests
-# https://www.youtube.com/watch?v=YwIssvTKjug
 # END: TestJSONParser Class

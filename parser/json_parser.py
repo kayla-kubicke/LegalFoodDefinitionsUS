@@ -29,22 +29,40 @@ class JSONParser:
 	# No RETURNS just prints to terminal
 	def array_custom_print(array):
 		print('\n'.join(map(str, array)))
+
+	def dict_key_custom_print(dictionary):
+		for key in dictionary:
+			print(key)
 	# REMOVE
 
-	# Generate list with response results.
+	# Generates dictionary with response results.
+	# RETURNS
+	# dictionary containing term (results/headings/section) as the key and
+	# description (full_text_excerpt) as the value.
+	# https://www.youtube.com/watch?v=bkMdFBetM7U
+	def search_results_dict(response):
+		search_results_dict = {}
+
+		for result in response['results']:
+			search_results_dict[result['headings']['section']] = result['full_text_excerpt']
+
+		return search_results_dict
+
+	# Generates list with response results.
 	# Updated query to response to eliminate coupling.
 	# RETURNS
 	# array containing list of unscrubbed search terms
-	def ugly_list(response):
+	def search_results_list(response):
 		# Longer term, will likely return dict with section as key
 		# and full_text_excerpt as value.
-		ugly_list =[]
+		search_results_list = []
 
 		for result in response['results']:
-			ugly_list.append(result['headings']['section'])
+			search_results_list.append(result['headings']['section'])
 
-		return ugly_list
+		return search_results_list
 	# END: Methods
 # END: JSONParser Class
 
-# JSONParser.array_custom_print(JSONParser.ugly_list(JSONParser.example_response()))
+# JSONParser.array_custom_print(JSONParser.search_results_list(JSONParser.example_response()))
+# JSONParser.dict_key_custom_print(JSONParser.search_results_dict(JSONParser.example_response()))
