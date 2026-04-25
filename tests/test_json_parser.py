@@ -1,23 +1,16 @@
-# Test runner command:
+# Individual test runner command:
 # 'python3 -m unittest tests/test_json_parser.py'
 
-# START: imports & patch(es)
+# START: imports
 import unittest
 from parser.json_parser import JSONParser as json_parser
-# END: imports & patch(es)
-
-# Not including tests for example_reponse() or array_custom_print(array)
-# because both methods will be moved into classes with distinct responsibilities.
+# END: imports
 
 # START: TestJSONParser Class
 class TestJSONParser(unittest.TestCase):
 	# START: Tests
 	def test_search_results_dict(self):
-		# (!) NOTE: Currently coupled with example_response()
-		# REMOVE
-		# Update after example_response() is given new home.
 		example_response = json_parser.example_response()
-		# REMOVE
 		dict_returned = json_parser.search_results_dict(example_response)
 
 		comparison_dict = {'<strong>Milk</strong> <strong>chocolate</strong>.': '(a) Description. (1) <strong>Milk</strong> <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more of the optional dairy ingredients<span class=\"elipsis\">…</span>section. (2) <strong>Milk</strong> <strong>chocolate</strong> contains not less than 10 percent by weight of <strong>chocolate</strong> liquor',
@@ -27,13 +20,10 @@ class TestJSONParser(unittest.TestCase):
 		'White <strong>chocolate</strong>.': '(a) Description. (1) White <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">…</span>section. White <strong>chocolate</strong> shall be free of coloring material. (2) White <strong>chocolate</strong> contains not<span class=\"elipsis\">…</span>white <strong>chocolate</strong>, and multiplying the quotient by 100. The finished white <strong>chocolate</strong> contains',
 		}
 
-		# Fragile, but wanted to set up basic testing.
 		self.assertEqual(dict_returned, comparison_dict)
 
 	def test_search_results_list(self):
-		# REMOVE
 		example_response = json_parser.example_response()
-		# REMOVE
 		array_returned = json_parser.search_results_list(example_response)
 
 		comparison_array = ['<strong>Milk</strong> <strong>chocolate</strong>.',
@@ -42,7 +32,6 @@ class TestJSONParser(unittest.TestCase):
 		'Sweet <strong>chocolate</strong>.',
 		'White <strong>chocolate</strong>.']
 
-		# Fragile.
 		self.assertEqual(array_returned, comparison_array)
 	# END: Tests
 # END: TestJSONParser Class

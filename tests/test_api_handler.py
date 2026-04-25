@@ -1,4 +1,4 @@
-# Test runner command:
+# Individual test runner command:
 # 'python3 -m unittest tests/test_api_handler.py'
 
 # START: imports & patch(es)
