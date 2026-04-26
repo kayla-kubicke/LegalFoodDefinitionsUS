@@ -9,8 +9,8 @@ from parser.json_parser import JSONParser as json_parser
 # START: TestJSONParser Class
 class TestJSONParser(unittest.TestCase):
 	# START: Tests
-	def test_search_results_dict(self):
-		example_response = json_parser.example_response()
+	def test_results_found_search_results_dict(self):
+		example_response = json_parser.example_response('chocolate')
 		dict_returned = json_parser.search_results_dict(example_response)
 
 		comparison_dict = {'<strong>Milk</strong> <strong>chocolate</strong>.': '(a) Description. (1) <strong>Milk</strong> <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more of the optional dairy ingredients<span class=\"elipsis\">…</span>section. (2) <strong>Milk</strong> <strong>chocolate</strong> contains not less than 10 percent by weight of <strong>chocolate</strong> liquor',
@@ -22,8 +22,14 @@ class TestJSONParser(unittest.TestCase):
 
 		self.assertEqual(dict_returned, comparison_dict)
 
-	def test_search_results_list(self):
-		example_response = json_parser.example_response()
+	def test_no_results_found_search_results_dict(self):
+		example_response = json_parser.example_response('sourdough')
+		dict_returned = json_parser.search_results_dict(example_response)
+
+		self.assertEqual(dict_returned, {})
+
+	def test_results_found_search_results_list(self):
+		example_response = json_parser.example_response('chocolate')
 		array_returned = json_parser.search_results_list(example_response)
 
 		comparison_array = ['<strong>Milk</strong> <strong>chocolate</strong>.',
@@ -33,5 +39,11 @@ class TestJSONParser(unittest.TestCase):
 		'White <strong>chocolate</strong>.']
 
 		self.assertEqual(array_returned, comparison_array)
+
+	def test_no_results_found_search_results_list(self):
+		example_response = json_parser.example_response('sourdough')
+		array_returned = json_parser.search_results_list(example_response)
+
+		self.assertEqual(array_returned, [])
 	# END: Tests
 # END: TestJSONParser Class

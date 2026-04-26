@@ -16,7 +16,7 @@ Even proactive consumers commonly misunderstand food labels. The term 'free rang
 Dev Notes
 ---
 
-04/21: prototype dict pushed to main
+04/26: Restricting results to 'Food for Human Consumption' chapter
 
 
 Configuration

@@ -1,3 +1,4 @@
+# Next step is to reduce results to most recent definitions.
 import requests
 
 # START: ApiHandler Class
