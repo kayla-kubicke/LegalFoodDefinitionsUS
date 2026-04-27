@@ -1,0 +1,1037 @@
+{
+  "agencies": [
+    {
+      "name": "Department of Agriculture",
+      "short_name": "USDA",
+      "display_name": "Department of Agriculture",
+      "sortable_name": "Agriculture, Department of",
+      "slug": "agriculture-department",
+      "children": [
+        {
+          "name": "Agricultural Marketing Service",
+          "short_name": "AMS",
+          "display_name": "Agricultural Marketing Service, Department of Agriculture",
+          "sortable_name": "Agricultural Marketing Service",
+          "slug": "agricultural-marketing-service",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "I"
+            },
+            {
+              "title": 7,
+              "chapter": "VIII"
+            },
+            {
+              "title": 7,
+              "chapter": "IX"
+            },
+            {
+              "title": 7,
+              "chapter": "X"
+            },
+            {
+              "title": 7,
+              "chapter": "XI"
+            },
+            {
+              "title": 9,
+              "chapter": "II"
+            }
+          ]
+        },
+        {
+          "name": "Agricultural Research Service",
+          "short_name": "ARS",
+          "display_name": "Agricultural Research Service, Department of Agriculture",
+          "sortable_name": "Agricultural Research Service",
+          "slug": "agricultural-research-service",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "V"
+            }
+          ]
+        },
+        {
+          "name": "Animal and Plant Health Inspection Service",
+          "short_name": "APHIS",
+          "display_name": "Animal and Plant Health Inspection Service, Department of Agriculture",
+          "sortable_name": "Animal and Plant Health Inspection Service",
+          "slug": "animal-and-plant-health-inspection-service",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "III"
+            },
+            {
+              "title": 9,
+              "chapter": "I"
+            }
+          ]
+        },
+        {
+          "name": "Commodity Credit Corporation",
+          "short_name": "CCC",
+          "display_name": "Commodity Credit Corporation, Department of Agriculture",
+          "sortable_name": "Commodity Credit Corporation",
+          "slug": "commodity-credit-corporation",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "XIV"
+            }
+          ]
+        },
+        {
+          "name": "Economic Research Service",
+          "short_name": "ERS",
+          "display_name": "Economic Research Service, Department of Agriculture",
+          "sortable_name": "Economic Research Service",
+          "slug": "economic-research-service",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "XXXVII"
+            }
+          ]
+        },
+        {
+          "name": "Farm Service Agency",
+          "short_name": "FSA",
+          "display_name": "Farm Service Agency, Department of Agriculture",
+          "sortable_name": "Farm Service Agency",
+          "slug": "farm-service-agency",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "VII"
+            }
+          ]
+        },
+        {
+          "name": "Federal Crop Insurance Corporation",
+          "short_name": "FCIC",
+          "display_name": "Federal Crop Insurance Corporation, Department of Agriculture",
+          "sortable_name": "Federal Crop Insurance Corporation",
+          "slug": "federal-crop-insurance-corporation",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "IV"
+            }
+          ]
+        },
+        {
+          "name": "Food and Nutrition Service",
+          "short_name": "FNS",
+          "display_name": "Food and Nutrition Service, Department of Agriculture",
+          "sortable_name": "Food and Nutrition Service",
+          "slug": "food-and-nutrition-service",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "II"
+            }
+          ]
+        },
+        {
+          "name": "Food Safety and Inspection Service",
+          "short_name": "FSIS",
+          "display_name": "Food Safety and Inspection Service, Department of Agriculture",
+          "sortable_name": "Food Safety and Inspection Service",
+          "slug": "food-safety-and-inspection-service",
+          "cfr_references": [
+            {
+              "title": 9,
+              "chapter": "III"
+            }
+          ]
+        },
+        {
+          "name": "Foreign Agricultural Service",
+          "short_name": "FAS",
+          "display_name": "Foreign Agricultural Service, Department of Agriculture",
+          "sortable_name": "Foreign Agricultural Service",
+          "slug": "foreign-agricultural-service",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "XV"
+            }
+          ]
+        },
+        {
+          "name": "Forest Service",
+          "short_name": "FS",
+          "display_name": "Forest Service, Department of Agriculture",
+          "sortable_name": "Forest Service",
+          "slug": "forest-service",
+          "cfr_references": [
+            {
+              "title": 36,
+              "chapter": "II"
+            }
+          ]
+        },
+        {
+          "name": "National Agricultural Statistics Service",
+          "short_name": "NASS",
+          "display_name": "National Agricultural Statistics Service, Department of Agriculture",
+          "sortable_name": "National Agricultural Statistics Service",
+          "slug": "national-agricultural-statistics-service",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "XXXVI"
+            }
+          ]
+        },
+        {
+          "name": "National Institute of Food and Agriculture",
+          "short_name": "NIFA",
+          "display_name": "National Institute of Food and Agriculture, Department of Agriculture",
+          "sortable_name": "National Institute of Food and Agriculture",
+          "slug": "national-institute-of-food-and-agriculture",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "XXXIV"
+            }
+          ]
+        },
+        {
+          "name": "Natural Resources Conservation Service",
+          "short_name": "NRCS",
+          "display_name": "Natural Resources Conservation Service, Department of Agriculture",
+          "sortable_name": "Natural Resources Conservation Service",
+          "slug": "natural-resources-conservation-service",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "VI"
+            }
+          ]
+        },
+        {
+          "name": "Office of Advocacy and Outreach",
+          "short_name": "OAO",
+          "display_name": "Office of Advocacy and Outreach, Department of Agriculture",
+          "sortable_name": "Advocacy and Outreach, Office of",
+          "slug": "advocacy-and-outreach-office",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "XXV"
+            }
+          ]
+        },
+        {
+          "name": "Office of Chief Financial Officer",
+          "short_name": null,
+          "display_name": "Office of Chief Financial Officer, Department of Agriculture",
+          "sortable_name": "Chief Financial Officer, Office of",
+          "slug": "office-of-the-chief-financial-officer-agriculture-department",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "XXX"
+            }
+          ]
+        },
+        {
+          "name": "Office of Energy Policy and New Uses",
+          "short_name": "OEPNU",
+          "display_name": "Office of Energy Policy and New Uses, Department of Agriculture",
+          "sortable_name": "Energy Policy and New Uses, Office of",
+          "slug": "energy-policy-and-new-uses-office",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "XXIX"
+            }
+          ]
+        },
+        {
+          "name": "Office of Environmental Quality",
+          "short_name": "",
+          "display_name": "Office of Environmental Quality, Department of Agriculture",
+          "sortable_name": "Environmental Quality, Office of",
+          "slug": "office-of-environmental-quality",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "XXXI"
+            }
+          ]
+        },
+        {
+          "name": "Office of Information Resources Management",
+          "short_name": "",
+          "display_name": "Office of Information Resources Management, Department of Agriculture",
+          "sortable_name": "Information Resources Management, Office of",
+          "slug": "office-of-information-resources-management",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "XXVII"
+            }
+          ]
+        },
+        {
+          "name": "Office of Inspector General",
+          "short_name": "OIG USDA",
+          "display_name": "Office of Inspector General, Department of Agriculture",
+          "sortable_name": "Inspector General, Office of",
+          "slug": "inspector-general-office-agriculture-department",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "XXVI"
+            }
+          ]
+        },
+        {
+          "name": "Office of Operations",
+          "short_name": "",
+          "display_name": "Office of Operations, Department of Agriculture",
+          "sortable_name": "Operations, Office of",
+          "slug": "office-of-operations",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "XXVIII"
+            }
+          ]
+        },
+        {
+          "name": "Office of Procurement and Property Management",
+          "short_name": "OPPM",
+          "display_name": "Office of Procurement and Property Management, Department of Agriculture",
+          "sortable_name": "Procurement and Property Management, Office of",
+          "slug": "procurement-and-property-management-office-of",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "XXXII"
+            }
+          ]
+        },
+        {
+          "name": "Office of Secretary of Agriculture",
+          "short_name": "",
+          "display_name": "Office of Secretary of Agriculture, Department of Agriculture",
+          "sortable_name": "Secretary of Agriculture, Office of",
+          "slug": "office-of-secretary-of-agriculture",
+          "cfr_references": [
+            {
+              "title": 7,
+              "subtitle": "A"
+            }
+          ]
+        },
+        {
+          "name": "Office of Transportation",
+          "short_name": null,
+          "display_name": "Office of Transportation, Department of Agriculture",
+          "sortable_name": "Transportation, Office of",
+          "slug": "transportation-office",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "XXXIII"
+            }
+          ]
+        },
+        {
+          "name": "Rural Business-Cooperative Service",
+          "short_name": "RBS",
+          "display_name": "Rural Business-Cooperative Service, Department of Agriculture",
+          "sortable_name": "Rural Business-Cooperative Service",
+          "slug": "rural-business-cooperative-service",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "XVIII"
+            },
+            {
+              "title": 7,
+              "chapter": "XLII"
+            },
+            {
+              "title": 7,
+              "chapter": "L"
+            }
+          ]
+        },
+        {
+          "name": "Rural Housing Service",
+          "short_name": "RHS",
+          "display_name": "Rural Housing Service, Department of Agriculture",
+          "sortable_name": "Rural Housing Service",
+          "slug": "rural-housing-service",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "XVIII"
+            },
+            {
+              "title": 7,
+              "chapter": "XXXV"
+            },
+            {
+              "title": 7,
+              "chapter": "L"
+            }
+          ]
+        },
+        {
+          "name": "Rural Utilities Service",
+          "short_name": "RUS",
+          "display_name": "Rural Utilities Service, Department of Agriculture",
+          "sortable_name": "Rural Utilities Service",
+          "slug": "rural-utilities-service",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "XVII"
+            },
+            {
+              "title": 7,
+              "chapter": "XVIII"
+            },
+            {
+              "title": 7,
+              "chapter": "XLII"
+            },
+            {
+              "title": 7,
+              "chapter": "L"
+            }
+          ]
+        },
+        {
+          "name": "World Agricultural Outlook Board",
+          "short_name": null,
+          "display_name": "World Agricultural Outlook Board, Department of Agriculture",
+          "sortable_name": "World Agricultural Outlook Board",
+          "slug": "world-agricultural-outlook-board",
+          "cfr_references": [
+            {
+              "title": 7,
+              "chapter": "XXXVIII"
+            }
+          ]
+        }
+      ],
+      "cfr_references": [
+        {
+          "title": 2,
+          "chapter": "IV"
+        },
+        {
+          "title": 5,
+          "chapter": "LXXIII"
+        },
+        {
+          "title": 7,
+          "chapter": "XVI"
+        },
+        {
+          "title": 7,
+          "chapter": "XX"
+        },
+        {
+          "title": 7,
+          "chapter": "XXI"
+        },
+        {
+          "title": 48,
+          "chapter": "4"
+        }
+      ]
+    },
+    {
+      "name": "Environmental Protection Agency",
+      "short_name": "EPA",
+      "display_name": "Environmental Protection Agency",
+      "sortable_name": "Environmental Protection Agency",
+      "slug": "environmental-protection-agency",
+      "children": [],
+      "cfr_references": [
+        {
+          "title": 2,
+          "chapter": "XV"
+        },
+        {
+          "title": 5,
+          "chapter": "LIV"
+        },
+        {
+          "title": 40,
+          "chapter": "I"
+        },
+        {
+          "title": 40,
+          "chapter": "IV"
+        },
+        {
+          "title": 40,
+          "chapter": "VII"
+        },
+        {
+          "title": 41,
+          "chapter": "115"
+        },
+        {
+          "title": 48,
+          "chapter": "15"
+        }
+      ]
+    },
+    {
+      "name": "Department of Health and Human Services",
+      "short_name": "HHS",
+      "display_name": "Department of Health and Human Services",
+      "sortable_name": "Health and Human Services, Department of",
+      "slug": "health-and-human-services-department",
+      "children": [
+        {
+          "name": "Administration for Children and Families",
+          "short_name": "ACF",
+          "display_name": "Administration for Children and Families, Department of Health and Human Services",
+          "sortable_name": "Children and Families, Administration for",
+          "slug": "children-and-families-administration",
+          "cfr_references": [
+            {
+              "title": 45,
+              "chapter": "XIII"
+            }
+          ]
+        },
+        {
+          "name": "Centers for Medicare & Medicaid Services",
+          "short_name": "CMS",
+          "display_name": "Centers for Medicare & Medicaid Services, Department of Health and Human Services",
+          "sortable_name": "Centers for Medicare & Medicaid Services",
+          "slug": "centers-for-medicare-medicaid-services",
+          "cfr_references": [
+            {
+              "title": 42,
+              "chapter": "IV"
+            }
+          ]
+        },
+        {
+          "name": "Food and Drug Administration",
+          "short_name": "FDA",
+          "display_name": "Food and Drug Administration, Department of Health and Human Services",
+          "sortable_name": "Food and Drug Administration",
+          "slug": "food-and-drug-administration",
+          "cfr_references": [
+            {
+              "title": 21,
+              "chapter": "I"
+            }
+          ]
+        },
+        {
+          "name": "Indian Health Service",
+          "short_name": "IHS",
+          "display_name": "Indian Health Service, Department of Health and Human Services",
+          "sortable_name": "Indian Health Service",
+          "slug": "indian-health-service",
+          "cfr_references": [
+            {
+              "title": 25,
+              "chapter": "V"
+            },
+            {
+              "title": 42,
+              "chapter": "I",
+              "subchapter": "M"
+            }
+          ]
+        },
+        {
+          "name": "Office of Administration for Children and Families Child Support Enforcement (Child Support Enforcement Program)",
+          "short_name": "",
+          "display_name": "Office of Administration for Children and Families Child Support Enforcement (Child Support Enforcement Program), Department of Health and Human Services",
+          "sortable_name": "Child Support Enforcement (Child Support Enforcement Program), Administration for Children and Families, Office of",
+          "slug": "office-of-administration-for-children-and-families-child-support-enforcement-(child-support-enforcement-program)",
+          "cfr_references": [
+            {
+              "title": 45,
+              "chapter": "III"
+            }
+          ]
+        },
+        {
+          "name": "Office of Administration for Children and Families Community Services",
+          "short_name": "",
+          "display_name": "Office of Administration for Children and Families Community Services, Department of Health and Human Services",
+          "sortable_name": "Community Services, Administration for Children and Families, Office of",
+          "slug": "office-of-administration-for-children-and-families-community-services",
+          "cfr_references": [
+            {
+              "title": 45,
+              "chapter": "X"
+            }
+          ]
+        },
+        {
+          "name": "Office of Administration for Children and Families Family Assistance (Assistance Programs)",
+          "short_name": "",
+          "display_name": "Office of Administration for Children and Families Family Assistance (Assistance Programs), Department of Health and Human Services",
+          "sortable_name": "Family Assistance (Assistance Programs), Administration for Children and Families, Office of",
+          "slug": "office-of-administration-for-children-and-families-family-assistance-(assistance-programs)",
+          "cfr_references": [
+            {
+              "title": 45,
+              "chapter": "II"
+            }
+          ]
+        },
+        {
+          "name": "Office of Administration for Children and Families Refugee Resettlement",
+          "short_name": "ORR",
+          "display_name": "Office of Administration for Children and Families Refugee Resettlement, Department of Health and Human Services",
+          "sortable_name": "Refugee Resettlement, Administration for Children and Families, Office of",
+          "slug": "refugee-resettlement-office",
+          "cfr_references": [
+            {
+              "title": 45,
+              "chapter": "IV"
+            }
+          ]
+        },
+        {
+          "name": "Office of Inspector General-Health Care",
+          "short_name": "",
+          "display_name": "Office of Inspector General-Health Care, Department of Health and Human Services",
+          "sortable_name": "Inspector General-Health Care, Office of",
+          "slug": "office-of-inspector-general-health-care",
+          "cfr_references": [
+            {
+              "title": 42,
+              "chapter": "V"
+            }
+          ]
+        },
+        {
+          "name": "Public Health Service",
+          "short_name": "PHS",
+          "display_name": "Public Health Service, Department of Health and Human Services",
+          "sortable_name": "Public Health Service",
+          "slug": "public-health-service",
+          "cfr_references": [
+            {
+              "title": 42,
+              "chapter": "I"
+            }
+          ]
+        }
+      ],
+      "cfr_references": [
+        {
+          "title": 2,
+          "chapter": "III"
+        },
+        {
+          "title": 5,
+          "chapter": "XLV"
+        },
+        {
+          "title": 45,
+          "subtitle": "A"
+        },
+        {
+          "title": 48,
+          "chapter": "3"
+        }
+      ]
+    },
+    {
+      "name": "Department of Interior",
+      "short_name": "DOI",
+      "display_name": "Department of Interior",
+      "sortable_name": "Interior, Department of",
+      "slug": "interior-department",
+      "children": [
+        {
+          "name": "Bureau of Indian Affairs",
+          "short_name": "BIA",
+          "display_name": "Bureau of Indian Affairs, Department of Interior",
+          "sortable_name": "Indian Affairs, Bureau of",
+          "slug": "indian-affairs-bureau",
+          "cfr_references": [
+            {
+              "title": 25,
+              "chapter": "I"
+            },
+            {
+              "title": 25,
+              "chapter": "V"
+            }
+          ]
+        },
+        {
+          "name": "Bureau of Land Management",
+          "short_name": "BLM",
+          "display_name": "Bureau of Land Management, Department of Interior",
+          "sortable_name": "Land Management, Bureau of",
+          "slug": "land-management-bureau",
+          "cfr_references": [
+            {
+              "title": 43,
+              "chapter": "II"
+            }
+          ]
+        },
+        {
+          "name": "Bureau of Ocean Energy Management",
+          "short_name": "BOEM",
+          "display_name": "Bureau of Ocean Energy Management, Department of Interior",
+          "sortable_name": "Ocean Energy Management, Bureau of",
+          "slug": "ocean-energy-management-bureau",
+          "cfr_references": [
+            {
+              "title": 30,
+              "chapter": "V"
+            }
+          ]
+        },
+        {
+          "name": "Bureau of Reclamation",
+          "short_name": "BOR",
+          "display_name": "Bureau of Reclamation, Department of Interior",
+          "sortable_name": "Reclamation, Bureau of",
+          "slug": "reclamation-bureau",
+          "cfr_references": [
+            {
+              "title": 43,
+              "chapter": "I"
+            }
+          ]
+        },
+        {
+          "name": "Bureau of Safety and Environmental Enforcement",
+          "short_name": "BSEE",
+          "display_name": "Bureau of Safety and Environmental Enforcement, Department of Interior",
+          "sortable_name": "Safety and Environmental Enforcement, Bureau of",
+          "slug": "safety-and-environmental-enforcement-bureau",
+          "cfr_references": [
+            {
+              "title": 30,
+              "chapter": "II"
+            }
+          ]
+        },
+        {
+          "name": "Geological Survey",
+          "short_name": "USGS",
+          "display_name": "Geological Survey, Department of Interior",
+          "sortable_name": "Geological Survey",
+          "slug": "geological-survey",
+          "cfr_references": [
+            {
+              "title": 30,
+              "chapter": "IV"
+            }
+          ]
+        },
+        {
+          "name": "Indian Arts and Crafts Board",
+          "short_name": "IACB",
+          "display_name": "Indian Arts and Crafts Board, Department of Interior",
+          "sortable_name": "Indian Arts and Crafts Board",
+          "slug": "indian-arts-and-crafts-board",
+          "cfr_references": [
+            {
+              "title": 25,
+              "chapter": "II"
+            }
+          ]
+        },
+        {
+          "name": "National Indian Gaming Commission",
+          "short_name": "NIGC",
+          "display_name": "National Indian Gaming Commission, Department of Interior",
+          "sortable_name": "National Indian Gaming Commission",
+          "slug": "national-indian-gaming-commission",
+          "cfr_references": [
+            {
+              "title": 25,
+              "chapter": "III"
+            }
+          ]
+        },
+        {
+          "name": "National Park Service",
+          "short_name": "NPS",
+          "display_name": "National Park Service, Department of Interior",
+          "sortable_name": "National Park Service",
+          "slug": "national-park-service",
+          "cfr_references": [
+            {
+              "title": 36,
+              "chapter": "I"
+            }
+          ]
+        },
+        {
+          "name": "Office of Indian Affairs Assistant Secretary",
+          "short_name": "",
+          "display_name": "Office of Indian Affairs Assistant Secretary, Department of Interior",
+          "sortable_name": "Assistant Secretary, Indian Affairs, Office of",
+          "slug": "office-of-indian-affairs-assistant-secretary",
+          "cfr_references": [
+            {
+              "title": 25,
+              "chapter": "VI"
+            }
+          ]
+        },
+        {
+          "name": "Office of Natural Resources Revenue",
+          "short_name": "ONRR",
+          "display_name": "Office of Natural Resources Revenue, Department of Interior",
+          "sortable_name": "Natural Resources Revenue, Office of",
+          "slug": "natural-resources-revenue-office",
+          "cfr_references": [
+            {
+              "title": 30,
+              "chapter": "XII"
+            }
+          ]
+        },
+        {
+          "name": "Office of Secretary of the Interior",
+          "short_name": "",
+          "display_name": "Office of Secretary of the Interior, Department of Interior",
+          "sortable_name": "Secretary of the Interior, Office of",
+          "slug": "office-of-secretary-of-the-interior",
+          "cfr_references": [
+            {
+              "title": 43,
+              "subtitle": "A"
+            }
+          ]
+        },
+        {
+          "name": "Office of Special Trustee for American Indians",
+          "short_name": "OST",
+          "display_name": "Office of Special Trustee for American Indians, Department of Interior",
+          "sortable_name": "American Indians, Office of the Special Trustee",
+          "slug": "special-trustee-for-american-indians-office",
+          "cfr_references": [
+            {
+              "title": 25,
+              "chapter": "VII"
+            }
+          ]
+        },
+        {
+          "name": "Office of Surface Mining Reclamation and Enforcement",
+          "short_name": "OSM",
+          "display_name": "Office of Surface Mining Reclamation and Enforcement, Department of Interior",
+          "sortable_name": "Surface Mining Reclamation and Enforcement, Office of",
+          "slug": "surface-mining-reclamation-and-enforcement-office",
+          "cfr_references": [
+            {
+              "title": 30,
+              "chapter": "VII"
+            }
+          ]
+        },
+        {
+          "name": "United States Fish and Wildlife Service",
+          "short_name": "FWS",
+          "display_name": "United States Fish and Wildlife Service, Department of Interior",
+          "sortable_name": "Fish and Wildlife Service, United States",
+          "slug": "fish-and-wildlife-service",
+          "cfr_references": [
+            {
+              "title": 50,
+              "chapter": "I"
+            },
+            {
+              "title": 50,
+              "chapter": "IV"
+            },
+            {
+              "title": 50,
+              "chapter": "VI"
+            }
+          ]
+        }
+      ],
+      "cfr_references": [
+        {
+          "title": 2,
+          "chapter": "XIV"
+        },
+        {
+          "title": 5,
+          "chapter": "XXV"
+        },
+        {
+          "title": 41,
+          "chapter": "114"
+        },
+        {
+          "title": 48,
+          "chapter": "14"
+        }
+      ]
+    },
+    {
+      "name": "Department of Justice",
+      "short_name": "DOJ",
+      "display_name": "Department of Justice",
+      "sortable_name": "Justice, Department of",
+      "slug": "justice-department",
+      "children": [
+        {
+          "name": "Bureau of Alcohol, Tobacco, Firearms, and Explosives",
+          "short_name": "ATF",
+          "display_name": "Bureau of Alcohol, Tobacco, Firearms, and Explosives, Department of Justice",
+          "sortable_name": "Alcohol, Tobacco, Firearms, and Explosives, Bureau of",
+          "slug": "alcohol-tobacco-firearms-and-explosives-bureau",
+          "cfr_references": [
+            {
+              "title": 27,
+              "chapter": "II"
+            }
+          ]
+        },
+        {
+          "name": "Bureau of Prisons",
+          "short_name": "BOP",
+          "display_name": "Bureau of Prisons, Department of Justice",
+          "sortable_name": "Prisons, Bureau of",
+          "slug": "prisons-bureau",
+          "cfr_references": [
+            {
+              "title": 28,
+              "chapter": "V"
+            }
+          ]
+        },
+        {
+          "name": "Drug Enforcement Administration",
+          "short_name": "DEA",
+          "display_name": "Drug Enforcement Administration, Department of Justice",
+          "sortable_name": "Drug Enforcement Administration",
+          "slug": "drug-enforcement-administration",
+          "cfr_references": [
+            {
+              "title": 21,
+              "chapter": "II"
+            }
+          ]
+        },
+        {
+          "name": "Executive Office for Immigration Review",
+          "short_name": "EOIR",
+          "display_name": "Executive Office for Immigration Review, Department of Justice",
+          "sortable_name": "Immigration Review, Executive Office for",
+          "slug": "executive-office-for-immigration-review",
+          "cfr_references": [
+            {
+              "title": 8,
+              "chapter": "V"
+            }
+          ]
+        },
+        {
+          "name": "Federal Prison Industries",
+          "short_name": "FPI",
+          "display_name": "Federal Prison Industries, Department of Justice",
+          "sortable_name": "Federal Prison Industries",
+          "slug": "federal-prison-industries",
+          "cfr_references": [
+            {
+              "title": 28,
+              "chapter": "III"
+            }
+          ]
+        },
+        {
+          "name": "Foreign Claims Settlement Commission of the United States",
+          "short_name": "FCSC",
+          "display_name": "Foreign Claims Settlement Commission of the United States, Department of Justice",
+          "sortable_name": "Foreign Claims Settlement Commission of the United States",
+          "slug": "foreign-claims-settlement-commission",
+          "cfr_references": [
+            {
+              "title": 45,
+              "chapter": "V"
+            }
+          ]
+        },
+        {
+          "name": "Offices of Independent Counsel",
+          "short_name": "",
+          "display_name": "Offices of Independent Counsel, Department of Justice",
+          "sortable_name": "Independent Counsel, Offices of",
+          "slug": "offices-of-independent-counsel",
+          "cfr_references": [
+            {
+              "title": 28,
+              "chapter": "VI"
+            }
+          ]
+        }
+      ],
+      "cfr_references": [
+        {
+          "title": 2,
+          "chapter": "XXVIII"
+        },
+        {
+          "title": 5,
+          "chapter": "XXVIII"
+        },
+        {
+          "title": 28,
+          "chapter": "I"
+        },
+        {
+          "title": 28,
+          "chapter": "XI"
+        },
+        {
+          "title": 31,
+          "chapter": "IX"
+        },
+        {
+          "title": 40,
+          "chapter": "IV"
+        },
+        {
+          "title": 41,
+          "chapter": "128"
+        },
+        {
+          "title": 48,
+          "chapter": "28"
+        }
+      ]
+    },
+    {
+      "name": "Marine Mammal Commission",
+      "short_name": "MMC",
+      "display_name": "Marine Mammal Commission",
+      "sortable_name": "Marine Mammal Commission",
+      "slug": "marine-mammal-commission",
+      "children": [],
+      "cfr_references": [
+        {
+          "title": 50,
+          "chapter": "V"
+        }
+      ]
+    },
+  ]
+}

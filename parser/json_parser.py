@@ -43,14 +43,15 @@ class JSONParser:
 		search_results_dict = {}
 
 		for result in response['results']:
+			# UPDATE!
 			# Restricts results returned to 'Food for Human Consumption' chapter.
-			# https://www.youtube.com/watch?v=tphhdgi0R9w
 			if result['hierarchy']['title'] == '21' and result['hierarchy']['subpart'] == 'B':
 				search_results_dict[result['headings']['section']] = result['full_text_excerpt']
 
 		return search_results_dict
 
-	# Depreciated: Generates list with response results.
+	# search_results_list(response) DEPRECIATED
+	# Generates list with response results.
 	# RETURNS array containing list of search terms
 	def search_results_list(response):
 		search_results_list = []
@@ -60,6 +61,7 @@ class JSONParser:
 				search_results_list.append(result['headings']['section'])
 
 		return search_results_list
+	# search_results_list(response) DEPRECIATED
 	# END: Methods
 # END: JSONParser Class
 

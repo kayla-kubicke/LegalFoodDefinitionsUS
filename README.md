@@ -1,10 +1,13 @@
 Legal Food Definitions (US)
 ---
-
+\# UPDATE BEFORE MERGING TO MAIN  \
 A search tool designed to help navigate the Food portion of the [Food and Drugs](https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B) chapter of the [Code of Federal Regulations](https://www.ecfr.gov/).
 
 
-Insipred by Hershey's [formula rollback](https://www.youtube.com/watch?v=fovXtFrkzII).
+Project expanded to include non-binding guidance information. For example, 'honey' is not legally defined but has extensive non-binding guidance documentation.
+
+Insipred by Hershey's [formula rollback](https://www.youtube.com/watch?v=fovXtFrkzII).  \
+\# UPDATE BEFORE MERGING TO MAIN
 
 Why?
 ---
@@ -37,8 +40,12 @@ Location can vary slightly based on OS; place in the virtual environment's **sit
 
 
 API Doc Links:
+https://www.ecfr.gov/reader-aids/ecfr-developer-resources
 https://www.ecfr.gov/developers/documentation/api/v1
-https://www.ecfr.gov/reader-aids/ecfr-developer-resources/rest-api-interactive-documentation
 
 Example (Milk Chocolate Definition):
 https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-163/subpart-B/section-163.130
+
+Longer term, may add results from USDA api:
+https://fdc.nal.usda.gov/api-guide
+https://app.swaggerhub.com/apis/fdcnal/food-data_central_api/1.0.1

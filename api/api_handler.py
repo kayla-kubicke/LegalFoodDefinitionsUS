@@ -1,4 +1,22 @@
-# Next step is to reduce results to most recent definitions.
+# Repo will be a bit messy for a few days; need to refine calls.
+# Will ensure asset library scales with project.
+# https://www.youtube.com/watch?v=O4psVQHsUq8
+# ADD: agency_slugs[]; agencies listed in assets/agencies.json
+	# 04/27: Scrapped assets/agencies.json.
+	# Kept the following agencies for agency_slugs[]:
+		# USDA and children (REMOVE unnecessary children?)
+		# FDA
+		# EPA not super useful but touchs pesticide info
+		# HHS for child FDA (REMOVE unnecessary children)
+		# DOI for child FWS (REMOVE unnecessary children)
+		# DOJ for child ATF (REMOVE unnecessary children)
+		# MMC
+# (?) ADD: Labeling (legal, non-binding guidance, etc)
+# (?) ADD: Call for most recent version of chapters used; extract most recent
+# dates and fill data parameters.
+# (?) ADD: Date updater
+# https://www.youtube.com/watch?v=T4D3Ay9cmr4
+
 import requests
 
 # START: ApiHandler Class
@@ -7,7 +25,7 @@ class ApiHandler:
 	ECFR = 'https://www.ecfr.gov'
 	SEARCH = '/api/search/v1/results?'
 	QUERY = 'query='
-	# SPACE = %20
+	# SPACE = %20 # Move to query_builder later.
 
 	# START: Date parameters
 	# DATE = 'date='

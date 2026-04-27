@@ -1,10 +1,4 @@
-UPDATE: Need to search specific chapter!!!
-simple_call(query) results are too broad for examples. If an unregulated
-term is searched, may return false positives and/or weird results.
-
-NOTE: Update this text afterwards.
-
-Beside chocolate.json*, the requests were made with the parameters
+Beside chocolate.json* and eggs.json**, the requests were made with the parameters
 listed below.
 
 query=<query>.json
@@ -15,3 +9,4 @@ paginate_by=results
 
 
 *Details for that request are located in api/ExampleJSON.txt for now.
+**per_page=10
