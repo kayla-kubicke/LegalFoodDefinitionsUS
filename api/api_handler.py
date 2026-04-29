@@ -1,17 +1,4 @@
-# Ugh, what a mess.
-# ADD: agency_slugs[]; agencies listed in assets/example_requests/agencies.json
-	# Kept the following agencies for agency_slugs[]:
-		# USDA and children (REMOVE unnecessary children?)
-		# FDA
-		# EPA not super useful but touchs pesticide info
-		# HHS for child FDA (REMOVE unnecessary children)
-		# DOI for child FWS (REMOVE unnecessary children)
-		# DOJ for child ATF (REMOVE unnecessary children)
-		# MMC
-# (?) ADD: Labeling (legal, non-binding guidance, etc)
-# (?) ADD: Call for most recent version of chapters used; extract most recent
-# dates and fill data parameters.
-# (?) ADD: Date updater
+# BUILD: slug curl mimic request method; add defaults for custom slugs
 
 import requests
 
@@ -25,11 +12,9 @@ class ApiHandler:
 
 	# Agency slug list
 	# (?) ADD: Custom slug selection
-	# UPDATE: Custom slug and chapter connection to help determine label
-	# https://www.youtube.com/watch?v=iKJI5XGZh9o
 	USDA = 'agriculture-department' # Legal and non-binding guidance
 	EPA = 'environmental-protection-agency' # Pesticide-related results
-	FDA = 'food-and-drug-administration' # Legal and (?) non-binding guidance
+	FDA = 'food-and-drug-administration' # Legal and non-binding guidance
 	FWS = 'fish-and-wildlife-service' # Wild foods definitions and (?) non-binding guidance
 	ATF ='alcohol-tobacco-firearms-and-explosives-bureau' # Booze
 	MMC = 'marine-mammal-commission' # Wild foods definitions and (?) non-binding guidance

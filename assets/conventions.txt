@@ -8,5 +8,5 @@ order=relevance
 paginate_by=results
 
 
-*Details for that request are located in api/ExampleJSON.txt for now.
+*Details for that request are located in ExampleJSON.txt for now.
 **per_page=10

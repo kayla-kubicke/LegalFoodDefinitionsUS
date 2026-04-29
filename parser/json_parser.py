@@ -1,41 +1,22 @@
+# Need to link agency with individual result.
+	# This helps determine if result is legal, non-binding, etc.
+# BUILD: agency_responsible_for_result(...); workshop name :/
+
+# Also, I'm going to move JSONParser.example_response(query) and JSONParser.custom_print
+# methods where they belong. Technically, should pull a separate branch but it's
+# distracting me.
+# https://www.youtube.com/watch?v=kewkTjNfUfk
+
 import json
-from api.api_handler import ApiHandler as api_handler
+# REMOVE after manual testing
+from api.example_handler import ExampleHandler as example_handler
+from printer.array_printer import ArrayPrinter as array_printer
+from printer.dictionary_printer import DictionaryPrinter as dictionary_printer
+# REMOVE after manual testing
 
 # START: JSONParser Class
 class JSONParser:
 	# START: Methods
-	# Generates a static response dict object to avoid
-	# unnecessary api calls.
-	# RETURNS canned response dict object
-	def example_response(query):
-		try:
-			with open(f'assets/example_requests/{query}.json', 'r') as file:
-				example = json.load(file)
-
-			return example
-		except FileNotFoundError as error:
-			print(f'File not found.\n{error}')
-		# Raises generic exception.
-		except Exception as error:
-			print(f'Generic error caught: {error}')
-
-	# Prints array as list to terminal.
-	# No RETURN, just prints to terminal
-	def array_custom_print(array):
-		if array == []:
-			print('No results found. Food term does not appear to be legally defined.')
-		else:
-			print('\n'.join(map(str, array)))
-
-	# Prints dict keys as list to terminal.
-	# No RETURN, just prints to terminal
-	def dict_key_custom_print(dictionary):
-		if dictionary == {}:
-			print('No results found. Food term does not appear to be legally defined.')
-		else:
-			for key in dictionary:
-				print(key)
-
 	# Generates dictionary with response results.
 	# RETURNS dictionary containing result (results/headings/section)
 	# as the key and description (full_text_excerpt) as the value.
@@ -65,5 +46,5 @@ class JSONParser:
 	# END: Methods
 # END: JSONParser Class
 
-# JSONParser.array_custom_print(JSONParser.search_results_list(JSONParser.example_response('sourdough')))
-# JSONParser.dict_key_custom_print(JSONParser.search_results_dict(JSONParser.example_response('sourdough')))
+# array_printer.array_custom_print(JSONParser.search_results_list(example_handler.example_response('sourdough')))
+# dictionary_printer.dict_key_custom_print(JSONParser.search_results_dict(example_handler.example_response('sourdough')))
