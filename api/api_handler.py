@@ -1,8 +1,5 @@
-# Repo will be a bit messy for a few days; need to refine calls.
-# Will ensure asset library scales with project.
-# https://www.youtube.com/watch?v=O4psVQHsUq8
-# ADD: agency_slugs[]; agencies listed in assets/agencies.json
-	# 04/27: Scrapped assets/agencies.json.
+# Ugh, what a mess.
+# ADD: agency_slugs[]; agencies listed in assets/example_requests/agencies.json
 	# Kept the following agencies for agency_slugs[]:
 		# USDA and children (REMOVE unnecessary children?)
 		# FDA
@@ -15,7 +12,6 @@
 # (?) ADD: Call for most recent version of chapters used; extract most recent
 # dates and fill data parameters.
 # (?) ADD: Date updater
-# https://www.youtube.com/watch?v=T4D3Ay9cmr4
 
 import requests
 
@@ -26,6 +22,18 @@ class ApiHandler:
 	SEARCH = '/api/search/v1/results?'
 	QUERY = 'query='
 	# SPACE = %20 # Move to query_builder later.
+
+	# Agency slug list
+	# (?) ADD: Custom slug selection
+	# UPDATE: Custom slug and chapter connection to help determine label
+	# https://www.youtube.com/watch?v=iKJI5XGZh9o
+	USDA = 'agriculture-department' # Legal and non-binding guidance
+	EPA = 'environmental-protection-agency' # Pesticide-related results
+	FDA = 'food-and-drug-administration' # Legal and (?) non-binding guidance
+	FWS = 'fish-and-wildlife-service' # Wild foods definitions and (?) non-binding guidance
+	ATF ='alcohol-tobacco-firearms-and-explosives-bureau' # Booze
+	MMC = 'marine-mammal-commission' # Wild foods definitions and (?) non-binding guidance
+	slug_array = [f'{USDA}', f'{FDA}', f'{EPA}', f'{FWS}', f'{ATF}', f'{MMC}']
 
 	# START: Date parameters
 	# DATE = 'date='
@@ -54,6 +62,10 @@ class ApiHandler:
 		# If an error is encountered during request: raises RequestException
 	def simple_call(query):
 		try:
+			# slug curl:
+			# curl -X GET "https://www.ecfr.gov/api/search/v1/results?query=chocolate&
+			# agency_slugs%5B%5D=agriculture-department&agency_slugs%5B%5D=environmental-protection-agency&agency_slugs%5B%5D=food-and-drug-administration&agency_slugs%5B%5D=fish-and-wildlife-service&agency_slugs%5B%5D=alcohol-tobacco-firearms-and-explosives-bureau&agency_slugs%5B%5D=marine-mammal-commission
+			# &per_page=15&page=1&order=relevance&paginate_by=results" -H "accept: application/json"
 			# Object type: requests.models.Repsonse
 			simpleResponse = requests.get(f'{ApiHandler.ECFR}{ApiHandler.SEARCH}{ApiHandler.QUERY}' + query + '&'
 				+ f'{ApiHandler.PER_PAGE}' + '3' + '&' + f'{ApiHandler.PAGE}' + '1' + '&'
@@ -70,3 +82,6 @@ class ApiHandler:
 			print(f'Generic exception caught: {error}')
 	# END: Methods
 # END: ApiHandler Class
+
+# print(ApiHandler.simple_call('chocolate'))
+# print('\n'.join(map(str, ApiHandler.slug_array)))

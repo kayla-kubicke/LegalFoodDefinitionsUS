@@ -4,7 +4,7 @@ Legal Food Definitions (US)
 A search tool designed to help navigate the Food portion of the [Food and Drugs](https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B) chapter of the [Code of Federal Regulations](https://www.ecfr.gov/).
 
 
-Project expanded to include non-binding guidance information. For example, 'honey' is not legally defined but has extensive non-binding guidance documentation.
+Project expanded to include non-binding guidance information. For example, 'honey' is not legally defined but has extensive non-binding guidance documentation. (But how do I confidently label result?) ?:|
 
 Insipred by Hershey's [formula rollback](https://www.youtube.com/watch?v=fovXtFrkzII).  \
 \# UPDATE BEFORE MERGING TO MAIN
