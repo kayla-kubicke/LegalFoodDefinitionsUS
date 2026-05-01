@@ -1,4 +1,4 @@
-# BUILD: slug curl mimic request method; add defaults for custom slugs
+# BUILD: slug curl mimic request method; add defaults for custom slugs.
 
 import requests
 
