@@ -11,6 +11,23 @@ from api.api_handler import ApiHandler as api_handler
 # START: TestApiHandler Class
 class TestApiHandler(unittest.TestCase):
 	# START: Tests
+	# https://www.youtube.com/shorts/BUGwxQRQ_zw
+	def test_format_agency_parameter_returns_expected_string(self, mock_repsonse):
+		self.maxDiff = None
+
+		test_slug_array = [api_handler.USDA, api_handler.EPA, api_handler.FDA, api_handler.FWS, api_handler.ATF, api_handler.MMC]
+		test_string = api_handler.format_agency_parameter(test_slug_array)
+
+		expected_string = 'agency_slugs%5B%5D=agriculture-department&' \
+		'agency_slugs%5B%5D=environmental-protection-agency&' \
+		'agency_slugs%5B%5D=food-and-drug-administration&' \
+		'agency_slugs%5B%5D=fish-and-wildlife-service&' \
+		'agency_slugs%5B%5D=alcohol-tobacco-firearms-and-explosives-bureau&' \
+		'agency_slugs%5B%5D=marine-mammal-commission&' \
+
+		self.assertEqual(test_string, expected_string)
+	# https://www.youtube.com/watch?v=r-kIs2A0dMo
+
 	def test_successful_simple_call_returns_expected_object(self, mock_response):
 		# Set value(s) for mock_response
 		mock_response.return_value.status_code = 200

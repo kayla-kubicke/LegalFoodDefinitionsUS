@@ -5,7 +5,7 @@ class DictionaryPrinter:
 	# No RETURN, just prints to terminal
 	def dict_key_custom_print(dictionary):
 		if dictionary == {}:
-			print('No results found. Food term does not appear to be legally defined.')
+			print('No results found. Food term does not appear in document.')
 		else:
 			for key in dictionary:
 				print(key)

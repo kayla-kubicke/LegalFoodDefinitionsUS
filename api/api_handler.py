@@ -1,5 +1,3 @@
-# BUILD: slug curl mimic request method; add defaults for custom slugs.
-
 import requests
 
 # START: ApiHandler Class
@@ -11,14 +9,13 @@ class ApiHandler:
 	# SPACE = %20 # Move to query_builder later.
 
 	# Agency slug list
-	# (?) ADD: Custom slug selection
 	USDA = 'agriculture-department' # Legal and non-binding guidance
 	EPA = 'environmental-protection-agency' # Pesticide-related results
 	FDA = 'food-and-drug-administration' # Legal and non-binding guidance
 	FWS = 'fish-and-wildlife-service' # Wild foods definitions and (?) non-binding guidance
 	ATF ='alcohol-tobacco-firearms-and-explosives-bureau' # Booze
 	MMC = 'marine-mammal-commission' # Wild foods definitions and (?) non-binding guidance
-	slug_array = [f'{USDA}', f'{FDA}', f'{EPA}', f'{FWS}', f'{ATF}', f'{MMC}']
+	slug_array = [USDA, FDA, EPA, FWS, ATF, MMC]
 
 	# START: Date parameters
 	# DATE = 'date='
@@ -39,6 +36,15 @@ class ApiHandler:
 	# END: Constants
 
 	# START: Methods
+	# RETURNS formated agency slug parameter string
+	def format_agency_parameter(slug_array):
+		return_string = ''
+		param = 'agency_slugs%5B%5D='
+		for slug in slug_array:
+			return_string = f'{return_string}' + f'{param}' + f'{slug}' + '&'
+
+		return return_string
+
 	# A simple call to api
 	# RETURNS
 	# Successful: dict object
@@ -47,13 +53,9 @@ class ApiHandler:
 		# If an error is encountered during request: raises RequestException
 	def simple_call(query):
 		try:
-			# slug curl:
-			# curl -X GET "https://www.ecfr.gov/api/search/v1/results?query=chocolate&
-			# agency_slugs%5B%5D=agriculture-department&agency_slugs%5B%5D=environmental-protection-agency&agency_slugs%5B%5D=food-and-drug-administration&agency_slugs%5B%5D=fish-and-wildlife-service&agency_slugs%5B%5D=alcohol-tobacco-firearms-and-explosives-bureau&agency_slugs%5B%5D=marine-mammal-commission
-			# &per_page=15&page=1&order=relevance&paginate_by=results" -H "accept: application/json"
 			# Object type: requests.models.Repsonse
 			simpleResponse = requests.get(f'{ApiHandler.ECFR}{ApiHandler.SEARCH}{ApiHandler.QUERY}' + query + '&'
-				+ f'{ApiHandler.PER_PAGE}' + '3' + '&' + f'{ApiHandler.PAGE}' + '1' + '&'
+				f'{ApiHandler.format_agency_parameter(ApiHandler.slug_array)}' + f'{ApiHandler.PER_PAGE}' + '3' + '&' + f'{ApiHandler.PAGE}' + '1' + '&'
 				+ f'{ApiHandler.ORDER}' + 'relevance' + '&' + f'{ApiHandler.PAGINATE_BY}' + 'results')
 
 			if simpleResponse.status_code == 200:
@@ -68,5 +70,8 @@ class ApiHandler:
 	# END: Methods
 # END: ApiHandler Class
 
-# print(ApiHandler.simple_call('chocolate'))
+# ApiHandler.simple_call('chocolate')
+# import json
+# print(json.dumps(ApiHandler.simple_call('chocolate'), indent=4))
 # print('\n'.join(map(str, ApiHandler.slug_array)))
+# print(ApiHandler.format_agency_parameter(ApiHandler.slug_array))
