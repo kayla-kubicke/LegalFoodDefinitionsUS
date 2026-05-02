@@ -8,8 +8,6 @@ from printer.dictionary_printer import DictionaryPrinter as dictionary_printer
 # START: JSONParser Class
 class JSONParser:
 	# START: Methods
-	# UPDATE: method names?
-	# https://www.youtube.com/watch?v=dI1keSSwdcI
 	# RETURNS true if title and chapter are found in cfr_references, otherwise false returned
 	# (!) Untested, just manual testing today
 	def title_and_chapter_found(agency, title, chapter):
@@ -19,11 +17,11 @@ class JSONParser:
 				if reference['title'] == title and reference['chapter'] == chapter:
 					return True
 			except KeyError:
+				# Really shouldn't use try/except like this. Update?
 				continue
 
 		return False
 
-	# https://www.youtube.com/watch?v=hj0yVN8pFNw
 	# RETURNS an array of matching agencies
 	# (!) Untested, just manual testing today
 	def agencies_responsible_for_title_and_chapter(title, chapter):
@@ -33,11 +31,7 @@ class JSONParser:
 
 		agencies = example_handler.example_response('agencies')
 
-		# Yikes...
 		# Can't avoid nested for loops because of the json's structure.
-		# ¯\_(ツ)_/¯
-		# Maybe use these methods to build a 'database' to avoid these calls longer term.
-		# Uncomment lines 88 & 89
 		for agency in agencies['agencies']:
 			if agency['children'] != []:
 				for child in agency['children']:

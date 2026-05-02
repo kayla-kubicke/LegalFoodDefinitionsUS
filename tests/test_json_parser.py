@@ -10,6 +10,11 @@ from api.example_handler import ExampleHandler as example_handler
 # START: TestJSONParser Class
 class TestJSONParser(unittest.TestCase):
 	# START: Tests
+
+	# ADD TESTS: title_and_chapter_found(agency, title, chapter)
+
+	# ADD TESTS: def agencies_responsible_for_title_and_chapter(title, chapter)
+
 	def test_results_found_search_results_dict(self):
 		example_response = example_handler.example_response('chocolate')
 		dict_returned = json_parser.search_results_dict(example_response)
