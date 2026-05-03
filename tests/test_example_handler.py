@@ -6,7 +6,7 @@ import unittest
 from api.example_handler import ExampleHandler as example_handler
 import io
 from contextlib import redirect_stdout
-from unittest.mock import patch
+from unittest.mock import patch, mock_open
 # END: imports
 
 # START: TestExampleHandler Class
@@ -29,11 +29,15 @@ class TestExampleHandler(unittest.TestCase):
 
 		self.assertEqual(captured[0:15], 'File not found.')
 
-	# Nope.
-	# def test_example_response_outputs_expected_message_to_terminal(self):
-	# 	with patch('example_handler.example_response', side_effect = OSError('whatever')):
-	# 		captured = example_handler.example_response('whatever')
+	@patch('api.example_handler.open')
+	def test_example_response_outputs_expected_message_to_terminal(self, patch):
+		string_buffer = io.StringIO()
+		patch.side_effect = Exception('generic exception')
+		with redirect_stdout(string_buffer):
+			returned_string = example_handler.example_response(patch)
 
-	# 		self.assertEqual(captured[0:20], 'Generic error caught:')
-# END: Tests
+		captured = string_buffer.getvalue()
+
+		self.assertEqual(captured[0:21], 'Generic error caught:')
+	# END: Tests
 # END: TestExampleHandler Class

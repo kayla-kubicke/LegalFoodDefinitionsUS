@@ -12,7 +12,6 @@ from api.api_handler import ApiHandler as api_handler
 class TestApiHandler(unittest.TestCase):
 	# START: Tests
 	def test_format_agency_parameter_returns_expected_string(self, mock_repsonse):
-		# https://www.youtube.com/watch?v=1tsIxNci_dE
 		test_slug_array = [api_handler.USDA, api_handler.EPA, api_handler.FDA, api_handler.FWS, api_handler.ATF, api_handler.MMC]
 		test_string = api_handler.format_agency_parameter(test_slug_array)
 

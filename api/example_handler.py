@@ -15,7 +15,4 @@ class ExampleHandler:
 			print(f'File not found.\n{error}')
 		# Raises generic exception.
 		except Exception as error:
-			#  REMOVE after figuring out test.
-			# Just easier to verify string than print statement.
-			# return 'Generic error caught:'
 			print(f'Generic error caught: {error}')
