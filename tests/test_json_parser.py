@@ -12,35 +12,39 @@ class TestJSONParser(unittest.TestCase):
 	# START: Constants
 	CHOCOLATE_REPSONSE = example_handler.example_response('chocolate')
 	SOURDOUGH_REPSONSE = example_handler.example_response('sourdough')
+	AGENCIES_DATA = example_handler.example_response('agencies')
 	# END: Constants
 
 	# START: Tests
-	# https://www.youtube.com/watch?v=h8KDknyNzsw
-	# ADD TESTS: title_and_chapter_found(agency, title, chapter)
 	def test_title_and_chapter_found_returns_true_if_title_and_chapter_found(self):
 		# Fragile; just trying to get basic testing coverage.
-		agencies = example_handler.example_response('agencies')
-		agency = agencies['agencies'][0]['children'][0]
+		# agencies = example_handler.example_response('agencies')
+		agency = TestJSONParser.AGENCIES_DATA['agencies'][0]['children'][0]
 		bool_returned = json_parser.title_and_chapter_found_in_agency_json(agency, 7, 'I')
+
 		self.assertEqual(bool_returned, True)
 
+
 	def test_title_and_chapter_found_returns_false_if_title_and_chapter_not_found(self):
-		agencies = example_handler.example_response('agencies')
-		agency = agencies['agencies'][0]['children'][0]
+		# agencies = example_handler.example_response('agencies')
+		agency = TestJSONParser.AGENCIES_DATA['agencies'][0]['children'][0]
 		bool_returned = json_parser.title_and_chapter_found_in_agency_json(agency, 7, 'V')
+
 		self.assertEqual(bool_returned, False)
+
 
 	def test_agencies_responsible_for_title_and_chapter_returns_array_expected_if_match_found(self):
 		array_returned = json_parser.agencies_responsible_for_title_and_chapter(21, 'I')
 		array_expected = ['FDA']
 
-		self.assertEquals(array_returned, array_expected)
+		self.assertEqual(array_returned, array_expected)
+
 
 	def test_agencies_responsible_for_title_and_chapter_returns_empty_array_if_no_matches_are_found(self):
 		array_returned = json_parser.agencies_responsible_for_title_and_chapter(450, 'I')
 
-		self.assertEquals(array_returned, [])
-	# https://www.youtube.com/watch?v=2iliZyX6KUE
+		self.assertEqual(array_returned, [])
+
 
 	def test_results_found_search_results_dict(self):
 		dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
@@ -54,10 +58,12 @@ class TestJSONParser(unittest.TestCase):
 
 		self.assertEqual(dict_returned, expected_dict)
 
+
 	def test_no_results_found_search_results_dict(self):
 		dict_returned = json_parser.search_results_dict(TestJSONParser.SOURDOUGH_REPSONSE)
 
 		self.assertEqual(dict_returned, {})
+
 
 	def test_results_found_search_results_list(self):
 		array_returned = json_parser.search_results_list(TestJSONParser.CHOCOLATE_REPSONSE)
@@ -69,6 +75,7 @@ class TestJSONParser(unittest.TestCase):
 		'White <strong>chocolate</strong>.']
 
 		self.assertEqual(array_returned, array_expected)
+
 
 	def test_no_results_found_search_results_list(self):
 		array_returned = json_parser.search_results_list(TestJSONParser.SOURDOUGH_REPSONSE)
