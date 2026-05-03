@@ -23,7 +23,7 @@ Even proactive consumers commonly misunderstand food labels. The term 'free rang
 Dev Notes
 ---
 
-04/26: Restricting results to 'Food for Human Consumption' chapter
+05/03: Filling in unit testing and cleaning them up (naming conventions/consistency).
 
 
 Configuration

@@ -1,6 +1,6 @@
 import json
-# REMOVE after manual testing
 from api.example_handler import ExampleHandler as example_handler
+# REMOVE after manual testing
 from printer.array_printer import ArrayPrinter as array_printer
 from printer.dictionary_printer import DictionaryPrinter as dictionary_printer
 # REMOVE after manual testing
@@ -8,9 +8,9 @@ from printer.dictionary_printer import DictionaryPrinter as dictionary_printer
 # START: JSONParser Class
 class JSONParser:
 	# START: Methods
-	# RETURNS true if title and chapter are found in cfr_references, otherwise false returned
-	# (!) Untested, just manual testing today
-	def title_and_chapter_found(agency, title, chapter):
+	# RETURNS true if title and chapter are found in cfr_references, otherwise
+	# false returned
+	def title_and_chapter_found_in_agency_json(agency, title, chapter):
 		# Check for empty array? Shouldn't happen...
 		for reference in agency['cfr_references']:
 			try:
@@ -22,23 +22,23 @@ class JSONParser:
 
 		return False
 
-	# RETURNS an array of matching agencies
-	# (!) Untested, just manual testing today
+	# RETURNS an array of matching agencies, if empty no matching agencies
+	# were found
 	def agencies_responsible_for_title_and_chapter(title, chapter):
 		# Seems like most chapters are written by only one agency,
 		# but I don't actually know so I'll return an array.
 		agency_array = []
 
-		agencies = example_handler.example_response('agencies')
+		agencies = example_handler.example_response('agencies') # Make constant?
 
 		# Can't avoid nested for loops because of the json's structure.
 		for agency in agencies['agencies']:
 			if agency['children'] != []:
 				for child in agency['children']:
-					if JSONParser.title_and_chapter_found(child, title, chapter):
+					if JSONParser.title_and_chapter_found_in_agency_json(child, title, chapter):
 						agency_array.append(child['short_name'])
 			else:
-				if JSONParser.title_and_chapter_found(agency, title, chapter):
+				if JSONParser.title_and_chapter_found_in_agency_json(agency, title, chapter):
 					agency_array.append(agency['short_name'])
 
 		return agency_array

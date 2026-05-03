@@ -9,46 +9,69 @@ from api.example_handler import ExampleHandler as example_handler
 
 # START: TestJSONParser Class
 class TestJSONParser(unittest.TestCase):
+	# START: Constants
+	CHOCOLATE_REPSONSE = example_handler.example_response('chocolate')
+	SOURDOUGH_REPSONSE = example_handler.example_response('sourdough')
+	# END: Constants
+
 	# START: Tests
-
+	# https://www.youtube.com/watch?v=h8KDknyNzsw
 	# ADD TESTS: title_and_chapter_found(agency, title, chapter)
+	def test_title_and_chapter_found_returns_true_if_title_and_chapter_found(self):
+		# Fragile; just trying to get basic testing coverage.
+		agencies = example_handler.example_response('agencies')
+		agency = agencies['agencies'][0]['children'][0]
+		bool_returned = json_parser.title_and_chapter_found_in_agency_json(agency, 7, 'I')
+		self.assertEqual(bool_returned, True)
 
-	# ADD TESTS: def agencies_responsible_for_title_and_chapter(title, chapter)
+	def test_title_and_chapter_found_returns_false_if_title_and_chapter_not_found(self):
+		agencies = example_handler.example_response('agencies')
+		agency = agencies['agencies'][0]['children'][0]
+		bool_returned = json_parser.title_and_chapter_found_in_agency_json(agency, 7, 'V')
+		self.assertEqual(bool_returned, False)
+
+	def test_agencies_responsible_for_title_and_chapter_returns_array_expected_if_match_found(self):
+		array_returned = json_parser.agencies_responsible_for_title_and_chapter(21, 'I')
+		array_expected = ['FDA']
+
+		self.assertEquals(array_returned, array_expected)
+
+	def test_agencies_responsible_for_title_and_chapter_returns_empty_array_if_no_matches_are_found(self):
+		array_returned = json_parser.agencies_responsible_for_title_and_chapter(450, 'I')
+
+		self.assertEquals(array_returned, [])
+	# https://www.youtube.com/watch?v=2iliZyX6KUE
 
 	def test_results_found_search_results_dict(self):
-		example_response = example_handler.example_response('chocolate')
-		dict_returned = json_parser.search_results_dict(example_response)
+		dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
 
-		comparison_dict = {'<strong>Milk</strong> <strong>chocolate</strong>.': '(a) Description. (1) <strong>Milk</strong> <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more of the optional dairy ingredients<span class=\"elipsis\">…</span>section. (2) <strong>Milk</strong> <strong>chocolate</strong> contains not less than 10 percent by weight of <strong>chocolate</strong> liquor',
+		expected_dict = {'<strong>Milk</strong> <strong>chocolate</strong>.': '(a) Description. (1) <strong>Milk</strong> <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more of the optional dairy ingredients<span class=\"elipsis\">…</span>section. (2) <strong>Milk</strong> <strong>chocolate</strong> contains not less than 10 percent by weight of <strong>chocolate</strong> liquor',
 		'Skim <strong>milk</strong> <strong>chocolate</strong>.': '(a) Description. Skim <strong>milk</strong> <strong>chocolate</strong> is the food that conforms to the standard of identity<span class=\"elipsis\">…</span>label declaration of ingredients for <strong>milk</strong> <strong>chocolate</strong> in § 163.130, except that: (1) The optional<span class=\"elipsis\">…</span>are limited to skim <strong>milk</strong>, evaporated skim <strong>milk</strong>, concentrated skim <strong>milk</strong>, sweetened condensed',
 		'<strong>Milk</strong> <strong>chocolate</strong> and vegetable fat coating.': '(a) Description. <strong>Milk</strong> <strong>chocolate</strong> and vegetable fat coating is the food that conforms to<span class=\"elipsis\">…</span>of ingredients for <strong>milk</strong> <strong>chocolate</strong> in § 163.130 or skim <strong>milk</strong> <strong>chocolate</strong> in § 163.140, except<span class=\"elipsis\">…</span>less than 12 percent by weight of nonfat <strong>milk</strong> solids shall be calculated using only those',
 		'Sweet <strong>chocolate</strong>.': '(a) Description. (1) Sweet <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more optional nutritive carbohydrate<span class=\"elipsis\">…</span>(2) Sweet <strong>chocolate</strong> contains not less than 15 percent by weight of <strong>chocolate</strong> liquor complying',
 		'White <strong>chocolate</strong>.': '(a) Description. (1) White <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">…</span>section. White <strong>chocolate</strong> shall be free of coloring material. (2) White <strong>chocolate</strong> contains not<span class=\"elipsis\">…</span>white <strong>chocolate</strong>, and multiplying the quotient by 100. The finished white <strong>chocolate</strong> contains',
 		}
 
-		self.assertEqual(dict_returned, comparison_dict)
+		self.assertEqual(dict_returned, expected_dict)
 
 	def test_no_results_found_search_results_dict(self):
-		example_response = example_handler.example_response('sourdough')
-		dict_returned = json_parser.search_results_dict(example_response)
+		dict_returned = json_parser.search_results_dict(TestJSONParser.SOURDOUGH_REPSONSE)
 
 		self.assertEqual(dict_returned, {})
 
 	def test_results_found_search_results_list(self):
-		example_response = example_handler.example_response('chocolate')
-		array_returned = json_parser.search_results_list(example_response)
+		array_returned = json_parser.search_results_list(TestJSONParser.CHOCOLATE_REPSONSE)
 
-		comparison_array = ['<strong>Milk</strong> <strong>chocolate</strong>.',
+		array_expected = ['<strong>Milk</strong> <strong>chocolate</strong>.',
 		'Skim <strong>milk</strong> <strong>chocolate</strong>.',
 		'<strong>Milk</strong> <strong>chocolate</strong> and vegetable fat coating.',
 		'Sweet <strong>chocolate</strong>.',
 		'White <strong>chocolate</strong>.']
 
-		self.assertEqual(array_returned, comparison_array)
+		self.assertEqual(array_returned, array_expected)
 
 	def test_no_results_found_search_results_list(self):
-		example_response = example_handler.example_response('sourdough')
-		array_returned = json_parser.search_results_list(example_response)
+		array_returned = json_parser.search_results_list(TestJSONParser.SOURDOUGH_REPSONSE)
 
 		self.assertEqual(array_returned, [])
 	# END: Tests
