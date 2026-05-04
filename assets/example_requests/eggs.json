@@ -1,477 +1,152 @@
 {
-  "results": [
-    {
-      "starts_on": "2016-10-11",
-      "ends_on": null,
-      "type": "Section",
-      "hierarchy": {
-        "title": "7",
-        "subtitle": "B",
-        "chapter": "I",
-        "subchapter": "C",
-        "part": "57",
-        "subpart": "A",
-        "subject_group": "ECFR09b8e2161239976",
-        "section": "57.720",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 7",
-        "subtitle": "Subtitle B",
-        "chapter": " Chapter I",
-        "subchapter": "Subchapter C",
-        "part": "Part 57",
-        "subpart": "Subpart A",
-        "subject_group": "Inspection and Disposition of Restricted Eggs",
-        "section": "§ 57.720",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Agriculture",
-        "subtitle": "Regulations of the Department of Agriculture",
-        "chapter": "Agricultural Marketing Service (Standards, Inspections, Marketing Practices), Department of Agriculture",
-        "subchapter": "Requirements and Standards Under the Agricultural Marketing Act of 1946 and the <strong>Egg</strong> Products Inspection Act",
-        "part": "Inspection of <strong>Eggs</strong> (<strong>Egg</strong> Products Inspection Act)",
-        "subpart": "Provisions Governing the Inspection of <strong>Eggs</strong>",
-        "subject_group": "Inspection and Disposition of Restricted <strong>Eggs</strong>",
-        "section": "Disposition of restricted <strong>eggs</strong>.",
-        "appendix": null
-      },
-      "full_text_excerpt": "(a) <strong>Eggs</strong> classified as checks, dirties, incubator rejects, inedibles, leakers, or loss<span class=\"elipsis\">…</span>shipping directly or indirectly to an official <strong>egg</strong> products processing plant for segregation<span class=\"elipsis\">…</span>accordance with § 57.800. Inedible and loss <strong>eggs</strong> shall not be intermingled in the same container",
-      "score": 49.90513,
-      "structure_index": 30183,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "effective",
-        "initial"
-      ]
-    },
-    {
-      "starts_on": "2016-10-11",
-      "ends_on": null,
-      "type": "Section",
-      "hierarchy": {
-        "title": "7",
-        "subtitle": "B",
-        "chapter": "I",
-        "subchapter": "C",
-        "part": "57",
-        "subpart": "A",
-        "subject_group": "ECFRa8b77408ebcdbc3",
-        "section": "57.800",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 7",
-        "subtitle": "Subtitle B",
-        "chapter": " Chapter I",
-        "subchapter": "Subchapter C",
-        "part": "Part 57",
-        "subpart": "Subpart A",
-        "subject_group": "Identification of Restricted Eggs or Egg Products Not Intended for Human Consumption",
-        "section": "§ 57.800",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Agriculture",
-        "subtitle": "Regulations of the Department of Agriculture",
-        "chapter": "Agricultural Marketing Service (Standards, Inspections, Marketing Practices), Department of Agriculture",
-        "subchapter": "Requirements and Standards Under the Agricultural Marketing Act of 1946 and the <strong>Egg</strong> Products Inspection Act",
-        "part": "Inspection of <strong>Eggs</strong> (<strong>Egg</strong> Products Inspection Act)",
-        "subpart": "Provisions Governing the Inspection of <strong>Eggs</strong>",
-        "subject_group": "Identification of Restricted <strong>Eggs</strong> or <strong>Egg</strong> Products Not Intended for Human Consumption",
-        "section": "Identification of restricted <strong>eggs</strong>.",
-        "appendix": null
-      },
-      "full_text_excerpt": "The shipping container of restricted <strong>eggs</strong> shall be determined to be satisfactorily identified<span class=\"elipsis\">…</span>packer's name and address, the quality of the <strong>eggs</strong> in the container (e.g., dirties, checks,<span class=\"elipsis\">…</span>statement “Restricted <strong>Eggs</strong>—For Processing Only In An Official USDA <strong>Egg</strong> Products Processing",
-      "score": 49.42578,
-      "structure_index": 30184,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "effective",
-        "initial"
-      ]
-    },
-    {
-      "starts_on": "2016-10-11",
-      "ends_on": null,
-      "type": "Section",
-      "hierarchy": {
-        "title": "7",
-        "subtitle": "B",
-        "chapter": "I",
-        "subchapter": "C",
-        "part": "57",
-        "subpart": "A",
-        "subject_group": "ECFR09b8e2161239976",
-        "section": "57.700",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 7",
-        "subtitle": "Subtitle B",
-        "chapter": " Chapter I",
-        "subchapter": "Subchapter C",
-        "part": "Part 57",
-        "subpart": "Subpart A",
-        "subject_group": "Inspection and Disposition of Restricted Eggs",
-        "section": "§ 57.700",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Agriculture",
-        "subtitle": "Regulations of the Department of Agriculture",
-        "chapter": "Agricultural Marketing Service (Standards, Inspections, Marketing Practices), Department of Agriculture",
-        "subchapter": "Regulations and Standards Under the Agricultural Marketing Act of 1946 and the <strong>Egg</strong> Products Inspection Act",
-        "part": "Inspection of <strong>Eggs</strong> (<strong>Egg</strong> Products Inspection Act)",
-        "subpart": "Regulations Governing the Inspection of <strong>Eggs</strong>",
-        "subject_group": "Inspection and Disposition of Restricted <strong>Eggs</strong>",
-        "section": "Prohibition on disposition of restricted <strong>eggs</strong>.",
-        "appendix": null
-      },
-      "full_text_excerpt": "restricted <strong>eggs</strong>, except as authorized in §§ 57.100 and 57.720. (b) No <strong>egg</strong> handler shall<span class=\"elipsis\">…</span>restricted <strong>eggs</strong>, except as authorized in §§ 57.100 and 57.720. (c) No <strong>egg</strong> handler shall<span class=\"elipsis\">…</span>shall use any restricted <strong>eggs</strong> in the preparation of human food, except as provided in §§",
-      "score": 47.508152,
-      "structure_index": 30187,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "effective",
-        "initial"
-      ]
-    },
-    {
-      "starts_on": "2016-10-11",
-      "ends_on": null,
-      "type": "Section",
-      "hierarchy": {
-        "title": "7",
-        "subtitle": "B",
-        "chapter": "I",
-        "subchapter": "C",
-        "part": "57",
-        "subpart": "A",
-        "subject_group": "ECFRa8b77408ebcdbc3",
-        "section": "57.840",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 7",
-        "subtitle": "Subtitle B",
-        "chapter": " Chapter I",
-        "subchapter": "Subchapter C",
-        "part": "Part 57",
-        "subpart": "Subpart A",
-        "subject_group": "Identification of Restricted Eggs or Egg Products Not Intended for Human Consumption",
-        "section": "§ 57.840",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Agriculture",
-        "subtitle": "Regulations of the Department of Agriculture",
-        "chapter": "Agricultural Marketing Service (Standards, Inspections, Marketing Practices), Department of Agriculture",
-        "subchapter": "Requirements and Standards Under the Agricultural Marketing Act of 1946 and the <strong>Egg</strong> Products Inspection Act",
-        "part": "Inspection of <strong>Eggs</strong> (<strong>Egg</strong> Products Inspection Act)",
-        "subpart": "Provisions Governing the Inspection of <strong>Eggs</strong>",
-        "subject_group": "Identification of Restricted <strong>Eggs</strong> or <strong>Egg</strong> Products Not Intended for Human Consumption",
-        "section": "Identification of inedible, unwholesome, or adulterated <strong>egg</strong> products.",
-        "appendix": null
-      },
-      "full_text_excerpt": "All inedible, unwholesome, or adulterated <strong>egg</strong> products shall be identified with the name<span class=\"elipsis\">…</span>address of the processor, the words “Inedible <strong>Egg</strong> Products—Not To Be Used as Human Food.”",
-      "score": 47.084217,
-      "structure_index": 30186,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "effective",
-        "initial"
-      ]
-    },
-    {
-      "starts_on": "2016-10-11",
-      "ends_on": null,
-      "type": "Section",
-      "hierarchy": {
-        "title": "7",
-        "subtitle": "B",
-        "chapter": "I",
-        "subchapter": "C",
-        "part": "57",
-        "subpart": "A",
-        "subject_group": "ECFRa8b77408ebcdbc3",
-        "section": "57.801",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 7",
-        "subtitle": "Subtitle B",
-        "chapter": " Chapter I",
-        "subchapter": "Subchapter C",
-        "part": "Part 57",
-        "subpart": "Subpart A",
-        "subject_group": "Identification of Restricted Eggs or Egg Products Not Intended for Human Consumption",
-        "section": "§ 57.801",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Agriculture",
-        "subtitle": "Regulations of the Department of Agriculture",
-        "chapter": "Agricultural Marketing Service (Standards, Inspections, Marketing Practices), Department of Agriculture",
-        "subchapter": "Regulations and Standards Under the Agricultural Marketing Act of 1946 and the <strong>Egg</strong> Products Inspection Act",
-        "part": "Inspection of <strong>Eggs</strong> (<strong>Egg</strong> Products Inspection Act)",
-        "subpart": "Regulations Governing the Inspection of <strong>Eggs</strong>",
-        "subject_group": "Identification of Restricted <strong>Eggs</strong> or <strong>Egg</strong> Products Not Intended for Human Consumption",
-        "section": "Nest run or washed ungraded <strong>eggs</strong>.",
-        "appendix": null
-      },
-      "full_text_excerpt": "Nest run or washed ungraded <strong>eggs</strong> are exempt from the labeling provisions in § 57.800.<span class=\"elipsis\">…</span> However, when such <strong>eggs</strong> are packed and sold to consumers, they may not exceed the tolerance<span class=\"elipsis\">…</span>restricted <strong>eggs</strong> permitted in the official standards for U.S. Consumer Grade B shell <strong>eggs</strong>. [60",
-      "score": 46.998745,
-      "structure_index": 30190,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "effective",
-        "initial"
-      ]
-    },
-    {
-      "starts_on": "2016-10-11",
-      "ends_on": null,
-      "type": "Section",
-      "hierarchy": {
-        "title": "7",
-        "subtitle": "B",
-        "chapter": "I",
-        "subchapter": "C",
-        "part": "57",
-        "subpart": "A",
-        "subject_group": "ECFR3402d5c33e15b97",
-        "section": "57.45",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 7",
-        "subtitle": "Subtitle B",
-        "chapter": " Chapter I",
-        "subchapter": "Subchapter C",
-        "part": "Part 57",
-        "subpart": "Subpart A",
-        "subject_group": "Eggs Not Intended for Human Food",
-        "section": "§ 57.45",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Agriculture",
-        "subtitle": "Regulations of the Department of Agriculture",
-        "chapter": "Agricultural Marketing Service (Standards, Inspections, Marketing Practices), Department of Agriculture",
-        "subchapter": "Regulations and Standards Under the Agricultural Marketing Act of 1946 and the <strong>Egg</strong> Products Inspection Act",
-        "part": "Inspection of <strong>Eggs</strong> (<strong>Egg</strong> Products Inspection Act)",
-        "subpart": "Regulations Governing the Inspection of <strong>Eggs</strong>",
-        "subject_group": "<strong>Eggs</strong> Not Intended for Human Food",
-        "section": "Prohibition on <strong>eggs</strong> not intended for use as human food.",
-        "appendix": null
-      },
-      "full_text_excerpt": "receive for transportation in commerce, any <strong>eggs</strong> that are not intended for use as human food<span class=\"elipsis\">…</span>(b) No person shall import or export shell <strong>eggs</strong> classified as loss, inedible, or incubator",
-      "score": 45.336918,
-      "structure_index": 30163,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "effective",
-        "initial"
-      ]
-    },
-    {
-      "starts_on": "2020-12-16",
-      "ends_on": "2020-12-27",
-      "type": "Section",
-      "hierarchy": {
-        "title": "9",
-        "subtitle": null,
-        "chapter": "III",
-        "subchapter": "I",
-        "part": "590",
-        "subpart": "A",
-        "subject_group": "ECFRb1ee318b7523f83",
-        "section": "590.45",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 9",
-        "subtitle": null,
-        "chapter": " Chapter III",
-        "subchapter": "Subchapter I",
-        "part": "Part 590",
-        "subpart": "Subpart A",
-        "subject_group": "Eggs and Egg Products Not Intended for Human Food",
-        "section": "§ 590.45",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Animals and Animal Products",
-        "subtitle": null,
-        "chapter": "Food Safety and Inspection Service, Department of Agriculture",
-        "subchapter": "<strong>Egg</strong> Products Inspection",
-        "part": "Inspection of <strong>Eggs</strong> and <strong>Egg</strong> Products (<strong>Egg</strong> Products Inspection Act)",
-        "subpart": "XXX",
-        "subject_group": "<strong>Eggs</strong> and <strong>Egg</strong> Products Not Intended for Human Food",
-        "section": "Prohibition on <strong>eggs</strong> and <strong>egg</strong> products not intended for use as human food.",
-        "appendix": null
-      },
-      "full_text_excerpt": "receive for transportation in commerce, any <strong>eggs</strong> or <strong>egg</strong> products which are not intended for use<span class=\"elipsis\">…</span>export shell <strong>eggs</strong> classified as loss, inedible, or incubator rejects or any <strong>egg</strong> products which<span class=\"elipsis\">…</span>required by the regulations in this part. (c) <strong>Egg</strong> products which are unwholesome, adulterated",
-      "score": 44.81937,
-      "structure_index": 21125,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "cross_reference"
-      ]
-    },
-    {
-      "starts_on": "2020-10-29",
-      "ends_on": "2020-12-15",
-      "type": "Section",
-      "hierarchy": {
-        "title": "9",
-        "subtitle": null,
-        "chapter": "III",
-        "subchapter": "I",
-        "part": "590",
-        "subpart": null,
-        "subject_group": "ECFRdeb1af9c45362b0",
-        "section": "590.45",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 9",
-        "subtitle": null,
-        "chapter": " Chapter III",
-        "subchapter": "Subchapter I",
-        "part": "Part 590",
-        "subpart": null,
-        "subject_group": "Eggs and Egg Products Not Intended for Human Food",
-        "section": "§ 590.45",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Animals and Animal Products",
-        "subtitle": null,
-        "chapter": "Food Safety and Inspection Service, Department of Agriculture",
-        "subchapter": "<strong>Egg</strong> Products Inspection",
-        "part": "Inspection of <strong>Eggs</strong> and <strong>Egg</strong> Products (<strong>Egg</strong> Products Inspection Act)",
-        "subpart": null,
-        "subject_group": "<strong>Eggs</strong> and <strong>Egg</strong> Products Not Intended for Human Food",
-        "section": "Prohibition on <strong>eggs</strong> and <strong>egg</strong> products not intended for use as human food.",
-        "appendix": null
-      },
-      "full_text_excerpt": "receive for transportation in commerce, any <strong>eggs</strong> or <strong>egg</strong> products which are not intended for use<span class=\"elipsis\">…</span>export shell <strong>eggs</strong> classified as loss, inedible, or incubator rejects or any <strong>egg</strong> products which<span class=\"elipsis\">…</span>required by the regulations in this part. (c) <strong>Egg</strong> products which are unwholesome, adulterated",
-      "score": 44.22708,
-      "structure_index": 21124,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "cross_reference"
-      ]
-    },
-    {
-      "starts_on": "2020-10-29",
-      "ends_on": "2020-12-15",
-      "type": "Section",
-      "hierarchy": {
-        "title": "9",
-        "subtitle": null,
-        "chapter": "III",
-        "subchapter": "I",
-        "part": "590",
-        "subpart": null,
-        "subject_group": "ECFRe093b688a6f921f",
-        "section": "590.800",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 9",
-        "subtitle": null,
-        "chapter": " Chapter III",
-        "subchapter": "Subchapter I",
-        "part": "Part 590",
-        "subpart": null,
-        "subject_group": "Identification of Restricted Eggs or Egg Products Not Intended for Human Consumption",
-        "section": "§ 590.800",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Animals and Animal Products",
-        "subtitle": null,
-        "chapter": "Food Safety and Inspection Service, Department of Agriculture",
-        "subchapter": "<strong>Egg</strong> Products Inspection",
-        "part": "Inspection of <strong>Eggs</strong> and <strong>Egg</strong> Products (<strong>Egg</strong> Products Inspection Act)",
-        "subpart": null,
-        "subject_group": "Identification of Restricted <strong>Eggs</strong> or <strong>Egg</strong> Products Not Intended for Human Consumption",
-        "section": "Identification of restricted <strong>eggs</strong>.",
-        "appendix": null
-      },
-      "full_text_excerpt": "2020. The shipping container of restricted <strong>eggs</strong> shall be determined to be satisfactorily<span class=\"elipsis\">…</span>packer's name and address, the quality of the <strong>eggs</strong> in the container (e.g., dirties, checks,<span class=\"elipsis\">…</span>statement “Restricted <strong>Eggs</strong> - For Processing Only In An Official USDA <strong>Egg</strong> Products Plant,” for",
-      "score": 44.042213,
-      "structure_index": 21226,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "cross_reference"
-      ]
-    },
-    {
-      "starts_on": "2020-12-16",
-      "ends_on": "2020-12-27",
-      "type": "Section",
-      "hierarchy": {
-        "title": "9",
-        "subtitle": null,
-        "chapter": "III",
-        "subchapter": "I",
-        "part": "590",
-        "subpart": "A",
-        "subject_group": "ECFRfbff247a3ef9281",
-        "section": "590.800",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 9",
-        "subtitle": null,
-        "chapter": " Chapter III",
-        "subchapter": "Subchapter I",
-        "part": "Part 590",
-        "subpart": "Subpart A",
-        "subject_group": "Identification of Restricted Eggs or Egg Products Not Intended for Human Consumption",
-        "section": "§ 590.800",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Animals and Animal Products",
-        "subtitle": null,
-        "chapter": "Food Safety and Inspection Service, Department of Agriculture",
-        "subchapter": "<strong>Egg</strong> Products Inspection",
-        "part": "Inspection of <strong>Eggs</strong> and <strong>Egg</strong> Products (<strong>Egg</strong> Products Inspection Act)",
-        "subpart": "XXX",
-        "subject_group": "Identification of Restricted <strong>Eggs</strong> or <strong>Egg</strong> Products Not Intended for Human Consumption",
-        "section": "Identification of restricted <strong>eggs</strong>.",
-        "appendix": null
-      },
-      "full_text_excerpt": "2020. The shipping container of restricted <strong>eggs</strong> shall be determined to be satisfactorily<span class=\"elipsis\">…</span>packer's name and address, the quality of the <strong>eggs</strong> in the container (e.g., dirties, checks,<span class=\"elipsis\">…</span>statement “Restricted <strong>Eggs</strong> - For Processing Only In An Official USDA <strong>Egg</strong> Products Plant,” for",
-      "score": 44.038708,
-      "structure_index": 21227,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "cross_reference"
-      ]
+    "results": [
+        {
+            "starts_on": "2016-10-11",
+            "ends_on": null,
+            "type": "Section",
+            "hierarchy": {
+                "title": "7",
+                "subtitle": "B",
+                "chapter": "I",
+                "subchapter": "C",
+                "part": "57",
+                "subpart": "A",
+                "subject_group": "ECFR09b8e2161239976",
+                "section": "57.720",
+                "appendix": null
+            },
+            "hierarchy_headings": {
+                "title": "Title 7",
+                "subtitle": "Subtitle B",
+                "chapter": " Chapter I",
+                "subchapter": "Subchapter C",
+                "part": "Part 57",
+                "subpart": "Subpart A",
+                "subject_group": "Inspection and Disposition of Restricted Eggs",
+                "section": "\u00a7 57.720",
+                "appendix": null
+            },
+            "headings": {
+                "title": "Agriculture",
+                "subtitle": "Regulations of the Department of Agriculture",
+                "chapter": "Agricultural Marketing Service (Standards, Inspections, Marketing Practices), Department of Agriculture",
+                "subchapter": "Requirements and Standards Under the Agricultural Marketing Act of 1946 and the <strong>Egg</strong> Products Inspection Act",
+                "part": "Inspection of <strong>Eggs</strong> (<strong>Egg</strong> Products Inspection Act)",
+                "subpart": "Provisions Governing the Inspection of <strong>Eggs</strong>",
+                "subject_group": "Inspection and Disposition of Restricted <strong>Eggs</strong>",
+                "section": "Disposition of restricted <strong>eggs</strong>.",
+                "appendix": null
+            },
+            "full_text_excerpt": "(a) <strong>Eggs</strong> classified as checks, dirties, incubator rejects, inedibles, leakers, or loss<span class=\"elipsis\">\u2026</span>shipping directly or indirectly to an official <strong>egg</strong> products processing plant for segregation<span class=\"elipsis\">\u2026</span>accordance with \u00a7 57.800. Inedible and loss <strong>eggs</strong> shall not be intermingled in the same container",
+            "score": 51.916775,
+            "structure_index": 30183,
+            "reserved": false,
+            "removed": false,
+            "change_types": [
+                "effective",
+                "initial"
+            ]
+        },
+        {
+            "starts_on": "2016-10-11",
+            "ends_on": null,
+            "type": "Section",
+            "hierarchy": {
+                "title": "7",
+                "subtitle": "B",
+                "chapter": "I",
+                "subchapter": "C",
+                "part": "57",
+                "subpart": "A",
+                "subject_group": "ECFRa8b77408ebcdbc3",
+                "section": "57.800",
+                "appendix": null
+            },
+            "hierarchy_headings": {
+                "title": "Title 7",
+                "subtitle": "Subtitle B",
+                "chapter": " Chapter I",
+                "subchapter": "Subchapter C",
+                "part": "Part 57",
+                "subpart": "Subpart A",
+                "subject_group": "Identification of Restricted Eggs or Egg Products Not Intended for Human Consumption",
+                "section": "\u00a7 57.800",
+                "appendix": null
+            },
+            "headings": {
+                "title": "Agriculture",
+                "subtitle": "Regulations of the Department of Agriculture",
+                "chapter": "Agricultural Marketing Service (Standards, Inspections, Marketing Practices), Department of Agriculture",
+                "subchapter": "Requirements and Standards Under the Agricultural Marketing Act of 1946 and the <strong>Egg</strong> Products Inspection Act",
+                "part": "Inspection of <strong>Eggs</strong> (<strong>Egg</strong> Products Inspection Act)",
+                "subpart": "Provisions Governing the Inspection of <strong>Eggs</strong>",
+                "subject_group": "Identification of Restricted <strong>Eggs</strong> or <strong>Egg</strong> Products Not Intended for Human Consumption",
+                "section": "Identification of restricted <strong>eggs</strong>.",
+                "appendix": null
+            },
+            "full_text_excerpt": "The shipping container of restricted <strong>eggs</strong> shall be determined to be satisfactorily identified<span class=\"elipsis\">\u2026</span>packer's name and address, the quality of the <strong>eggs</strong> in the container (e.g., dirties, checks,<span class=\"elipsis\">\u2026</span>statement \u201cRestricted <strong>Eggs</strong>\u2014For Processing Only In An Official USDA <strong>Egg</strong> Products Processing",
+            "score": 51.437534,
+            "structure_index": 30184,
+            "reserved": false,
+            "removed": false,
+            "change_types": [
+                "effective",
+                "initial"
+            ]
+        },
+        {
+            "starts_on": "2016-10-11",
+            "ends_on": null,
+            "type": "Section",
+            "hierarchy": {
+                "title": "7",
+                "subtitle": "B",
+                "chapter": "I",
+                "subchapter": "C",
+                "part": "57",
+                "subpart": "A",
+                "subject_group": "ECFR09b8e2161239976",
+                "section": "57.700",
+                "appendix": null
+            },
+            "hierarchy_headings": {
+                "title": "Title 7",
+                "subtitle": "Subtitle B",
+                "chapter": " Chapter I",
+                "subchapter": "Subchapter C",
+                "part": "Part 57",
+                "subpart": "Subpart A",
+                "subject_group": "Inspection and Disposition of Restricted Eggs",
+                "section": "\u00a7 57.700",
+                "appendix": null
+            },
+            "headings": {
+                "title": "Agriculture",
+                "subtitle": "Regulations of the Department of Agriculture",
+                "chapter": "Agricultural Marketing Service (Standards, Inspections, Marketing Practices), Department of Agriculture",
+                "subchapter": "Regulations and Standards Under the Agricultural Marketing Act of 1946 and the <strong>Egg</strong> Products Inspection Act",
+                "part": "Inspection of <strong>Eggs</strong> (<strong>Egg</strong> Products Inspection Act)",
+                "subpart": "Regulations Governing the Inspection of <strong>Eggs</strong>",
+                "subject_group": "Inspection and Disposition of Restricted <strong>Eggs</strong>",
+                "section": "Prohibition on disposition of restricted <strong>eggs</strong>.",
+                "appendix": null
+            },
+            "full_text_excerpt": "restricted <strong>eggs</strong>, except as authorized in \u00a7\u00a7 57.100 and 57.720. (b) No <strong>egg</strong> handler shall<span class=\"elipsis\">\u2026</span>restricted <strong>eggs</strong>, except as authorized in \u00a7\u00a7 57.100 and 57.720. (c) No <strong>egg</strong> handler shall<span class=\"elipsis\">\u2026</span>shall use any restricted <strong>eggs</strong> in the preparation of human food, except as provided in \u00a7\u00a7",
+            "score": 49.519497,
+            "structure_index": 30187,
+            "reserved": false,
+            "removed": false,
+            "change_types": [
+                "effective",
+                "initial"
+            ]
+        }
+    ],
+    "meta": {
+        "current_page": 1,
+        "total_pages": 1608,
+        "total_count": 4824,
+        "max_score": 51.916775,
+        "description": "Changes to sections matching 'eggs' from Department of Agriculture, Bureau of Alcohol, Tobacco, Firearms, and Explosives, Department of Justice, Environmental Protection Agency, United States Fish and Wildlife Service, Department of Interior, Food and Drug Administration, Department of Health and Human Services, or Marine Mammal Commission"
     }
-  ],
-  "meta": {
-    "current_page": 1,
-    "total_pages": 519,
-    "total_count": 5188,
-    "max_score": 49.90513,
-    "description": "Changes to sections matching 'eggs'"
-  }
 }

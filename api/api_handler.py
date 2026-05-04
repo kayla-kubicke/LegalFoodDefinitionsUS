@@ -12,9 +12,9 @@ class ApiHandler:
 	USDA = 'agriculture-department' # Legal and non-binding guidance
 	EPA = 'environmental-protection-agency' # Pesticide-related results
 	FDA = 'food-and-drug-administration' # Legal and non-binding guidance
-	FWS = 'fish-and-wildlife-service' # Wild foods definitions and (?) non-binding guidance
+	FWS = 'fish-and-wildlife-service' # Wild foods definitions and non-binding guidance
 	ATF ='alcohol-tobacco-firearms-and-explosives-bureau' # Booze
-	MMC = 'marine-mammal-commission' # Wild foods definitions and (?) non-binding guidance
+	MMC = 'marine-mammal-commission' # Wild foods definitions and non-binding guidance
 	slug_array = [USDA, FDA, EPA, FWS, ATF, MMC]
 
 	# START: Date parameters
@@ -67,11 +67,6 @@ class ApiHandler:
 		# Generic exception raised if any error is encountered during request.
 		except requests.exceptions.RequestException as error:
 			print(f'Generic exception caught: {error}')
+		# (?): Does this need a another non-requests generic exception?
 	# END: Methods
 # END: ApiHandler Class
-
-# ApiHandler.simple_call('chocolate')
-# import json
-# print(json.dumps(ApiHandler.simple_call('chocolate'), indent=4))
-# print('\n'.join(map(str, ApiHandler.slug_array)))
-# print(ApiHandler.format_agency_parameter(ApiHandler.slug_array))

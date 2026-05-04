@@ -1,152 +1,152 @@
 {
-  "results": [
-    {
-      "starts_on": "2016-12-19",
-      "ends_on": null,
-      "type": "Section",
-      "hierarchy": {
-        "title": "21",
-        "subtitle": null,
-        "chapter": "I",
-        "subchapter": "B",
-        "part": "163",
-        "subpart": "B",
-        "subject_group": null,
-        "section": "163.130",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 21",
-        "subtitle": null,
-        "chapter": " Chapter I",
-        "subchapter": "Subchapter B",
-        "part": "Part 163",
-        "subpart": "Subpart B",
-        "subject_group": null,
-        "section": "§ 163.130",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Food and Drugs",
-        "subtitle": null,
-        "chapter": "Food and Drug Administration, Department of Health and Human Services",
-        "subchapter": "Food for Human Consumption",
-        "part": "Cacao Products",
-        "subpart": "Requirements for Specific Standardized Cacao Products",
-        "subject_group": null,
-        "section": "<strong>Milk</strong> <strong>chocolate</strong>.",
-        "appendix": null
-      },
-      "full_text_excerpt": "(a) Description. (1) <strong>Milk</strong> <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more of the optional dairy ingredients<span class=\"elipsis\">…</span>section. (2) <strong>Milk</strong> <strong>chocolate</strong> contains not less than 10 percent by weight of <strong>chocolate</strong> liquor",
-      "score": 43.82221,
-      "structure_index": 20738,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "effective",
-        "initial"
-      ]
-    },
-    {
-      "starts_on": "2016-12-19",
-      "ends_on": null,
-      "type": "Section",
-      "hierarchy": {
-        "title": "21",
-        "subtitle": null,
-        "chapter": "I",
-        "subchapter": "B",
-        "part": "163",
-        "subpart": "B",
-        "subject_group": null,
-        "section": "163.140",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 21",
-        "subtitle": null,
-        "chapter": " Chapter I",
-        "subchapter": "Subchapter B",
-        "part": "Part 163",
-        "subpart": "Subpart B",
-        "subject_group": null,
-        "section": "§ 163.140",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Food and Drugs",
-        "subtitle": null,
-        "chapter": "Food and Drug Administration, Department of Health and Human Services",
-        "subchapter": "Food for Human Consumption",
-        "part": "Cacao Products",
-        "subpart": "Requirements for Specific Standardized Cacao Products",
-        "subject_group": null,
-        "section": "Skim <strong>milk</strong> <strong>chocolate</strong>.",
-        "appendix": null
-      },
-      "full_text_excerpt": "(a) Description. Skim <strong>milk</strong> <strong>chocolate</strong> is the food that conforms to the standard of identity<span class=\"elipsis\">…</span>label declaration of ingredients for <strong>milk</strong> <strong>chocolate</strong> in § 163.130, except that: (1) The optional<span class=\"elipsis\">…</span>are limited to skim <strong>milk</strong>, evaporated skim <strong>milk</strong>, concentrated skim <strong>milk</strong>, sweetened condensed",
-      "score": 38.270535,
-      "structure_index": 20742,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "effective",
-        "initial"
-      ]
-    },
-    {
-      "starts_on": "2016-12-19",
-      "ends_on": null,
-      "type": "Section",
-      "hierarchy": {
-        "title": "21",
-        "subtitle": null,
-        "chapter": "I",
-        "subchapter": "B",
-        "part": "163",
-        "subpart": "B",
-        "subject_group": null,
-        "section": "163.155",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 21",
-        "subtitle": null,
-        "chapter": " Chapter I",
-        "subchapter": "Subchapter B",
-        "part": "Part 163",
-        "subpart": "Subpart B",
-        "subject_group": null,
-        "section": "§ 163.155",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Food and Drugs",
-        "subtitle": null,
-        "chapter": "Food and Drug Administration, Department of Health and Human Services",
-        "subchapter": "Food for Human Consumption",
-        "part": "Cacao Products",
-        "subpart": "Requirements for Specific Standardized Cacao Products",
-        "subject_group": null,
-        "section": "<strong>Milk</strong> <strong>chocolate</strong> and vegetable fat coating.",
-        "appendix": null
-      },
-      "full_text_excerpt": "(a) Description. <strong>Milk</strong> <strong>chocolate</strong> and vegetable fat coating is the food that conforms to<span class=\"elipsis\">…</span>of ingredients for <strong>milk</strong> <strong>chocolate</strong> in § 163.130 or skim <strong>milk</strong> <strong>chocolate</strong> in § 163.140, except<span class=\"elipsis\">…</span>less than 12 percent by weight of nonfat <strong>milk</strong> solids shall be calculated using only those",
-      "score": 33.22782,
-      "structure_index": 20744,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "effective",
-        "initial"
-      ]
+    "results": [
+        {
+            "starts_on": "2016-12-19",
+            "ends_on": null,
+            "type": "Section",
+            "hierarchy": {
+                "title": "21",
+                "subtitle": null,
+                "chapter": "I",
+                "subchapter": "B",
+                "part": "163",
+                "subpart": "B",
+                "subject_group": null,
+                "section": "163.130",
+                "appendix": null
+            },
+            "hierarchy_headings": {
+                "title": "Title 21",
+                "subtitle": null,
+                "chapter": " Chapter I",
+                "subchapter": "Subchapter B",
+                "part": "Part 163",
+                "subpart": "Subpart B",
+                "subject_group": null,
+                "section": "\u00a7 163.130",
+                "appendix": null
+            },
+            "headings": {
+                "title": "Food and Drugs",
+                "subtitle": null,
+                "chapter": "Food and Drug Administration, Department of Health and Human Services",
+                "subchapter": "Food for Human Consumption",
+                "part": "Cacao Products",
+                "subpart": "Requirements for Specific Standardized Cacao Products",
+                "subject_group": null,
+                "section": "<strong>Milk</strong> <strong>chocolate</strong>.",
+                "appendix": null
+            },
+            "full_text_excerpt": "(a) Description. (1) <strong>Milk</strong> <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">\u2026</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more of the optional dairy ingredients<span class=\"elipsis\">\u2026</span>section. (2) <strong>Milk</strong> <strong>chocolate</strong> contains not less than 10 percent by weight of <strong>chocolate</strong> liquor",
+            "score": 45.829494,
+            "structure_index": 20738,
+            "reserved": false,
+            "removed": false,
+            "change_types": [
+                "effective",
+                "initial"
+            ]
+        },
+        {
+            "starts_on": "2016-12-19",
+            "ends_on": null,
+            "type": "Section",
+            "hierarchy": {
+                "title": "21",
+                "subtitle": null,
+                "chapter": "I",
+                "subchapter": "B",
+                "part": "163",
+                "subpart": "B",
+                "subject_group": null,
+                "section": "163.140",
+                "appendix": null
+            },
+            "hierarchy_headings": {
+                "title": "Title 21",
+                "subtitle": null,
+                "chapter": " Chapter I",
+                "subchapter": "Subchapter B",
+                "part": "Part 163",
+                "subpart": "Subpart B",
+                "subject_group": null,
+                "section": "\u00a7 163.140",
+                "appendix": null
+            },
+            "headings": {
+                "title": "Food and Drugs",
+                "subtitle": null,
+                "chapter": "Food and Drug Administration, Department of Health and Human Services",
+                "subchapter": "Food for Human Consumption",
+                "part": "Cacao Products",
+                "subpart": "Requirements for Specific Standardized Cacao Products",
+                "subject_group": null,
+                "section": "Skim <strong>milk</strong> <strong>chocolate</strong>.",
+                "appendix": null
+            },
+            "full_text_excerpt": "(a) Description. Skim <strong>milk</strong> <strong>chocolate</strong> is the food that conforms to the standard of identity<span class=\"elipsis\">\u2026</span>label declaration of ingredients for <strong>milk</strong> <strong>chocolate</strong> in \u00a7 163.130, except that: (1) The optional<span class=\"elipsis\">\u2026</span>are limited to skim <strong>milk</strong>, evaporated skim <strong>milk</strong>, concentrated skim <strong>milk</strong>, sweetened condensed",
+            "score": 40.277477,
+            "structure_index": 20742,
+            "reserved": false,
+            "removed": false,
+            "change_types": [
+                "effective",
+                "initial"
+            ]
+        },
+        {
+            "starts_on": "2016-12-19",
+            "ends_on": null,
+            "type": "Section",
+            "hierarchy": {
+                "title": "21",
+                "subtitle": null,
+                "chapter": "I",
+                "subchapter": "B",
+                "part": "163",
+                "subpart": "B",
+                "subject_group": null,
+                "section": "163.155",
+                "appendix": null
+            },
+            "hierarchy_headings": {
+                "title": "Title 21",
+                "subtitle": null,
+                "chapter": " Chapter I",
+                "subchapter": "Subchapter B",
+                "part": "Part 163",
+                "subpart": "Subpart B",
+                "subject_group": null,
+                "section": "\u00a7 163.155",
+                "appendix": null
+            },
+            "headings": {
+                "title": "Food and Drugs",
+                "subtitle": null,
+                "chapter": "Food and Drug Administration, Department of Health and Human Services",
+                "subchapter": "Food for Human Consumption",
+                "part": "Cacao Products",
+                "subpart": "Requirements for Specific Standardized Cacao Products",
+                "subject_group": null,
+                "section": "<strong>Milk</strong> <strong>chocolate</strong> and vegetable fat coating.",
+                "appendix": null
+            },
+            "full_text_excerpt": "(a) Description. <strong>Milk</strong> <strong>chocolate</strong> and vegetable fat coating is the food that conforms to<span class=\"elipsis\">\u2026</span>of ingredients for <strong>milk</strong> <strong>chocolate</strong> in \u00a7 163.130 or skim <strong>milk</strong> <strong>chocolate</strong> in \u00a7 163.140, except<span class=\"elipsis\">\u2026</span>less than 12 percent by weight of nonfat <strong>milk</strong> solids shall be calculated using only those",
+            "score": 35.233524,
+            "structure_index": 20744,
+            "reserved": false,
+            "removed": false,
+            "change_types": [
+                "effective",
+                "initial"
+            ]
+        }
+    ],
+    "meta": {
+        "current_page": 1,
+        "total_pages": 28,
+        "total_count": 83,
+        "max_score": 45.829494,
+        "description": "Changes to sections matching 'milk chocolate' from Department of Agriculture, Bureau of Alcohol, Tobacco, Firearms, and Explosives, Department of Justice, Environmental Protection Agency, United States Fish and Wildlife Service, Department of Interior, Food and Drug Administration, Department of Health and Human Services, or Marine Mammal Commission"
     }
-  ],
-  "meta": {
-    "current_page": 1,
-    "total_pages": 35,
-    "total_count": 105,
-    "max_score": 43.82221,
-    "description": "Changes to sections matching 'milk chocolate'"
-  }
 }

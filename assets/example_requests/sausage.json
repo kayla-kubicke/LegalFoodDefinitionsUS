@@ -1,152 +1,152 @@
 {
-  "results": [
-    {
-      "starts_on": "2016-12-20",
-      "ends_on": null,
-      "type": "Section",
-      "hierarchy": {
-        "title": "9",
-        "subtitle": null,
-        "chapter": "III",
-        "subchapter": "A",
-        "part": "319",
-        "subpart": "E",
-        "subject_group": null,
-        "section": "319.140",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 9",
-        "subtitle": null,
-        "chapter": " Chapter III",
-        "subchapter": "Subchapter A",
-        "part": "Part 319",
-        "subpart": "Subpart E",
-        "subject_group": null,
-        "section": "§ 319.140",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Animals and Animal Products",
-        "subtitle": null,
-        "chapter": "Food Safety and Inspection Service, Department of Agriculture",
-        "subchapter": "Agency Organization and Terminology; Mandatory Meat and Poultry Products Inspection and Voluntary Inspection and Certification",
-        "part": "Definitions and Standards of Identity or Composition",
-        "subpart": "<strong>Sausage</strong> Generally: Fresh <strong>Sausage</strong>",
-        "subject_group": null,
-        "section": "<strong>Sausage</strong>.",
-        "appendix": null
-      },
-      "full_text_excerpt": "products consisting partly of poultry, <strong>sausage</strong> is the coarse or finely comminuted meat<span class=\"elipsis\">…</span>substances, and frequently cured. Certain <strong>sausage</strong> as provided for elsewhere in this part<span class=\"elipsis\">…</span>substances may also be used as binders in those <strong>sausages</strong> in which the use of such class of substances",
-      "score": 46.211887,
-      "structure_index": 20391,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "effective",
-        "initial"
-      ]
-    },
-    {
-      "starts_on": "2016-12-20",
-      "ends_on": null,
-      "type": "Section",
-      "hierarchy": {
-        "title": "9",
-        "subtitle": null,
-        "chapter": "III",
-        "subchapter": "A",
-        "part": "319",
-        "subpart": "E",
-        "subject_group": null,
-        "section": "319.143",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 9",
-        "subtitle": null,
-        "chapter": " Chapter III",
-        "subchapter": "Subchapter A",
-        "part": "Part 319",
-        "subpart": "Subpart E",
-        "subject_group": null,
-        "section": "§ 319.143",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Animals and Animal Products",
-        "subtitle": null,
-        "chapter": "Food Safety and Inspection Service, Department of Agriculture",
-        "subchapter": "Agency Organization and Terminology; Mandatory Meat and Poultry Products Inspection and Voluntary Inspection and Certification",
-        "part": "Definitions and Standards of Identity or Composition",
-        "subpart": "<strong>Sausage</strong> Generally: Fresh <strong>Sausage</strong>",
-        "subject_group": null,
-        "section": "Breakfast <strong>sausage</strong>.",
-        "appendix": null
-      },
-      "full_text_excerpt": "“Breakfast <strong>sausage</strong>” is <strong>sausage</strong> prepared with fresh and/or frozen meat; or fresh and/or",
-      "score": 43.476006,
-      "structure_index": 20394,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "effective",
-        "initial"
-      ]
-    },
-    {
-      "starts_on": "2016-12-20",
-      "ends_on": null,
-      "type": "Section",
-      "hierarchy": {
-        "title": "9",
-        "subtitle": null,
-        "chapter": "III",
-        "subchapter": "A",
-        "part": "319",
-        "subpart": "E",
-        "subject_group": null,
-        "section": "319.141",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 9",
-        "subtitle": null,
-        "chapter": " Chapter III",
-        "subchapter": "Subchapter A",
-        "part": "Part 319",
-        "subpart": "Subpart E",
-        "subject_group": null,
-        "section": "§ 319.141",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Animals and Animal Products",
-        "subtitle": null,
-        "chapter": "Food Safety and Inspection Service, Department of Agriculture",
-        "subchapter": "Agency Organization and Terminology; Mandatory Meat and Poultry Products Inspection and Voluntary Inspection and Certification",
-        "part": "Definitions and Standards of Identity or Composition",
-        "subpart": "<strong>Sausage</strong> Generally: Fresh <strong>Sausage</strong>",
-        "subject_group": null,
-        "section": "Fresh pork <strong>sausage</strong>.",
-        "appendix": null
-      },
-      "full_text_excerpt": "“Fresh Pork <strong>Sausage</strong>” is <strong>sausage</strong> prepared with fresh pork or frozen pork or both, but not",
-      "score": 42.78883,
-      "structure_index": 20392,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "effective",
-        "initial"
-      ]
+    "results": [
+        {
+            "starts_on": "2016-12-20",
+            "ends_on": null,
+            "type": "Section",
+            "hierarchy": {
+                "title": "9",
+                "subtitle": null,
+                "chapter": "III",
+                "subchapter": "A",
+                "part": "319",
+                "subpart": "E",
+                "subject_group": null,
+                "section": "319.140",
+                "appendix": null
+            },
+            "hierarchy_headings": {
+                "title": "Title 9",
+                "subtitle": null,
+                "chapter": " Chapter III",
+                "subchapter": "Subchapter A",
+                "part": "Part 319",
+                "subpart": "Subpart E",
+                "subject_group": null,
+                "section": "\u00a7 319.140",
+                "appendix": null
+            },
+            "headings": {
+                "title": "Animals and Animal Products",
+                "subtitle": null,
+                "chapter": "Food Safety and Inspection Service, Department of Agriculture",
+                "subchapter": "Agency Organization and Terminology; Mandatory Meat and Poultry Products Inspection and Voluntary Inspection and Certification",
+                "part": "Definitions and Standards of Identity or Composition",
+                "subpart": "<strong>Sausage</strong> Generally: Fresh <strong>Sausage</strong>",
+                "subject_group": null,
+                "section": "<strong>Sausage</strong>.",
+                "appendix": null
+            },
+            "full_text_excerpt": "products consisting partly of poultry, <strong>sausage</strong> is the coarse or finely comminuted meat<span class=\"elipsis\">\u2026</span>substances, and frequently cured. Certain <strong>sausage</strong> as provided for elsewhere in this part<span class=\"elipsis\">\u2026</span>substances may also be used as binders in those <strong>sausages</strong> in which the use of such class of substances",
+            "score": 48.21966,
+            "structure_index": 20391,
+            "reserved": false,
+            "removed": false,
+            "change_types": [
+                "effective",
+                "initial"
+            ]
+        },
+        {
+            "starts_on": "2016-12-20",
+            "ends_on": null,
+            "type": "Section",
+            "hierarchy": {
+                "title": "9",
+                "subtitle": null,
+                "chapter": "III",
+                "subchapter": "A",
+                "part": "319",
+                "subpart": "E",
+                "subject_group": null,
+                "section": "319.143",
+                "appendix": null
+            },
+            "hierarchy_headings": {
+                "title": "Title 9",
+                "subtitle": null,
+                "chapter": " Chapter III",
+                "subchapter": "Subchapter A",
+                "part": "Part 319",
+                "subpart": "Subpart E",
+                "subject_group": null,
+                "section": "\u00a7 319.143",
+                "appendix": null
+            },
+            "headings": {
+                "title": "Animals and Animal Products",
+                "subtitle": null,
+                "chapter": "Food Safety and Inspection Service, Department of Agriculture",
+                "subchapter": "Agency Organization and Terminology; Mandatory Meat and Poultry Products Inspection and Voluntary Inspection and Certification",
+                "part": "Definitions and Standards of Identity or Composition",
+                "subpart": "<strong>Sausage</strong> Generally: Fresh <strong>Sausage</strong>",
+                "subject_group": null,
+                "section": "Breakfast <strong>sausage</strong>.",
+                "appendix": null
+            },
+            "full_text_excerpt": "\u201cBreakfast <strong>sausage</strong>\u201d is <strong>sausage</strong> prepared with fresh and/or frozen meat; or fresh and/or",
+            "score": 45.484188,
+            "structure_index": 20394,
+            "reserved": false,
+            "removed": false,
+            "change_types": [
+                "effective",
+                "initial"
+            ]
+        },
+        {
+            "starts_on": "2016-12-20",
+            "ends_on": null,
+            "type": "Section",
+            "hierarchy": {
+                "title": "9",
+                "subtitle": null,
+                "chapter": "III",
+                "subchapter": "A",
+                "part": "319",
+                "subpart": "E",
+                "subject_group": null,
+                "section": "319.141",
+                "appendix": null
+            },
+            "hierarchy_headings": {
+                "title": "Title 9",
+                "subtitle": null,
+                "chapter": " Chapter III",
+                "subchapter": "Subchapter A",
+                "part": "Part 319",
+                "subpart": "Subpart E",
+                "subject_group": null,
+                "section": "\u00a7 319.141",
+                "appendix": null
+            },
+            "headings": {
+                "title": "Animals and Animal Products",
+                "subtitle": null,
+                "chapter": "Food Safety and Inspection Service, Department of Agriculture",
+                "subchapter": "Agency Organization and Terminology; Mandatory Meat and Poultry Products Inspection and Voluntary Inspection and Certification",
+                "part": "Definitions and Standards of Identity or Composition",
+                "subpart": "<strong>Sausage</strong> Generally: Fresh <strong>Sausage</strong>",
+                "subject_group": null,
+                "section": "Fresh pork <strong>sausage</strong>.",
+                "appendix": null
+            },
+            "full_text_excerpt": "\u201cFresh Pork <strong>Sausage</strong>\u201d is <strong>sausage</strong> prepared with fresh pork or frozen pork or both, but not",
+            "score": 44.79537,
+            "structure_index": 20392,
+            "reserved": false,
+            "removed": false,
+            "change_types": [
+                "effective",
+                "initial"
+            ]
+        }
+    ],
+    "meta": {
+        "current_page": 1,
+        "total_pages": 23,
+        "total_count": 69,
+        "max_score": 48.21966,
+        "description": "Changes to sections matching 'sausage' from Department of Agriculture, Bureau of Alcohol, Tobacco, Firearms, and Explosives, Department of Justice, Environmental Protection Agency, United States Fish and Wildlife Service, Department of Interior, Food and Drug Administration, Department of Health and Human Services, or Marine Mammal Commission"
     }
-  ],
-  "meta": {
-    "current_page": 1,
-    "total_pages": 29,
-    "total_count": 87,
-    "max_score": 46.211887,
-    "description": "Changes to sections matching 'sausage'"
-  }
 }

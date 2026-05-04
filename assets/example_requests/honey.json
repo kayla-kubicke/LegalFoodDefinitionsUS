@@ -1,152 +1,152 @@
 {
-  "results": [
-    {
-      "starts_on": "2016-12-14",
-      "ends_on": null,
-      "type": "Section",
-      "hierarchy": {
-        "title": "7",
-        "subtitle": "B",
-        "chapter": "XI",
-        "subchapter": null,
-        "part": "1212",
-        "subpart": "A",
-        "subject_group": "ECFR06cde30db9c21f8",
-        "section": "1212.9",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 7",
-        "subtitle": "Subtitle B",
-        "chapter": " Chapter XI",
-        "subchapter": null,
-        "part": "Part 1212",
-        "subpart": "Subpart A",
-        "subject_group": "Definitions",
-        "section": "§ 1212.9",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Agriculture",
-        "subtitle": "Regulations of the Department of Agriculture",
-        "chapter": "Agricultural Marketing Service (Marketing Agreements and Orders; Miscellaneous Commodities), Department of Agriculture",
-        "subchapter": null,
-        "part": "<strong>Honey</strong> Packers and Importers Research, Promotion, Consumer Education and Industry Information Order",
-        "subpart": "<strong>Honey</strong> Packers and Importers Research, Promotion, Consumer Education, and Industry Information Order",
-        "subject_group": "Definitions",
-        "section": "<strong>Honey</strong>.",
-        "appendix": null
-      },
-      "full_text_excerpt": "“<strong>Honey</strong>” means the nectar and saccharine exudations of plants that are gathered, modified<span class=\"elipsis\">…</span>in the comb by honeybees, including comb <strong>honey</strong>.",
-      "score": 41.58813,
-      "structure_index": 100460,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "effective",
-        "initial"
-      ]
-    },
-    {
-      "starts_on": "2016-12-14",
-      "ends_on": null,
-      "type": "Section",
-      "hierarchy": {
-        "title": "7",
-        "subtitle": "B",
-        "chapter": "XI",
-        "subchapter": null,
-        "part": "1212",
-        "subpart": "A",
-        "subject_group": "ECFR06cde30db9c21f8",
-        "section": "1212.10",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 7",
-        "subtitle": "Subtitle B",
-        "chapter": " Chapter XI",
-        "subchapter": null,
-        "part": "Part 1212",
-        "subpart": "Subpart A",
-        "subject_group": "Definitions",
-        "section": "§ 1212.10",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Agriculture",
-        "subtitle": "Regulations of the Department of Agriculture",
-        "chapter": "Agricultural Marketing Service (Marketing Agreements and Orders; Miscellaneous Commodities), Department of Agriculture",
-        "subchapter": null,
-        "part": "<strong>Honey</strong> Packers and Importers Research, Promotion, Consumer Education and Industry Information Order",
-        "subpart": "<strong>Honey</strong> Packers and Importers Research, Promotion, Consumer Education, and Industry Information Order",
-        "subject_group": "Definitions",
-        "section": "<strong>Honey</strong> products.",
-        "appendix": null
-      },
-      "full_text_excerpt": "“<strong>Honey</strong> products” mean products where <strong>honey</strong> is a principal ingredient. For purposes of<span class=\"elipsis\">…</span>have <strong>honey</strong> as a principal ingredient if the product contains at least 50% <strong>honey</strong> by weight",
-      "score": 39.643753,
-      "structure_index": 100461,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "effective",
-        "initial"
-      ]
-    },
-    {
-      "starts_on": "2019-02-04",
-      "ends_on": null,
-      "type": "Section",
-      "hierarchy": {
-        "title": "7",
-        "subtitle": "B",
-        "chapter": "XI",
-        "subchapter": null,
-        "part": "1212",
-        "subpart": "A",
-        "subject_group": "ECFRea145b504959c6c",
-        "section": "1212.42",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 7",
-        "subtitle": "Subtitle B",
-        "chapter": " Chapter XI",
-        "subchapter": null,
-        "part": "Part 1212",
-        "subpart": "Subpart A",
-        "subject_group": "National Honey Board",
-        "section": "§ 1212.42",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Agriculture",
-        "subtitle": "Regulations of the Department of Agriculture",
-        "chapter": "Agricultural Marketing Service (Marketing Agreements and Orders; Miscellaneous Commodities), Department of Agriculture",
-        "subchapter": null,
-        "part": "<strong>Honey</strong> Packers and Importers Research, Promotion, Consumer Education and Industry Information Order",
-        "subpart": "<strong>Honey</strong> Packers and Importers Research, Promotion, Consumer Education, and Industry Information Order",
-        "subject_group": "National <strong>Honey</strong> Board",
-        "section": "Nominations and appointments.",
-        "appendix": null
-      },
-      "full_text_excerpt": "the purposes of this subpart, a national <strong>honey</strong>-marketing cooperative means any entity that<span class=\"elipsis\">…</span>and markets <strong>honey</strong> or <strong>honey</strong> products in at least 20 states. All national <strong>honey</strong>-marketing<span class=\"elipsis\">…</span>officer, director, or employee of a national <strong>honey</strong> marketing cooperative for the cooperative",
-      "score": 33.910275,
-      "structure_index": 100488,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "effective_cross_reference",
-        "cross_reference"
-      ]
+    "results": [
+        {
+            "starts_on": "2016-12-14",
+            "ends_on": null,
+            "type": "Section",
+            "hierarchy": {
+                "title": "7",
+                "subtitle": "B",
+                "chapter": "XI",
+                "subchapter": null,
+                "part": "1212",
+                "subpart": "A",
+                "subject_group": "ECFR06cde30db9c21f8",
+                "section": "1212.9",
+                "appendix": null
+            },
+            "hierarchy_headings": {
+                "title": "Title 7",
+                "subtitle": "Subtitle B",
+                "chapter": " Chapter XI",
+                "subchapter": null,
+                "part": "Part 1212",
+                "subpart": "Subpart A",
+                "subject_group": "Definitions",
+                "section": "\u00a7 1212.9",
+                "appendix": null
+            },
+            "headings": {
+                "title": "Agriculture",
+                "subtitle": "Regulations of the Department of Agriculture",
+                "chapter": "Agricultural Marketing Service (Marketing Agreements and Orders; Miscellaneous Commodities), Department of Agriculture",
+                "subchapter": null,
+                "part": "<strong>Honey</strong> Packers and Importers Research, Promotion, Consumer Education and Industry Information Order",
+                "subpart": "<strong>Honey</strong> Packers and Importers Research, Promotion, Consumer Education, and Industry Information Order",
+                "subject_group": "Definitions",
+                "section": "<strong>Honey</strong>.",
+                "appendix": null
+            },
+            "full_text_excerpt": "\u201c<strong>Honey</strong>\u201d means the nectar and saccharine exudations of plants that are gathered, modified<span class=\"elipsis\">\u2026</span>in the comb by honeybees, including comb <strong>honey</strong>.",
+            "score": 43.60005,
+            "structure_index": 100460,
+            "reserved": false,
+            "removed": false,
+            "change_types": [
+                "effective",
+                "initial"
+            ]
+        },
+        {
+            "starts_on": "2016-12-14",
+            "ends_on": null,
+            "type": "Section",
+            "hierarchy": {
+                "title": "7",
+                "subtitle": "B",
+                "chapter": "XI",
+                "subchapter": null,
+                "part": "1212",
+                "subpart": "A",
+                "subject_group": "ECFR06cde30db9c21f8",
+                "section": "1212.10",
+                "appendix": null
+            },
+            "hierarchy_headings": {
+                "title": "Title 7",
+                "subtitle": "Subtitle B",
+                "chapter": " Chapter XI",
+                "subchapter": null,
+                "part": "Part 1212",
+                "subpart": "Subpart A",
+                "subject_group": "Definitions",
+                "section": "\u00a7 1212.10",
+                "appendix": null
+            },
+            "headings": {
+                "title": "Agriculture",
+                "subtitle": "Regulations of the Department of Agriculture",
+                "chapter": "Agricultural Marketing Service (Marketing Agreements and Orders; Miscellaneous Commodities), Department of Agriculture",
+                "subchapter": null,
+                "part": "<strong>Honey</strong> Packers and Importers Research, Promotion, Consumer Education and Industry Information Order",
+                "subpart": "<strong>Honey</strong> Packers and Importers Research, Promotion, Consumer Education, and Industry Information Order",
+                "subject_group": "Definitions",
+                "section": "<strong>Honey</strong> products.",
+                "appendix": null
+            },
+            "full_text_excerpt": "\u201c<strong>Honey</strong> products\u201d mean products where <strong>honey</strong> is a principal ingredient. For purposes of<span class=\"elipsis\">\u2026</span>have <strong>honey</strong> as a principal ingredient if the product contains at least 50% <strong>honey</strong> by weight",
+            "score": 41.656357,
+            "structure_index": 100461,
+            "reserved": false,
+            "removed": false,
+            "change_types": [
+                "effective",
+                "initial"
+            ]
+        },
+        {
+            "starts_on": "2019-02-04",
+            "ends_on": null,
+            "type": "Section",
+            "hierarchy": {
+                "title": "7",
+                "subtitle": "B",
+                "chapter": "XI",
+                "subchapter": null,
+                "part": "1212",
+                "subpart": "A",
+                "subject_group": "ECFRea145b504959c6c",
+                "section": "1212.42",
+                "appendix": null
+            },
+            "hierarchy_headings": {
+                "title": "Title 7",
+                "subtitle": "Subtitle B",
+                "chapter": " Chapter XI",
+                "subchapter": null,
+                "part": "Part 1212",
+                "subpart": "Subpart A",
+                "subject_group": "National Honey Board",
+                "section": "\u00a7 1212.42",
+                "appendix": null
+            },
+            "headings": {
+                "title": "Agriculture",
+                "subtitle": "Regulations of the Department of Agriculture",
+                "chapter": "Agricultural Marketing Service (Marketing Agreements and Orders; Miscellaneous Commodities), Department of Agriculture",
+                "subchapter": null,
+                "part": "<strong>Honey</strong> Packers and Importers Research, Promotion, Consumer Education and Industry Information Order",
+                "subpart": "<strong>Honey</strong> Packers and Importers Research, Promotion, Consumer Education, and Industry Information Order",
+                "subject_group": "National <strong>Honey</strong> Board",
+                "section": "Nominations and appointments.",
+                "appendix": null
+            },
+            "full_text_excerpt": "the purposes of this subpart, a national <strong>honey</strong>-marketing cooperative means any entity that<span class=\"elipsis\">\u2026</span>and markets <strong>honey</strong> or <strong>honey</strong> products in at least 20 states. All national <strong>honey</strong>-marketing<span class=\"elipsis\">\u2026</span>officer, director, or employee of a national <strong>honey</strong> marketing cooperative for the cooperative",
+            "score": 35.92162,
+            "structure_index": 100488,
+            "reserved": false,
+            "removed": false,
+            "change_types": [
+                "effective_cross_reference",
+                "cross_reference"
+            ]
+        }
+    ],
+    "meta": {
+        "current_page": 1,
+        "total_pages": 169,
+        "total_count": 507,
+        "max_score": 43.60005,
+        "description": "Changes to sections matching 'honey' from Department of Agriculture, Bureau of Alcohol, Tobacco, Firearms, and Explosives, Department of Justice, Environmental Protection Agency, United States Fish and Wildlife Service, Department of Interior, Food and Drug Administration, Department of Health and Human Services, or Marine Mammal Commission"
     }
-  ],
-  "meta": {
-    "current_page": 1,
-    "total_pages": 188,
-    "total_count": 562,
-    "max_score": 41.58813,
-    "description": "Changes to sections matching 'honey'"
-  }
 }

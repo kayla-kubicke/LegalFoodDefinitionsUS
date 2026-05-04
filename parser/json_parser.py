@@ -29,7 +29,7 @@ class JSONParser:
 		# but I don't actually know so I'll return an array.
 		agency_array = []
 
-		agencies = example_handler.example_response('agencies') # Make constant?
+		agencies = example_handler.example_response('agency_data', 'agencies') # Make constant?
 
 		# Can't avoid nested for loops because of the json's structure.
 		for agency in agencies['agencies']:
@@ -73,9 +73,3 @@ class JSONParser:
 	# search_results_list(response) DEPRECIATED
 	# END: Methods
 # END: JSONParser Class
-
-# array_printer.array_custom_print(JSONParser.search_results_list(example_handler.example_response('sourdough')))
-# dictionary_printer.dict_key_custom_print(JSONParser.search_results_dict(example_handler.example_response('sourdough')))
-
-# thing = JSONParser.agencies_responsible_for_title_and_chapter(25, 'VII')
-# print('\n'.join(map(str, thing)))

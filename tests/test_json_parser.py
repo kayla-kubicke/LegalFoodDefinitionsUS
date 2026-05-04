@@ -10,9 +10,9 @@ from api.example_handler import ExampleHandler as example_handler
 # START: TestJSONParser Class
 class TestJSONParser(unittest.TestCase):
 	# START: Constants
-	CHOCOLATE_REPSONSE = example_handler.example_response('chocolate')
-	SOURDOUGH_REPSONSE = example_handler.example_response('sourdough')
-	AGENCIES_DATA = example_handler.example_response('agencies')
+	CHOCOLATE_REPSONSE = example_handler.example_response('example_requests', 'chocolate')
+	SOURDOUGH_REPSONSE = example_handler.example_response('example_requests', 'sourdough')
+	AGENCIES_DATA = example_handler.example_response('agency_data', 'agencies')
 	# END: Constants
 
 	# START: Tests
@@ -46,11 +46,10 @@ class TestJSONParser(unittest.TestCase):
 	def test_results_found_search_results_dict(self):
 		dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
 
-		expected_dict = {'<strong>Milk</strong> <strong>chocolate</strong>.': '(a) Description. (1) <strong>Milk</strong> <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more of the optional dairy ingredients<span class=\"elipsis\">…</span>section. (2) <strong>Milk</strong> <strong>chocolate</strong> contains not less than 10 percent by weight of <strong>chocolate</strong> liquor',
-		'Skim <strong>milk</strong> <strong>chocolate</strong>.': '(a) Description. Skim <strong>milk</strong> <strong>chocolate</strong> is the food that conforms to the standard of identity<span class=\"elipsis\">…</span>label declaration of ingredients for <strong>milk</strong> <strong>chocolate</strong> in § 163.130, except that: (1) The optional<span class=\"elipsis\">…</span>are limited to skim <strong>milk</strong>, evaporated skim <strong>milk</strong>, concentrated skim <strong>milk</strong>, sweetened condensed',
-		'<strong>Milk</strong> <strong>chocolate</strong> and vegetable fat coating.': '(a) Description. <strong>Milk</strong> <strong>chocolate</strong> and vegetable fat coating is the food that conforms to<span class=\"elipsis\">…</span>of ingredients for <strong>milk</strong> <strong>chocolate</strong> in § 163.130 or skim <strong>milk</strong> <strong>chocolate</strong> in § 163.140, except<span class=\"elipsis\">…</span>less than 12 percent by weight of nonfat <strong>milk</strong> solids shall be calculated using only those',
-		'Sweet <strong>chocolate</strong>.': '(a) Description. (1) Sweet <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more optional nutritive carbohydrate<span class=\"elipsis\">…</span>(2) Sweet <strong>chocolate</strong> contains not less than 15 percent by weight of <strong>chocolate</strong> liquor complying',
-		'White <strong>chocolate</strong>.': '(a) Description. (1) White <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">…</span>section. White <strong>chocolate</strong> shall be free of coloring material. (2) White <strong>chocolate</strong> contains not<span class=\"elipsis\">…</span>white <strong>chocolate</strong>, and multiplying the quotient by 100. The finished white <strong>chocolate</strong> contains',
+		expected_dict = {
+			'Milk <strong>chocolate</strong>.': '(a) Description. (1) Milk <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class="elipsis">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more of the optional dairy ingredients<span class="elipsis">…</span>(2) Milk <strong>chocolate</strong> contains not less than 10 percent by weight of <strong>chocolate</strong> liquor complying',
+			'Sweet <strong>chocolate</strong>.': '(a) Description. (1) Sweet <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class="elipsis">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more optional nutritive carbohydrate<span class="elipsis">…</span>(2) Sweet <strong>chocolate</strong> contains not less than 15 percent by weight of <strong>chocolate</strong> liquor complying',
+			'White <strong>chocolate</strong>.': '(a) Description. (1) White <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class="elipsis">…</span>section. White <strong>chocolate</strong> shall be free of coloring material. (2) White <strong>chocolate</strong> contains not<span class="elipsis">…</span>white <strong>chocolate</strong>, and multiplying the quotient by 100. The finished white <strong>chocolate</strong> contains'
 		}
 
 		self.assertEqual(dict_returned, expected_dict)
@@ -65,11 +64,11 @@ class TestJSONParser(unittest.TestCase):
 	def test_results_found_search_results_list(self):
 		array_returned = json_parser.search_results_list(TestJSONParser.CHOCOLATE_REPSONSE)
 
-		array_expected = ['<strong>Milk</strong> <strong>chocolate</strong>.',
-		'Skim <strong>milk</strong> <strong>chocolate</strong>.',
-		'<strong>Milk</strong> <strong>chocolate</strong> and vegetable fat coating.',
-		'Sweet <strong>chocolate</strong>.',
-		'White <strong>chocolate</strong>.']
+		array_expected = [
+			'Milk <strong>chocolate</strong>.',
+			'Sweet <strong>chocolate</strong>.',
+			'White <strong>chocolate</strong>.'
+		]
 
 		self.assertEqual(array_returned, array_expected)
 

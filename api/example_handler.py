@@ -5,9 +5,12 @@ class ExampleHandler:
 	# Generates a static response dict object to avoid
 	# unnecessary api calls.
 	# RETURNS canned response dict object
-	def example_response(query):
+	# Since I'm just using the method for testing purpose, for now,
+	# I'm going to build the method with another param for the directory
+	# location. I'll stick to this convention.
+	def example_response(type, query):
 		try:
-			with open(f'assets/example_requests/{query}.json', 'r') as file:
+			with open(f'assets/{type}/{query}.json', 'r') as file:
 				example = json.load(file)
 
 			return example

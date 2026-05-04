@@ -13,7 +13,7 @@ from unittest.mock import patch, mock_open
 class TestExampleHandler(unittest.TestCase):
 	# START: Tests
 	def test_example_response_returns_expected_object(self):
-		object_returned = example_handler.example_response('chocolate')
+		object_returned = example_handler.example_response('example_requests','chocolate')
 
 		self.assertIsInstance(object_returned, dict)
 
@@ -22,7 +22,7 @@ class TestExampleHandler(unittest.TestCase):
 		string_buffer = io.StringIO()
 
 		with redirect_stdout(string_buffer):
-			example_handler.example_response('invalidfile')
+			example_handler.example_response('example_requests', 'invalidfile')
 
 		captured_output = string_buffer.getvalue()
 
@@ -34,7 +34,7 @@ class TestExampleHandler(unittest.TestCase):
 		string_buffer = io.StringIO()
 		patch.side_effect = Exception('generic exception')
 		with redirect_stdout(string_buffer):
-			example_handler.example_response(patch)
+			example_handler.example_response(patch, 'query')
 
 		captured_output = string_buffer.getvalue()
 

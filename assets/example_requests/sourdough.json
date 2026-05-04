@@ -1,149 +1,149 @@
 {
-  "results": [
-    {
-      "starts_on": "2022-11-02",
-      "ends_on": "2024-02-28",
-      "type": "Section",
-      "hierarchy": {
-        "title": "50",
-        "subtitle": null,
-        "chapter": "I",
-        "subchapter": "H",
-        "part": "100",
-        "subpart": "C",
-        "subject_group": null,
-        "section": "100.24",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 50",
-        "subtitle": null,
-        "chapter": " Chapter I",
-        "subchapter": "Subchapter H",
-        "part": "Part 100",
-        "subpart": "Subpart C",
-        "subject_group": null,
-        "section": "§ 100.24",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Wildlife and Fisheries",
-        "subtitle": null,
-        "chapter": "United States Fish and Wildlife Service, Department of the Interior",
-        "subchapter": "National Wildlife Monuments",
-        "part": "Subsistence Management Regulations for Public Lands in Alaska",
-        "subpart": "Board Determinations",
-        "subject_group": null,
-        "section": "Customary and traditional use determinations.",
-        "appendix": null
-      },
-      "full_text_excerpt": "Mentasta Lake, Nabesna, Northway, Paxson-<strong>Sourdough</strong>, Slana, Tanacross, Tazlina, Tetlin, Tok<span class=\"elipsis\">…</span>Mentasta Lake, Nabesna, Northway, Paxson-<strong>Sourdough</strong>, Slana, Tanacross, Tazlina, Tetlin, Tok",
-      "score": 3.468329,
-      "structure_index": 90865,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "effective"
-      ]
-    },
-    {
-      "starts_on": "2022-07-26",
-      "ends_on": "2024-02-28",
-      "type": "Section",
-      "hierarchy": {
-        "title": "36",
-        "subtitle": null,
-        "chapter": "II",
-        "subchapter": null,
-        "part": "242",
-        "subpart": "C",
-        "subject_group": null,
-        "section": "242.24",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 36",
-        "subtitle": null,
-        "chapter": " Chapter II",
-        "subchapter": null,
-        "part": "Part 242",
-        "subpart": "Subpart C",
-        "subject_group": null,
-        "section": "§ 242.24",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Parks, Forests, and Public Property",
-        "subtitle": null,
-        "chapter": "Forest Service, Department of Agriculture",
-        "subchapter": null,
-        "part": "Subsistence Management Regulations for Public Lands in Alaska",
-        "subpart": "Board Determinations",
-        "subject_group": null,
-        "section": "Customary and traditional use determinations.",
-        "appendix": null
-      },
-      "full_text_excerpt": "Mentasta Lake, Nabesna, Northway, Paxson-<strong>Sourdough</strong>, Slana, Tanacross, Tazlina, Tetlin, Tok<span class=\"elipsis\">…</span>Mentasta Lake, Nabesna, Northway, Paxson-<strong>Sourdough</strong>, Slana, Tanacross, Tazlina, Tetlin, Tok",
-      "score": 3.3589885,
-      "structure_index": 20392,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "effective"
-      ]
-    },
-    {
-      "starts_on": "2020-11-23",
-      "ends_on": "2022-07-25",
-      "type": "Section",
-      "hierarchy": {
-        "title": "36",
-        "subtitle": null,
-        "chapter": "II",
-        "subchapter": null,
-        "part": "242",
-        "subpart": "C",
-        "subject_group": null,
-        "section": "242.24",
-        "appendix": null
-      },
-      "hierarchy_headings": {
-        "title": "Title 36",
-        "subtitle": null,
-        "chapter": " Chapter II",
-        "subchapter": null,
-        "part": "Part 242",
-        "subpart": "Subpart C",
-        "subject_group": null,
-        "section": "§ 242.24",
-        "appendix": null
-      },
-      "headings": {
-        "title": "Parks, Forests, and Public Property",
-        "subtitle": null,
-        "chapter": "Forest Service, Department of Agriculture",
-        "subchapter": null,
-        "part": "Subsistence Management Regulations for Public Lands in Alaska",
-        "subpart": "Board Determinations",
-        "subject_group": null,
-        "section": "Customary and traditional use determinations.",
-        "appendix": null
-      },
-      "full_text_excerpt": "Mentasta Lake, Nabesna, Northway, Paxson-<strong>Sourdough</strong>, Slana, Tanacross, Tazlina, Tetlin, Tok<span class=\"elipsis\">…</span>Mentasta Lake, Nabesna, Northway, Paxson-<strong>Sourdough</strong>, Slana, Tanacross, Tazlina, Tetlin, Tok",
-      "score": 3.3022344,
-      "structure_index": 20392,
-      "reserved": false,
-      "removed": false,
-      "change_types": [
-        "effective"
-      ]
+    "results": [
+        {
+            "starts_on": "2022-11-02",
+            "ends_on": "2024-02-28",
+            "type": "Section",
+            "hierarchy": {
+                "title": "50",
+                "subtitle": null,
+                "chapter": "I",
+                "subchapter": "H",
+                "part": "100",
+                "subpart": "C",
+                "subject_group": null,
+                "section": "100.24",
+                "appendix": null
+            },
+            "hierarchy_headings": {
+                "title": "Title 50",
+                "subtitle": null,
+                "chapter": " Chapter I",
+                "subchapter": "Subchapter H",
+                "part": "Part 100",
+                "subpart": "Subpart C",
+                "subject_group": null,
+                "section": "\u00a7 100.24",
+                "appendix": null
+            },
+            "headings": {
+                "title": "Wildlife and Fisheries",
+                "subtitle": null,
+                "chapter": "United States Fish and Wildlife Service, Department of the Interior",
+                "subchapter": "National Wildlife Monuments",
+                "part": "Subsistence Management Regulations for Public Lands in Alaska",
+                "subpart": "Board Determinations",
+                "subject_group": null,
+                "section": "Customary and traditional use determinations.",
+                "appendix": null
+            },
+            "full_text_excerpt": "Mentasta Lake, Nabesna, Northway, Paxson-<strong>Sourdough</strong>, Slana, Tanacross, Tazlina, Tetlin, Tok<span class=\"elipsis\">\u2026</span>Mentasta Lake, Nabesna, Northway, Paxson-<strong>Sourdough</strong>, Slana, Tanacross, Tazlina, Tetlin, Tok",
+            "score": 5.4698195,
+            "structure_index": 90865,
+            "reserved": false,
+            "removed": false,
+            "change_types": [
+                "effective"
+            ]
+        },
+        {
+            "starts_on": "2022-07-26",
+            "ends_on": "2024-02-28",
+            "type": "Section",
+            "hierarchy": {
+                "title": "36",
+                "subtitle": null,
+                "chapter": "II",
+                "subchapter": null,
+                "part": "242",
+                "subpart": "C",
+                "subject_group": null,
+                "section": "242.24",
+                "appendix": null
+            },
+            "hierarchy_headings": {
+                "title": "Title 36",
+                "subtitle": null,
+                "chapter": " Chapter II",
+                "subchapter": null,
+                "part": "Part 242",
+                "subpart": "Subpart C",
+                "subject_group": null,
+                "section": "\u00a7 242.24",
+                "appendix": null
+            },
+            "headings": {
+                "title": "Parks, Forests, and Public Property",
+                "subtitle": null,
+                "chapter": "Forest Service, Department of Agriculture",
+                "subchapter": null,
+                "part": "Subsistence Management Regulations for Public Lands in Alaska",
+                "subpart": "Board Determinations",
+                "subject_group": null,
+                "section": "Customary and traditional use determinations.",
+                "appendix": null
+            },
+            "full_text_excerpt": "Mentasta Lake, Nabesna, Northway, Paxson-<strong>Sourdough</strong>, Slana, Tanacross, Tazlina, Tetlin, Tok<span class=\"elipsis\">\u2026</span>Mentasta Lake, Nabesna, Northway, Paxson-<strong>Sourdough</strong>, Slana, Tanacross, Tazlina, Tetlin, Tok",
+            "score": 5.3592196,
+            "structure_index": 20392,
+            "reserved": false,
+            "removed": false,
+            "change_types": [
+                "effective"
+            ]
+        },
+        {
+            "starts_on": "2020-11-23",
+            "ends_on": "2022-07-25",
+            "type": "Section",
+            "hierarchy": {
+                "title": "36",
+                "subtitle": null,
+                "chapter": "II",
+                "subchapter": null,
+                "part": "242",
+                "subpart": "C",
+                "subject_group": null,
+                "section": "242.24",
+                "appendix": null
+            },
+            "hierarchy_headings": {
+                "title": "Title 36",
+                "subtitle": null,
+                "chapter": " Chapter II",
+                "subchapter": null,
+                "part": "Part 242",
+                "subpart": "Subpart C",
+                "subject_group": null,
+                "section": "\u00a7 242.24",
+                "appendix": null
+            },
+            "headings": {
+                "title": "Parks, Forests, and Public Property",
+                "subtitle": null,
+                "chapter": "Forest Service, Department of Agriculture",
+                "subchapter": null,
+                "part": "Subsistence Management Regulations for Public Lands in Alaska",
+                "subpart": "Board Determinations",
+                "subject_group": null,
+                "section": "Customary and traditional use determinations.",
+                "appendix": null
+            },
+            "full_text_excerpt": "Mentasta Lake, Nabesna, Northway, Paxson-<strong>Sourdough</strong>, Slana, Tanacross, Tazlina, Tetlin, Tok<span class=\"elipsis\">\u2026</span>Mentasta Lake, Nabesna, Northway, Paxson-<strong>Sourdough</strong>, Slana, Tanacross, Tazlina, Tetlin, Tok",
+            "score": 5.3054533,
+            "structure_index": 20392,
+            "reserved": false,
+            "removed": false,
+            "change_types": [
+                "effective"
+            ]
+        }
+    ],
+    "meta": {
+        "current_page": 1,
+        "total_pages": 11,
+        "total_count": 32,
+        "max_score": 5.4698195,
+        "description": "Changes to sections matching 'sourdough' from Department of Agriculture, Bureau of Alcohol, Tobacco, Firearms, and Explosives, Department of Justice, Environmental Protection Agency, United States Fish and Wildlife Service, Department of Interior, Food and Drug Administration, Department of Health and Human Services, or Marine Mammal Commission"
     }
-  ],
-  "meta": {
-    "current_page": 1,
-    "total_pages": 12,
-    "total_count": 34,
-    "max_score": 3.468329,
-    "description": "Changes to sections matching 'sourdough'"
-  }
 }
