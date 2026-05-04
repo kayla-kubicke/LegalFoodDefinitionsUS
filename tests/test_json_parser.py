@@ -17,8 +17,6 @@ class TestJSONParser(unittest.TestCase):
 
 	# START: Tests
 	def test_title_and_chapter_found_returns_true_if_title_and_chapter_found(self):
-		# Fragile; just trying to get basic testing coverage.
-		# agencies = example_handler.example_response('agencies')
 		agency = TestJSONParser.AGENCIES_DATA['agencies'][0]['children'][0]
 		bool_returned = json_parser.title_and_chapter_found_in_agency_json(agency, 7, 'I')
 
@@ -26,7 +24,6 @@ class TestJSONParser(unittest.TestCase):
 
 
 	def test_title_and_chapter_found_returns_false_if_title_and_chapter_not_found(self):
-		# agencies = example_handler.example_response('agencies')
 		agency = TestJSONParser.AGENCIES_DATA['agencies'][0]['children'][0]
 		bool_returned = json_parser.title_and_chapter_found_in_agency_json(agency, 7, 'V')
 

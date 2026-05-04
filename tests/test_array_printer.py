@@ -10,17 +10,17 @@ from contextlib import redirect_stdout
 class TestArrayPrinter(unittest.TestCase):
 	# START: Tests
 	def test_array_custom_print_outputs_expected_list_to_terminal(self):
-		# Really just tests the map joining stuff, but... better to include basic testing.
 		test_array = ['One', 'Two', 'Three']
-		expected_output = 'One\nTwo\nThree\n'
+		output_expected = 'One\nTwo\nThree\n'
 		string_buffer = io.StringIO()
 
 		with redirect_stdout(string_buffer):
 			array_printer.array_custom_print(test_array)
 
-		captured = string_buffer.getvalue()
+		captured_output = string_buffer.getvalue()
 
-		self.assertEqual(captured, expected_output)
+		self.assertEqual(captured_output, output_expected)
+
 
 	def test_array_custom_print_outputs_expected_message_to_terminal(self):
 		test_array = []
@@ -29,8 +29,8 @@ class TestArrayPrinter(unittest.TestCase):
 		with redirect_stdout(string_buffer):
 			array_printer.array_custom_print(test_array)
 
-		captured = string_buffer.getvalue()
+		captured_output = string_buffer.getvalue()
 
-		self.assertEqual(captured, 'No results found. Food term does not appear in document.\n')
+		self.assertEqual(captured_output, 'No results found. Food term does not appear in document.\n')
 	# END: Tests
 # END: TestArrayPrinter Class
