@@ -1,16 +1,34 @@
-## NOTE: Not using this for build yet.
-# Replaced setup.py with pyproject.toml to avoid arbitrary code execution.
-# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+# # https://packaging.python.org/en/latest/tutorials/packaging-projects/#generating-distribution-archives
+# [build-system]
+# # Chose setuptools just in case I add any C/C++ in the future.
+# # It's not like I'm afraid of difficult environmental
+# # configurations.
+# requires = ['setuptools >= 77.0.3']
+# build-backend = 'setuptools.build_meta'
 
-# I've included the pip list if, for some horrific reason,
-# pip does not automatically install requests' dependencies as expected.
-# Also, I have a list of what's suppose to be here... In case
-# I nuke something.
-# Package            Version
-# ------------------ ---------
-# certifi            2026.2.25
-# charset-normalizer 3.4.7
-# idna               3.11
-# pip                26.0.1
-# requests           2.33.1
-# urllib3            2.6.3
+# [project]
+# name = 'LegalFoodDefinitionsUS_kayla-kubicke'
+# version = '1.0.0'
+# authors = [
+#   { name='kayla-kubicke', email='161649341+kayla-kubicke@users.noreply.github.com' },
+# ]
+# maintainers = [
+#   { name='kayla-kubicke', email='161649341+kayla-kubicke@users.noreply.github.com' },
+# ]
+# description = 'A search tool to navigate food terms regulated by US law.'
+# readme = 'README.md'
+# requires-python = '>=3.9'
+# classifiers = [
+#     'Programming Language :: Python :: 3',
+#     'Operating System :: OS Independent',
+# ]
+# license = 'MIT'
+# license-files = ['LICEN[CS]E*']
+# [project]
+# dependencies = [
+# 	'requests >= 2.33.1'
+# ]
+
+# [project.urls]
+# Homepage = 'https://github.com/kayla-kubicke/LegalFoodDefinitionsUS'
+# Issues = 'https://github.com/kayla-kubicke/LegalFoodDefinitionsUS/issues'

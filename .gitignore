@@ -16,3 +16,4 @@ __pycache__/
 
 # Not included in staging area, but added just in case.
 build
+dist
