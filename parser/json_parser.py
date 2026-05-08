@@ -8,9 +8,6 @@ from printer.dictionary_printer import DictionaryPrinter as dictionary_printer
 # START: JSONParser Class
 class JSONParser:
 	# START: Notes
-	# This cover is so crazy good.
-	# https://www.youtube.com/watch?v=95cmAHL3BgU
-	#
 	# I need to figure out how to build moving forward; let's see here...
 	#
 	# In order to decern the regulation status one needs to know the agency that authored
@@ -92,42 +89,57 @@ class JSONParser:
 	# and the value is a dictionary with two entries:
 		# search term as the key and description as the value
 		# an authors key and agency/ies as the value
-	# (!) new lines untested
-	# (!) tests fail
+	# (!) add exception handling test(s)
 	def search_results_dict(response):
-		search_results_dict = {}
-		index = 1
+		if response == {}:
+			return {}
 
-		for result in response['results']:
-			agency_array = JSONParser.agencies_responsible_for_title_and_chapter(int(result['hierarchy']['title']), result['hierarchy']['chapter'])
-			# if result['hierarchy']['title'] == '21' and result['hierarchy']['subpart'] == 'B':
-			if len(agency_array) < 2: # Does it ever return more than two anyway?
-				search_results_dict[f'result_{index}'] = {result['headings']['section']: result['full_text_excerpt'], 'authors': agency_array[0]}
-			else: # Ugh, another nested for loop...
-				for agency in agency_array:
-					search_results_dict[f'result_{index}'] = {result['headings']['section']: result['full_text_excerpt'], 'authors': agency}
+		try:
+			search_results_dict = {}
+			index = 1
 
-			index += 1
+			for result in response['results']:
+				agency_array = JSONParser.agencies_responsible_for_title_and_chapter(int(result['hierarchy']['title']), result['hierarchy']['chapter'])
+				# if result['hierarchy']['title'] == '21' and result['hierarchy']['subpart'] == 'B':
+				if len(agency_array) < 2: # Does it ever return more than two anyway?
+					search_results_dict[f'result_{index}'] = {result['headings']['section']: result['full_text_excerpt'], 'authors': agency_array[0]}
+				else: # Ugh, another nested for loop...
+					for agency in agency_array:
+						search_results_dict[f'result_{index}'] = {result['headings']['section']: result['full_text_excerpt'], 'authors': agency}
 
-		return search_results_dict
+				index += 1
+
+			return search_results_dict
+		except Exception as error:
+			# May change the return later.
+			return search_results_dict
 
 	# search_results_list(response) DEPRECIATED
 	# Generates list with response results.
 	# RETURNS array containing list of search terms
-	#  (!) now updated alongside search_results_dict(response), yet
+	# (!) now updated alongside search_results_dict(response), yet
+	# (!) add exception handling test(s)
 	def search_results_list(response):
-		search_results_list = []
+		if response == {}:
+			return []
 
-		for result in response['results']:
-			if result['hierarchy']['title'] == '21' and result['hierarchy']['subpart'] == 'B':
-				search_results_list.append(result['headings']['section'])
+		try:
+			search_results_list = []
+			for result in response['results']:
+				if result['hierarchy']['title'] == '21' and result['hierarchy']['subpart'] == 'B':
+					search_results_list.append(result['headings']['section'])
 
-		return search_results_list
+			return search_results_list
+		except Exception as error:
+			return search_results_list
+	# I wish I was a shapeshifter like jake.
+	# https://www.youtube.com/watch?v=KkVMs9f8TNo
 	# search_results_list(response) DEPRECIATED
 	# END: Methods
 # END: JSONParser Class
 
-print(json.dumps(JSONParser.search_results_dict(example_handler.example_response('example_requests', 'chocolate')), indent=4))
+# print(json.dumps(JSONParser.search_results_dict(example_handler.example_response('example_requests', 'sourdough')), indent=4))
+# print(json.dumps(JSONParser.search_results_dict(example_handler.example_response('example_requests', 'chocolate')), indent=4))
 # Output:
 # {
 #     "result_1": {

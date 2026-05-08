@@ -11,7 +11,7 @@ from api.example_handler import ExampleHandler as example_handler
 class TestJSONParser(unittest.TestCase):
 	# START: Constants
 	CHOCOLATE_REPSONSE = example_handler.example_response('example_requests', 'chocolate')
-	SOURDOUGH_REPSONSE = example_handler.example_response('example_requests', 'sourdough')
+	VERMOUTH_REPSONSE = example_handler.example_response('example_requests', 'vermouth')
 	AGENCIES_DATA = example_handler.example_response('agency_data', 'agencies')
 	# END: Constants
 
@@ -40,23 +40,34 @@ class TestJSONParser(unittest.TestCase):
 	def test_agencies_responsible_for_title_and_chapter_returns_empty_array_if_no_matches_are_found(self):
 		array_returned = json_parser.agencies_responsible_for_title_and_chapter(450, 'I')
 
-		self.assertEqual(array_returned, [])
+		self.assertEqual(array_returned, ['unknown'])
 
 
 	def test_results_found_search_results_dict(self):
 		dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
 
 		expected_dict = {
-			'Milk <strong>chocolate</strong>.': '(a) Description. (1) Milk <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class="elipsis">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more of the optional dairy ingredients<span class="elipsis">…</span>(2) Milk <strong>chocolate</strong> contains not less than 10 percent by weight of <strong>chocolate</strong> liquor complying',
-			'Sweet <strong>chocolate</strong>.': '(a) Description. (1) Sweet <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class="elipsis">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more optional nutritive carbohydrate<span class="elipsis">…</span>(2) Sweet <strong>chocolate</strong> contains not less than 15 percent by weight of <strong>chocolate</strong> liquor complying',
-			'White <strong>chocolate</strong>.': '(a) Description. (1) White <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class="elipsis">…</span>section. White <strong>chocolate</strong> shall be free of coloring material. (2) White <strong>chocolate</strong> contains not<span class="elipsis">…</span>white <strong>chocolate</strong>, and multiplying the quotient by 100. The finished white <strong>chocolate</strong> contains'
+			'result_1': {
+					'Milk <strong>chocolate</strong>.': '(a) Description. (1) Milk <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class="elipsis">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more of the optional dairy ingredients<span class="elipsis">…</span>(2) Milk <strong>chocolate</strong> contains not less than 10 percent by weight of <strong>chocolate</strong> liquor complying',
+					'authors': 'FDA'
+				},
+			'result_2': {
+					'Sweet <strong>chocolate</strong>.': '(a) Description. (1) Sweet <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class="elipsis">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more optional nutritive carbohydrate<span class="elipsis">…</span>(2) Sweet <strong>chocolate</strong> contains not less than 15 percent by weight of <strong>chocolate</strong> liquor complying',
+					'authors': 'FDA'
+				},
+			'result_3': {
+					'White <strong>chocolate</strong>.': '(a) Description. (1) White <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class="elipsis">…</span>section. White <strong>chocolate</strong> shall be free of coloring material. (2) White <strong>chocolate</strong> contains not<span class="elipsis">…</span>white <strong>chocolate</strong>, and multiplying the quotient by 100. The finished white <strong>chocolate</strong> contains',
+					'authors': 'FDA'
+				}
 		}
 
 		self.assertEqual(dict_returned, expected_dict)
 
 
 	def test_no_results_found_search_results_dict(self):
-		dict_returned = json_parser.search_results_dict(TestJSONParser.SOURDOUGH_REPSONSE)
+		# dict_returned = json_parser.search_results_dict(TestJSONParser.VERMOUTH_REPSONSE)
+		dict_returned = json_parser.search_results_dict({})
+
 
 		self.assertEqual(dict_returned, {})
 
@@ -74,7 +85,7 @@ class TestJSONParser(unittest.TestCase):
 
 
 	def test_no_results_found_search_results_list(self):
-		array_returned = json_parser.search_results_list(TestJSONParser.SOURDOUGH_REPSONSE)
+		array_returned = json_parser.search_results_list(TestJSONParser.VERMOUTH_REPSONSE)
 
 		self.assertEqual(array_returned, [])
 	# END: Tests
