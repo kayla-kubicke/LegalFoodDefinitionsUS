@@ -1,4 +1,3 @@
-# ADD: Unit tests
 import json
 
 class ExampleHandler:

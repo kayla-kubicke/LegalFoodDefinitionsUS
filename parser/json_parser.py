@@ -61,12 +61,10 @@ class JSONParser:
 
 	# RETURNS an array of matching agencies, if empty no matching agencies
 	# were found
-	# (!) New line untested
 	def agencies_responsible_for_title_and_chapter(title, chapter):
 		# Seems like most chapters are written by only one agency,
 		# but I don't actually know so I'll return an array.
 		agency_array = []
-		# Make constant?
 		agencies = example_handler.example_response('agency_data', 'agencies')
 
 		# Can't avoid nested for loops because of the json's structure.
@@ -90,6 +88,7 @@ class JSONParser:
 		# search term as the key and description as the value
 		# an authors key and agency/ies as the value
 	# (!) add exception handling test(s)
+	# https://www.youtube.com/watch?v=JL8poPA_KR8
 	def search_results_dict(response):
 		if response == {}:
 			return {}
@@ -102,16 +101,16 @@ class JSONParser:
 				agency_array = JSONParser.agencies_responsible_for_title_and_chapter(int(result['hierarchy']['title']), result['hierarchy']['chapter'])
 				# if result['hierarchy']['title'] == '21' and result['hierarchy']['subpart'] == 'B':
 				if len(agency_array) < 2: # Does it ever return more than two anyway?
-					search_results_dict[f'result_{index}'] = {result['headings']['section']: result['full_text_excerpt'], 'authors': agency_array[0]}
-				else: # Ugh, another nested for loop...
+					search_results_dict[f'result_{index}'] = {result['headings']['section']: result['full_text_excerpt'], 'authors': agency_array[0]} # (!) UPDATE
+				else: # Ugh, another nested for loop... Also untested.
 					for agency in agency_array:
-						search_results_dict[f'result_{index}'] = {result['headings']['section']: result['full_text_excerpt'], 'authors': agency}
+						search_results_dict[f'result_{index}'] = {result['headings']['section']: result['full_text_excerpt'], 'authors': agency} # (!) UPDATE
 
 				index += 1
 
 			return search_results_dict
 		except Exception as error:
-			# May change the return later.
+			# May change the return later; returning an empty dict is ambiguous.
 			return search_results_dict
 
 	# search_results_list(response) DEPRECIATED
@@ -130,10 +129,9 @@ class JSONParser:
 					search_results_list.append(result['headings']['section'])
 
 			return search_results_list
+
 		except Exception as error:
 			return search_results_list
-	# I wish I was a shapeshifter like jake.
-	# https://www.youtube.com/watch?v=KkVMs9f8TNo
 	# search_results_list(response) DEPRECIATED
 	# END: Methods
 # END: JSONParser Class

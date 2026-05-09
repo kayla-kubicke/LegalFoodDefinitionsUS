@@ -23,7 +23,7 @@ Even proactive consumers commonly misunderstand food labels. The term 'free rang
 Dev Notes
 ---
 
-05/03: Buidling notes; some pseudocode in future.
+05/03: Buidling notes; some pseudocode in future. Adding testing for untested lines.
 
 
 Configuration
