@@ -2,6 +2,7 @@
 # 'python3 -m unittest tests/test_json_parser.py'
 
 # NOTE: Test suite is incomplete.
+# This is a work in progress and needs a decent amount of clean up before merging.
 
 # START: imports
 import unittest
@@ -53,6 +54,7 @@ class TestJSONParser(unittest.TestCase):
 		self.assertEqual(array_returned, ['unknown'])
 
 
+	# (!) UPDATE
 	def test_results_found_search_results_dict_returns_expected_array(self):
 		dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
 
@@ -81,35 +83,54 @@ class TestJSONParser(unittest.TestCase):
 
 
 	# Incomplete, but inner method is properly patched.
-	# https://www.youtube.com/watch?v=7XdYnh729IQ
-	# def test_search_results_dict_returns_expected_dict_for_agency_array_containing_over_two_results(self):
-	# 	with patch.object(json_parser, 'agencies_responsible_for_title_and_chapter', return_value = ['ABC', 'EFG', 'HIJ']):
-	# 		dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
+	# (!) UPDATE
+	def test_search_results_dict_returns_expected_dict_for_agency_array_containing_over_two_results(self):
+		with patch.object(json_parser, 'agencies_responsible_for_title_and_chapter', return_value = ['ABC', 'EFG', 'HIJ']):
+			dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
 
-		# print(dict_returned)
+		dict_expected = {
+		    "result_1": {
+		        "Milk <strong>chocolate</strong>.": "(a) Description. (1) Milk <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">\u2026</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more of the optional dairy ingredients<span class=\"elipsis\">\u2026</span>(2) Milk <strong>chocolate</strong> contains not less than 10 percent by weight of <strong>chocolate</strong> liquor complying",
+		        "authors": "HIJ"
+		    },
+		    "result_2": {
+		        "Sweet <strong>chocolate</strong>.": "(a) Description. (1) Sweet <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">\u2026</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more optional nutritive carbohydrate<span class=\"elipsis\">\u2026</span>(2) Sweet <strong>chocolate</strong> contains not less than 15 percent by weight of <strong>chocolate</strong> liquor complying",
+		        "authors": "HIJ"
+		    },
+		    "result_3": {
+		        "White <strong>chocolate</strong>.": "(a) Description. (1) White <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">\u2026</span>section. White <strong>chocolate</strong> shall be free of coloring material. (2) White <strong>chocolate</strong> contains not<span class=\"elipsis\">\u2026</span>white <strong>chocolate</strong>, and multiplying the quotient by 100. The finished white <strong>chocolate</strong> contains",
+		        "authors": "HIJ"
+		    }
+		}
+
+		self.assertEqual(dict_returned, dict_expected)
 
 
-	# @patch('parser.json_parser')
-	# def test_search_results_dict_returns_expected_dict_when_exception_encountered(self, patch):
-	# 	patch.side_effect = Exception('generic exception')
-	# 	dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
+	# https://www.youtube.com/watch?v=5BIElTtN6Fs
+	# Dead souls, shadowplay, atrocity exhibition? So hard to pick a favorite.
+	# Likely dead souls though, can't get over that bassline.
+	@patch('parser.json_parser')
+	def test_search_results_dict_returns_expected_dict_when_exception_encountered(self, patch):
+		patch.side_effect = Exception('Generic exception')
+		dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
 
-	# 	expected_dict = {
-	# 		'result_1': {
-	# 				'Milk <strong>chocolate</strong>.': '(a) Description. (1) Milk <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class="elipsis">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more of the optional dairy ingredients<span class="elipsis">…</span>(2) Milk <strong>chocolate</strong> contains not less than 10 percent by weight of <strong>chocolate</strong> liquor complying',
-	# 				'authors': 'FDA'
-	# 			},
-	# 		'result_2': {
-	# 				'Sweet <strong>chocolate</strong>.': '(a) Description. (1) Sweet <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class="elipsis">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more optional nutritive carbohydrate<span class="elipsis">…</span>(2) Sweet <strong>chocolate</strong> contains not less than 15 percent by weight of <strong>chocolate</strong> liquor complying',
-	# 				'authors': 'FDA'
-	# 			},
-	# 		'result_3': {
-	# 				'White <strong>chocolate</strong>.': '(a) Description. (1) White <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class="elipsis">…</span>section. White <strong>chocolate</strong> shall be free of coloring material. (2) White <strong>chocolate</strong> contains not<span class="elipsis">…</span>white <strong>chocolate</strong>, and multiplying the quotient by 100. The finished white <strong>chocolate</strong> contains',
-	# 				'authors': 'FDA'
-	# 			}
-	# 	}
+		expected_dict = {
+			'result_1': {
+					'Milk <strong>chocolate</strong>.': '(a) Description. (1) Milk <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class="elipsis">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more of the optional dairy ingredients<span class="elipsis">…</span>(2) Milk <strong>chocolate</strong> contains not less than 10 percent by weight of <strong>chocolate</strong> liquor complying',
+					'authors': 'FDA'
+				},
+			'result_2': {
+					'Sweet <strong>chocolate</strong>.': '(a) Description. (1) Sweet <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class="elipsis">…</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more optional nutritive carbohydrate<span class="elipsis">…</span>(2) Sweet <strong>chocolate</strong> contains not less than 15 percent by weight of <strong>chocolate</strong> liquor complying',
+					'authors': 'FDA'
+				},
+			'result_3': {
+					'White <strong>chocolate</strong>.': '(a) Description. (1) White <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class="elipsis">…</span>section. White <strong>chocolate</strong> shall be free of coloring material. (2) White <strong>chocolate</strong> contains not<span class="elipsis">…</span>white <strong>chocolate</strong>, and multiplying the quotient by 100. The finished white <strong>chocolate</strong> contains',
+					'authors': 'FDA'
+				}
+		}
 
-	# 	self.assertEqual(dict_returned, expected_dict)
+		self.assertEqual(dict_returned, expected_dict)
+	 # https://www.reddit.com/r/badscificovers/
 
 
 	def test_results_found_search_results_list(self):

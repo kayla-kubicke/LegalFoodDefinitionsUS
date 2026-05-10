@@ -38,10 +38,8 @@ class JSONParser:
 	# to update the data.
 	# Hmm...
 	#
-	# The update to search_results_dict(response) basically builds a search results dictionary
-	# right now with respect to this idea. Uncommet line 129 for example.
+	# Maybe build a traverser? Trying to avoid outside libraries, so no pandas.
 	# END: Notes
-
 	# START: Methods
 	# RETURNS true if title and chapter are found in cfr_references, otherwise
 	# false returned
@@ -61,6 +59,7 @@ class JSONParser:
 
 	# RETURNS an array of matching agencies, if empty no matching agencies
 	# were found
+	# ADD: id parent agency
 	def agencies_responsible_for_title_and_chapter(title, chapter):
 		# Seems like most chapters are written by only one agency,
 		# but I don't actually know so I'll return an array.
@@ -83,12 +82,8 @@ class JSONParser:
 		return agency_array
 
 	# Generates dictionary with response results.
-	# RETURNS dictionary containing search results, each result_# is a key
-	# and the value is a dictionary with two entries:
-		# search term as the key and description as the value
-		# an authors key and agency/ies as the value
+	# UPDATE: RETURNS
 	# (!) add exception handling test(s)
-	# https://www.youtube.com/watch?v=JL8poPA_KR8
 	def search_results_dict(response):
 		if response == {}:
 			return {}
@@ -100,7 +95,13 @@ class JSONParser:
 			for result in response['results']:
 				agency_array = JSONParser.agencies_responsible_for_title_and_chapter(int(result['hierarchy']['title']), result['hierarchy']['chapter'])
 				# if result['hierarchy']['title'] == '21' and result['hierarchy']['subpart'] == 'B':
-				if len(agency_array) < 2: # Does it ever return more than two anyway?
+				if len(agency_array) < 2:
+					# Option 1: Use the array. The dict remains a json object that can take advantage of python's
+					# json library.
+					# Option 2: Convert the array into a set. Will no longer qualify as a json object, but
+					# the entire structure will be uniform.
+					# Option 3: Could label each auther like results, but that's just silly.
+					# Either way, I can finally remove nightmare if.
 					search_results_dict[f'result_{index}'] = {result['headings']['section']: result['full_text_excerpt'], 'authors': agency_array[0]} # (!) UPDATE
 				else: # Ugh, another nested for loop... Also untested.
 					for agency in agency_array:
@@ -116,7 +117,7 @@ class JSONParser:
 	# search_results_list(response) DEPRECIATED
 	# Generates list with response results.
 	# RETURNS array containing list of search terms
-	# (!) now updated alongside search_results_dict(response), yet
+	# (!) not updated alongside search_results_dict(response), yet
 	# (!) add exception handling test(s)
 	def search_results_list(response):
 		if response == {}:
