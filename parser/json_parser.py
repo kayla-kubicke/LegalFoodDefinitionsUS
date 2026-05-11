@@ -7,52 +7,18 @@ from printer.dictionary_printer import DictionaryPrinter as dictionary_printer
 
 # START: JSONParser Class
 class JSONParser:
-	# START: Notes
-	# I need to figure out how to build moving forward; let's see here...
-	#
-	# In order to decern the regulation status one needs to know the agency that authored
-	# the search result. This information does exist inside the result itself, but
-	# may use a name for agency that is unfamiliar.
-	# The general nesting (sorta): {query}['results'][#]['headings']['chapter']
-	#
-	# For example, 'Food and Drug Administration, Department of Health and Human Services'
-	# is obviously the FDA. But, 'Agricultural Marketing Service (Marketing Agreements and
-	# Orders; Miscellaneous Commodities), Department of Agriculture' is less obvious.
-	#
-	# This is why I built some of the methods below, specifically,
-	# title_and_chapter_found_in_agency_json(agency, title, chapter) and
-	# agencies_responsible_for_title_and_chapter(title, chapter) the way I did.
-	#
-	# But, if I have immediate access to this information in the result itself, is it
-	# better to grab the agency here, parse it (via comma), and match it to the more
-	# recognizable name? Also, does it help to present the information with the parent agency,
-	# if one exists?
-	#
-	# And another question arises. The result and agencies structures are built with a mix of
-	# dictionaries and arrays; extracting the information requires a highly customized approach
-	# which can lead to fragile code. Should I build my own dictionaries reorganizing the
-	# information?
-	#
-	# If I did this, I could build dictionaries that are easier to navigate and store them.
-	# This would ideally include update logic and/or the option for the to user manually decide
-	# to update the data.
-	# Hmm...
-	#
-	# Maybe build a traverser? Trying to avoid outside libraries, so no pandas.
-	# END: Notes
 	# START: Methods
-	# RETURNS true if title and chapter are found in cfr_references, otherwise
-	# false returned
+	# RETURNS True if title and chapter match values, False if title and
+	# chapter never match
 	def title_and_chapter_found_in_agency_json(agency, title, chapter):
 		if agency == []:
 			return False
 
 		for reference in agency['cfr_references']:
-			try:
-				if reference['title'] == title and reference['chapter'] == chapter:
-					return True
-			except KeyError:
-				# Really shouldn't use try/except like this. Update?
+			# Ah, that's better.
+			if reference.get('title') == title and reference.get('chapter') == chapter:
+				return True
+			else:
 				continue
 
 		return False
@@ -84,6 +50,7 @@ class JSONParser:
 	# Generates dictionary with response results.
 	# UPDATE: RETURNS
 	# (!) add exception handling test(s)
+	# ADD: Second param, with the option of set or array; default = set. 
 	def search_results_dict(response):
 		if response == {}:
 			return {}
@@ -94,25 +61,17 @@ class JSONParser:
 
 			for result in response['results']:
 				agency_array = JSONParser.agencies_responsible_for_title_and_chapter(int(result['hierarchy']['title']), result['hierarchy']['chapter'])
-				# if result['hierarchy']['title'] == '21' and result['hierarchy']['subpart'] == 'B':
-				if len(agency_array) < 2:
-					# Option 1: Use the array. The dict remains a json object that can take advantage of python's
-					# json library.
-					# Option 2: Convert the array into a set. Will no longer qualify as a json object, but
-					# the entire structure will be uniform.
-					# Option 3: Could label each auther like results, but that's just silly.
-					# Either way, I can finally remove nightmare if.
-					search_results_dict[f'result_{index}'] = {result['headings']['section']: result['full_text_excerpt'], 'authors': agency_array[0]} # (!) UPDATE
-				else: # Ugh, another nested for loop... Also untested.
-					for agency in agency_array:
-						search_results_dict[f'result_{index}'] = {result['headings']['section']: result['full_text_excerpt'], 'authors': agency} # (!) UPDATE
+				# Convert the array into a set. Will no longer qualify as a json object, but the entire structure will be
+				# uniform-ish.
+				search_results_dict[f'result_{index}'] = {result['headings']['section']: result['full_text_excerpt'], 'authors': set(agency_array)}
 
 				index += 1
 
 			return search_results_dict
 		except Exception as error:
-			# May change the return later; returning an empty dict is ambiguous.
-			return search_results_dict
+			# Choosing to avoid silent handling whenever possible.
+			# return 'Generic exception caught'
+			print(f'Generic exception caught: {error}')
 
 	# search_results_list(response) DEPRECIATED
 	# Generates list with response results.
@@ -136,21 +95,3 @@ class JSONParser:
 	# search_results_list(response) DEPRECIATED
 	# END: Methods
 # END: JSONParser Class
-
-# print(json.dumps(JSONParser.search_results_dict(example_handler.example_response('example_requests', 'sourdough')), indent=4))
-# print(json.dumps(JSONParser.search_results_dict(example_handler.example_response('example_requests', 'chocolate')), indent=4))
-# Output:
-# {
-#     "result_1": {
-#         "Milk <strong>chocolate</strong>.": "(a) Description. (1) Milk <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">\u2026</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more of the optional dairy ingredients<span class=\"elipsis\">\u2026</span>(2) Milk <strong>chocolate</strong> contains not less than 10 percent by weight of <strong>chocolate</strong> liquor complying",
-#         "authors": "FDA"
-#     },
-#     "result_2": {
-#         "Sweet <strong>chocolate</strong>.": "(a) Description. (1) Sweet <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">\u2026</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more optional nutritive carbohydrate<span class=\"elipsis\">\u2026</span>(2) Sweet <strong>chocolate</strong> contains not less than 15 percent by weight of <strong>chocolate</strong> liquor complying",
-#         "authors": "FDA"
-#     },
-#     "result_3": {
-#         "White <strong>chocolate</strong>.": "(a) Description. (1) White <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">\u2026</span>section. White <strong>chocolate</strong> shall be free of coloring material. (2) White <strong>chocolate</strong> contains not<span class=\"elipsis\">\u2026</span>white <strong>chocolate</strong>, and multiplying the quotient by 100. The finished white <strong>chocolate</strong> contains",
-#         "authors": "FDA"
-#     }
-# }
