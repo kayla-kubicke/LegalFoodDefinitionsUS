@@ -15,7 +15,6 @@ class JSONParser:
 			return False
 
 		for reference in agency['cfr_references']:
-			# Ah, that's better.
 			if reference.get('title') == title and reference.get('chapter') == chapter:
 				return True
 			else:
@@ -49,7 +48,7 @@ class JSONParser:
 
 	# Generates dictionary with response results.
 	# UPDATE: RETURNS
-	# (!) add exception handling test(s)
+	# (!) add exception handling test for output?
 	# ADD: Second param, with the option of set or array; default = set. 
 	def search_results_dict(response):
 		if response == {}:
@@ -61,8 +60,6 @@ class JSONParser:
 
 			for result in response['results']:
 				agency_array = JSONParser.agencies_responsible_for_title_and_chapter(int(result['hierarchy']['title']), result['hierarchy']['chapter'])
-				# Convert the array into a set. Will no longer qualify as a json object, but the entire structure will be
-				# uniform-ish.
 				search_results_dict[f'result_{index}'] = {result['headings']['section']: result['full_text_excerpt'], 'authors': set(agency_array)}
 
 				index += 1
@@ -70,7 +67,6 @@ class JSONParser:
 			return search_results_dict
 		except Exception as error:
 			# Choosing to avoid silent handling whenever possible.
-			# return 'Generic exception caught'
 			print(f'Generic exception caught: {error}')
 
 	# search_results_list(response) DEPRECIATED

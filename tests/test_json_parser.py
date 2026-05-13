@@ -11,6 +11,10 @@ from parser.json_parser import JSONParser as json_parser
 from api.example_handler import ExampleHandler as example_handler
 # END: imports
 
+# REMOVE
+import io
+from contextlib import redirect_stdout
+# REMOVE
 
 # START: TestJSONParser Class
 class TestJSONParser(unittest.TestCase):
@@ -117,13 +121,14 @@ class TestJSONParser(unittest.TestCase):
 		self.assertEqual(dict_returned, dict_expected)
 
 
-	# FIX
-	# https://www.youtube.com/watch?v=rPHK494AUxE
-	# @patch('parser.json_parser')
-	# def test_search_results_dict_returns_expected_dict_when_exception_encountered(self, patch):
-	# 	patch.side_effect = Exception('Generic exception')
-		# with self.assertRaises(Exception):
-			# json_parser.search_results_dict(patch)
+	# I think this is right. Verifies the exception can be raised, unsure how to
+	# verify output right now.
+	# https://www.youtube.com/watch?v=qRIwQ4ENwIs
+	def test_search_results_dict_returns_expected_dict_when_exception_encountered(self):
+		with patch.object(json_parser, 'search_results_dict', side_effect = Exception('Generic exception')):
+			with self.assertRaises(Exception):
+					json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
+	# https://www.youtube.com/watch?v=Cqe9ipOVGj0
 	# search_results_dict tests
 
 
