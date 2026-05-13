@@ -55,8 +55,9 @@ class ApiHandler:
 		try:
 			# Object type: requests.models.Repsonse
 			simpleResponse = requests.get(f'{ApiHandler.ECFR}{ApiHandler.SEARCH}{ApiHandler.QUERY}' + query + '&'
-				f'{ApiHandler.format_agency_parameter(ApiHandler.slug_array)}' + f'{ApiHandler.PER_PAGE}' + '3' + '&' + f'{ApiHandler.PAGE}' + '1' + '&'
-				+ f'{ApiHandler.ORDER}' + 'relevance' + '&' + f'{ApiHandler.PAGINATE_BY}' + 'results')
+				f'{ApiHandler.format_agency_parameter(ApiHandler.slug_array)}' + f'{ApiHandler.PER_PAGE}' + '3' +
+				'&' + f'{ApiHandler.PAGE}' + '1' + '&' + f'{ApiHandler.ORDER}' + 'relevance' +
+				'&' + f'{ApiHandler.PAGINATE_BY}' + 'results')
 
 			if simpleResponse.status_code == 200:
 				# Object type: dict

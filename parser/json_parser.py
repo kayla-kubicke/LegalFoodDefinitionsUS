@@ -66,8 +66,7 @@ class JSONParser:
 
 			return search_results_dict
 		except Exception as error:
-			# Choosing to avoid silent handling whenever possible.
-			print(f'Generic exception caught: {error}')
+			print(f'Generic error caught: {error}')
 
 	# search_results_list(response) DEPRECIATED
 	# Generates list with response results.

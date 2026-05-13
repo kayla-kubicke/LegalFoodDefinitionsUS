@@ -121,14 +121,25 @@ class TestJSONParser(unittest.TestCase):
 		self.assertEqual(dict_returned, dict_expected)
 
 
-	# I think this is right. Verifies the exception can be raised, unsure how to
-	# verify output right now.
-	# https://www.youtube.com/watch?v=qRIwQ4ENwIs
-	def test_search_results_dict_returns_expected_dict_when_exception_encountered(self):
+	def test_search_results_dict_handles_exception(self):
 		with patch.object(json_parser, 'search_results_dict', side_effect = Exception('Generic exception')):
 			with self.assertRaises(Exception):
 					json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
-	# https://www.youtube.com/watch?v=Cqe9ipOVGj0
+
+
+	# Technically, this only tests the output if the error occurs outside of the
+	# original method call, but I'm going to let it be.
+	# https://www.youtube.com/watch?v=WvwK3gPPXHM
+	def test_search_results_dict_outputs_expected_when_exception_encountered(self):
+		with patch.object(json_parser, 'agencies_responsible_for_title_and_chapter', side_effect = Exception('Generic exception')):
+			string_buffer = io.StringIO()
+
+			with redirect_stdout(string_buffer):
+				json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
+
+			captured_output = string_buffer.getvalue()
+
+			self.assertEqual(captured_output[0:21], 'Generic error caught:')
 	# search_results_dict tests
 
 
