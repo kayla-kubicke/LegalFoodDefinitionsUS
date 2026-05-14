@@ -9,12 +9,9 @@ import unittest
 from unittest.mock import patch
 from parser.json_parser import JSONParser as json_parser
 from api.example_handler import ExampleHandler as example_handler
-# END: imports
-
-# REMOVE
 import io
 from contextlib import redirect_stdout
-# REMOVE
+# END: imports
 
 # START: TestJSONParser Class
 class TestJSONParser(unittest.TestCase):
