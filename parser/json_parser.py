@@ -7,6 +7,12 @@ from printer.dictionary_printer import DictionaryPrinter as dictionary_printer
 
 # START: JSONParser Class
 class JSONParser:
+	# START: Constructor
+	# UPDATE: Refactor class
+	# def __init__(self, author_object_type: AuthorObjectType = AuthorObjectType.SET):
+	# 	self.author_object_type = author_object_type
+	# END: Constructor
+
 	# START: Methods
 	# RETURNS True if title and chapter match values, False if title and
 	# chapter never match
@@ -22,78 +28,85 @@ class JSONParser:
 
 		return False
 
-	# https://www.youtube.com/watch?v=bgGsacqNVOQ
 	# Attempting to update search_results_dict(...) so I have the option to
 	# create a classic json or a dict with nested sets.
 	#
 	# The coupling with agencies_responsible_for_title_and_chapter(...) is a little
 	# worrisome.
 	# Obviously, test suite fails.
-	class AuthorObject(Enum):
-		SET = 1 # Maybe use bool? :/ But doesn't clearly convey what is going on.
-		LIST = 2 # Also, can't update a bool, but this is extremely unlikey to grow.
-		# But, how to control the object creation? getattr?
+	class AuthorObjectType(Enum):
+		SET = 1
+		LIST = 2
 
 	# (!) Should this be a constant and/or moved to top of class?
 	# Yes.
-	author_object_dict = {
-		AuthorObject.SET: set,
-		AuthorObject.LIST: []
-	}
+	# author_object_type_dict = {
+	# 	AuthorObjectType.SET: set,
+	# 	AuthorObjectType.LIST: []
+	# }
 
 	# Update the dict so I can id the correct method.
-	# author_object_dict = {
-	# 	AuthorObject.SET: { type: set, insert_method: 'add' }
-	# 	AuthorObject.LIST: { type: [], insert_method: 'append' }
-	# }
+	author_object_type_dict = {
+		AuthorObjectType.SET: { type: set, 'insert_method': 'add' },
+		AuthorObjectType.LIST: { type: [], 'insert_method': 'append' }
+	}
 	# retrieved_function = getattr(type, insert_method)
 
 	# RETURNS an array of matching agencies, if empty no matching agencies
 	# were found
 	# ADD: id parent agency
 	# ADD: Testing
-	def agencies_responsible_for_title_and_chapter(title, chapter, author_object): # FIX: author_object unbounded
-		# Sets agency_object type
-		# UPDATE, ew!
-		agency_object = author_object
-		# UPDATE
+	# https://www.youtube.com/watch?v=hiQgQCK8nn0
+	def agencies_responsible_for_title_and_chapter(title, chapter, author_object_type: AuthorObjectType = AuthorObjectType.SET): # Remove default?
 		agencies = example_handler.example_response('agency_data', 'agencies')
+		# 'Selects' returned_object's type.
+		# author_object = JSONParser.author_object_type_dict.get(author_object_type)
+		author_object = JSONParser.author_object_type_dict[author_object_type][type]
+		# Is this the best way to deal with this?
+		# Maybe it's time to add a constructor... Yeah.
+		if len(author_object) != 0:
+			# clear() works on both objects... thankfully.
+			author_object.clear()
+
+		# Ugh, no.
+		retrieved_function = getattr([], JSONParser.author_object_type_dict[author_object_type]['insert_method'])
+		# print(retrieved_function)
+		# print(getattr([], JSONParser.author_object_type_dict[author_object_type]['insert_method']).callable())
 
 		# Can't avoid nested for loops because of the json's structure.
 		for agency in agencies['agencies']:
 			if agency['children'] != []:
 				for child in agency['children']:
 					if JSONParser.title_and_chapter_found_in_agency_json(child, title, chapter):
-						agency_object.append(child['short_name'])
+						author_object.append(child['short_name'])
+						# NO.
+						# author_object.retrieved_function(child['short_name'])
 			else:
 				if JSONParser.title_and_chapter_found_in_agency_json(agency, title, chapter):
-					agency_object.append(agency['short_name'])
+					author_object.append(agency['short_name'])
+					# NO.
+					# author_object.retrieved_function(agency['short_name'])
 
-		if agency_object == []:
-			agency_object.append('unknown')
+		if author_object == []:
+			author_object.append('unknown')
 
-		return agency_object
-	# https://www.youtube.com/watch?v=rWYBcsK8V5E
-
+		return author_object
 
 	# Generates dictionary with response results.
 	# UPDATE: RETURNS
 	# (?) A better way to deal with the method coupling?
 	# ADD: Testing
-	def search_results_dict(response, author_object: AuthorObject = AuthorObject.SET):
+	def search_results_dict(response, author_object_type: AuthorObjectType = AuthorObjectType.SET):
 		if response == {}:
 			return {}
 
 		try:
-			# Is this required and/or needs refining?
-			author_object = JSONParser.author_object_dict.get(author_object)
 			search_results_dict = {}
 			index = 1
 
 			for result in response['results']:
-				agency_object = JSONParser.agencies_responsible_for_title_and_chapter(int(result['hierarchy']['title']), result['hierarchy']['chapter'], author_object)
-				# Address agency array? Address it method above?
-				search_results_dict[f'result_{index}'] = {result['headings']['section']: result['full_text_excerpt'], 'authors': set(agency_object)} # getattr(...)
+				agency_object = JSONParser.agencies_responsible_for_title_and_chapter(int(result['hierarchy']['title']), result['hierarchy']['chapter'], author_object_type)
+				search_results_dict[f'result_{index}'] = {result['headings']['section']: result['full_text_excerpt'], 'authors': agency_object}
 
 				index += 1
 
@@ -101,6 +114,8 @@ class JSONParser:
 		except Exception as error:
 			print(f'Generic error caught: {error}')
 
+	# I think it's time to remove this...
+	# Remember too remove the tests, too.
 	# search_results_list(response) DEPRECIATED
 	# Generates list with response results.
 	# RETURNS array containing list of search terms
@@ -125,4 +140,4 @@ class JSONParser:
 # END: JSONParser Class
 
 choco = example_handler.example_response('example_requests', 'chocolate')
-print(JSONParser.search_results_dict(choco, JSONParser.AuthorObject.LIST)) # , JSONParser.AuthorObject.LIST
+print(JSONParser.search_results_dict(choco, JSONParser.AuthorObjectType.LIST)) # , JSONParser.AuthorObjectType.LIST
