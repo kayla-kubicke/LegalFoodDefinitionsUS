@@ -1,8 +1,8 @@
 # Individual test runner command:
 # 'python3 -m unittest tests/test_json_parser.py'
 
-# NOTE: Test suite is incomplete.
-# This is a work in progress and needs a decent amount of clean up before merging.
+# (!) Need to comb through all tests before pushing to main.
+# https://www.youtube.com/watch?v=cVuaamn_kwc
 
 # START: imports
 import unittest
@@ -20,6 +20,7 @@ class TestJSONParser(unittest.TestCase):
 	VERMOUTH_REPSONSE = example_handler.example_response('example_requests', 'vermouth')
 	AGENCIES_DATA = example_handler.example_response('agency_data', 'agencies')
 	# END: Constants
+
 
 	# START: Tests
 	# title_and_chapter_found_in_agency_json tests
@@ -81,9 +82,8 @@ class TestJSONParser(unittest.TestCase):
 	# agencies_responsible_for_title_and_chapter tests
 
 
-	# (!) UPDATE
 	# search_results_dict tests
-	def test_results_found_search_results_dict_returns_expected_author_set(self):
+	def test_results_found_search_results_dict_returns_expected_author_default_set(self):
 		dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
 
 		expected_dict = {
@@ -104,14 +104,47 @@ class TestJSONParser(unittest.TestCase):
 		self.assertEqual(dict_returned, expected_dict)
 
 
-	def test_no_results_found_search_results_dict_returns_empty_array(self):
+	def test_results_found_search_results_dict_returns_expected_author_list(self):
+		dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE, json_parser.AuthorObjectType.LIST)
+
+		expected_dict = {
+			"result_1": {
+					"Milk <strong>chocolate</strong>.": "(a) Description. (1) Milk <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">\u2026</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more of the optional dairy ingredients<span class=\"elipsis\">\u2026</span>(2) Milk <strong>chocolate</strong> contains not less than 10 percent by weight of <strong>chocolate</strong> liquor complying",
+					"authors": ["FDA"]
+				},
+			"result_2": {
+					"Sweet <strong>chocolate</strong>.": "(a) Description. (1) Sweet <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">\u2026</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more optional nutritive carbohydrate<span class=\"elipsis\">\u2026</span>(2) Sweet <strong>chocolate</strong> contains not less than 15 percent by weight of <strong>chocolate</strong> liquor complying",
+					"authors": ["FDA"]
+				},
+			"result_3": {
+					"White <strong>chocolate</strong>.": "(a) Description. (1) White <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">\u2026</span>section. White <strong>chocolate</strong> shall be free of coloring material. (2) White <strong>chocolate</strong> contains not<span class=\"elipsis\">\u2026</span>white <strong>chocolate</strong>, and multiplying the quotient by 100. The finished white <strong>chocolate</strong> contains",
+					"authors": ["FDA"]
+				}
+		}
+
+		self.assertEqual(dict_returned, expected_dict)
+
+
+	def test_no_results_found_search_results_dict_returns_empty_default_set(self):
 		dict_returned = json_parser.search_results_dict(TestJSONParser.VERMOUTH_REPSONSE)
 
 		self.assertEqual(dict_returned, {})
 
 
-	def test_search_results_dict_empty_dict_returns_empty_array(self):
+	def test_no_results_found_search_results_dict_returns_empty_list(self):
+		dict_returned = json_parser.search_results_dict(TestJSONParser.VERMOUTH_REPSONSE, json_parser.AuthorObjectType.LIST)
+
+		self.assertEqual(dict_returned, {})
+
+
+	def test_search_results_dict_empty_dict_returns_empty_with_default_set_param(self):
 		dict_returned = json_parser.search_results_dict({})
+
+		self.assertEqual(dict_returned, {})
+
+
+	def test_search_results_dict_empty_dict_returns_empty_with_list_param(self):
+		dict_returned = json_parser.search_results_dict({}, json_parser.AuthorObjectType.LIST)
 
 		self.assertEqual(dict_returned, {})
 
@@ -144,9 +177,7 @@ class TestJSONParser(unittest.TestCase):
 					json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
 
 
-	# Technically, this only tests the output if the error occurs outside of the
-	# original method call, but I'm going to let it be.
-	# https://www.youtube.com/watch?v=WvwK3gPPXHM
+
 	def test_search_results_dict_outputs_expected_when_exception_encountered(self):
 		with patch.object(json_parser, 'agencies_responsible_for_title_and_chapter', side_effect = Exception('Generic exception')):
 			string_buffer = io.StringIO()
@@ -160,6 +191,7 @@ class TestJSONParser(unittest.TestCase):
 	# search_results_dict tests
 
 
+	# search_results_list tests
 	def test_results_found_search_results_list(self):
 		array_returned = json_parser.search_results_list(TestJSONParser.CHOCOLATE_REPSONSE)
 
@@ -176,5 +208,6 @@ class TestJSONParser(unittest.TestCase):
 		array_returned = json_parser.search_results_list(TestJSONParser.VERMOUTH_REPSONSE)
 
 		self.assertEqual(array_returned, [])
+	# search_results_list tests
 	# END: Tests
 # END: TestJSONParser Class

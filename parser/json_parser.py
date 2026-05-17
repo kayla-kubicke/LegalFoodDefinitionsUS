@@ -6,7 +6,25 @@ from printer.dictionary_printer import DictionaryPrinter as dictionary_printer
 # REMOVE after manual testing
 
 # START: JSONParser Class
+# Getting ready to merge.
+# Maybe the name is bit misleading. Hm... The class turned out
+# to both parse and return a search results object... I could split
+# it up between two classes longer term if it's really an issue.
 class JSONParser:
+	# Inner class AuthorObjectType is used to restrict the object type
+	# of the 'authors' key inside the search results object.
+	# https://www.youtube.com/watch?v=L7Ln56-p6lY
+	class AuthorObjectType(Enum):
+		SET = 1
+		LIST = 2
+
+	# Expanded dictionary was introduced so I could dynamically select
+	# the object type as well as the correct push/insert method.
+	AUTHOR_OBJECT_TYPE_DICT = {
+		AuthorObjectType.SET: { type: set(), 'insert_method': 'add' },
+		AuthorObjectType.LIST: { type: [], 'insert_method': 'append' }
+	}
+
 	# START: Constructor
 	# UPDATE: Refactor class
 	# def __init__(self, author_object_type: AuthorObjectType = AuthorObjectType.SET):
@@ -28,21 +46,6 @@ class JSONParser:
 
 		return False
 
-	# Attempting to update search_results_dict(...) so I have the option to
-	# create a classic json or a dict with nested sets.
-	#
-	# The coupling with agencies_responsible_for_title_and_chapter(...) is a little
-	# worrisome.
-	# UPDATE: test suite
-	class AuthorObjectType(Enum):
-		SET = 1
-		LIST = 2
-
-	AUTHOR_OBJECT_TYPE_DICT = {
-		AuthorObjectType.SET: { type: set(), 'insert_method': 'add' },
-		AuthorObjectType.LIST: { type: [], 'insert_method': 'append' }
-	}
-
 	# RETURNS an array of matching agencies, if empty no matching agencies
 	# were found
 	# ADD: id parent agency
@@ -54,8 +57,6 @@ class JSONParser:
 		# 'Selects' returned_object's type.
 		author_object = aotDict[author_object_type][type]
 
-		# Could combine the two len if checks, but I think I'll leave it up here.
-		# Figure one less clear() to execute.
 		if len(author_object) != 0:
 			author_object.clear()
 
@@ -76,8 +77,8 @@ class JSONParser:
 
 	# Generates dictionary with response results.
 	# UPDATE: RETURNS
-	# (?) A better way to deal with the method coupling?
-	# ADD: Testing
+		# Successful: dict object containing search results
+		# Unsuccessful: outputs information about error encountered
 	def search_results_dict(response, author_object_type: AuthorObjectType = AuthorObjectType.SET):
 		if response == {}:
 			return {}
