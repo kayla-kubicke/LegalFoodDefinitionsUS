@@ -28,7 +28,6 @@ class JSONParser:
 
 		return False
 
-	# https://www.youtube.com/watch?v=vO1CCXXMzBI
 	# Attempting to update search_results_dict(...) so I have the option to
 	# create a classic json or a dict with nested sets.
 	#
@@ -39,7 +38,7 @@ class JSONParser:
 		SET = 1
 		LIST = 2
 
-	author_object_type_dict = {
+	AUTHOR_OBJECT_TYPE_DICT = {
 		AuthorObjectType.SET: { type: set(), 'insert_method': 'add' },
 		AuthorObjectType.LIST: { type: [], 'insert_method': 'append' }
 	}
@@ -51,9 +50,12 @@ class JSONParser:
 	# UPDATE: Reduce repeat code
 	def agencies_responsible_for_title_and_chapter(title, chapter, author_object_type: AuthorObjectType = AuthorObjectType.SET): # Remove default?
 		agencies = example_handler.example_response('agency_data', 'agencies')
+		aotDict = JSONParser.AUTHOR_OBJECT_TYPE_DICT
 		# 'Selects' returned_object's type.
-		author_object = JSONParser.author_object_type_dict[author_object_type][type]
+		author_object = aotDict[author_object_type][type]
 
+		# Could combine the two len if checks, but I think I'll leave it up here.
+		# Figure one less clear() to execute.
 		if len(author_object) != 0:
 			author_object.clear()
 
@@ -62,17 +64,15 @@ class JSONParser:
 			if agency['children'] != []:
 				for child in agency['children']:
 					if JSONParser.title_and_chapter_found_in_agency_json(child, title, chapter):
-						# Finally, whew.
-						getattr(author_object, JSONParser.author_object_type_dict[author_object_type]['insert_method'])(child['short_name'])
+						getattr(author_object, aotDict[author_object_type]['insert_method'])(child['short_name'])
 			else:
 				if JSONParser.title_and_chapter_found_in_agency_json(agency, title, chapter):
-					getattr(author_object, JSONParser.author_object_type_dict[author_object_type]['insert_method'])(child['short_name'])
+					getattr(author_object, aotDict[author_object_type]['insert_method'])(agency['short_name'])
 
-		if author_object == []:
-			author_object.append('unknown')
+		if len(author_object) == 0:
+			getattr(author_object, aotDict[author_object_type]['insert_method'])('unknown')
 
 		return author_object
-	# https://www.youtube.com/watch?v=G5eVBnOY-mI
 
 	# Generates dictionary with response results.
 	# UPDATE: RETURNS
@@ -121,5 +121,5 @@ class JSONParser:
 	# END: Methods
 # END: JSONParser Class
 
-choco = example_handler.example_response('example_requests', 'chocolate')
-print(JSONParser.search_results_dict(choco)) # , JSONParser.AuthorObjectType.LIST
+# choco = example_handler.example_response('example_requests', 'chocolate')
+# print(JSONParser.search_results_dict(choco)) # , JSONParser.AuthorObjectType.LIST

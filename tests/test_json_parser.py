@@ -23,7 +23,7 @@ class TestJSONParser(unittest.TestCase):
 
 	# START: Tests
 	# title_and_chapter_found_in_agency_json tests
-	# ADD: Expand agencies tested
+	# (!!!) ADD: Expand agencies tested
 	def test_title_and_chapter_found_returns_true_if_title_and_chapter_found(self):
 		agency = TestJSONParser.AGENCIES_DATA['agencies'][0]['children'][0]
 		bool_returned = json_parser.title_and_chapter_found_in_agency_json(agency, 7, 'I')
@@ -40,22 +40,42 @@ class TestJSONParser(unittest.TestCase):
 
 
 	# agencies_responsible_for_title_and_chapter tests
-	def test_agencies_responsible_for_title_and_chapter_returns_array_expected_if_match_found_among_children(self):
-		array_returned = json_parser.agencies_responsible_for_title_and_chapter(21, 'I')
-		array_expected = ['FDA']
+	def test_agencies_responsible_for_title_and_chapter_returns_array_expected_if_match_found_among_children_set_default(self):
+		set_returned = json_parser.agencies_responsible_for_title_and_chapter(21, 'I')
+		set_expected = {'FDA'}
 
-		self.assertEqual(array_returned, array_expected)
-
-
-	def test_agencies_responsible_for_title_and_chapter_returns_array_expected_if_match_found_no_children(self):
-		array_returned = json_parser.agencies_responsible_for_title_and_chapter(50, 'V')
-		array_expected = ['MMC']
-
-		self.assertEqual(array_returned, array_expected)
+		self.assertEqual(set_returned, set_expected)
 
 
-	def test_agencies_responsible_for_title_and_chapter_returns_empty_array_if_no_matches_are_found(self):
-		array_returned = json_parser.agencies_responsible_for_title_and_chapter(450, 'I')
+	def test_agencies_responsible_for_title_and_chapter_returns_array_expected_if_match_found_among_children_list(self):
+		list_returned = json_parser.agencies_responsible_for_title_and_chapter(21, 'I', json_parser.AuthorObjectType.LIST)
+		list_expected = ['FDA']
+
+		self.assertEqual(list_returned, list_expected)
+
+
+	def test_agencies_responsible_for_title_and_chapter_returns_array_expected_if_match_found_no_children_set_default(self):
+		set_returned = json_parser.agencies_responsible_for_title_and_chapter(50, 'V')
+		set_expected = {'MMC'}
+
+		self.assertEqual(set_returned, set_expected)
+
+
+	def test_agencies_responsible_for_title_and_chapter_returns_array_expected_if_match_found_no_children_list(self):
+		list_returned = json_parser.agencies_responsible_for_title_and_chapter(50, 'V', json_parser.AuthorObjectType.LIST)
+		list_expected = ['MMC']
+
+		self.assertEqual(list_returned, list_expected)
+
+
+	def test_agencies_responsible_for_title_and_chapter_returns_empty_array_if_no_matches_are_found_set_default(self):
+		set_returned = json_parser.agencies_responsible_for_title_and_chapter(450, 'I')
+
+		self.assertEqual(set_returned, {'unknown'})
+
+
+	def test_agencies_responsible_for_title_and_chapter_returns_empty_array_if_no_matches_are_found_list(self):
+		array_returned = json_parser.agencies_responsible_for_title_and_chapter(450, 'I', json_parser.AuthorObjectType.LIST)
 
 		self.assertEqual(array_returned, ['unknown'])
 	# agencies_responsible_for_title_and_chapter tests
@@ -97,7 +117,7 @@ class TestJSONParser(unittest.TestCase):
 
 
 	def test_search_results_dict_returns_expected_dict_for_agency_array_containing_over_two_results(self):
-		with patch.object(json_parser, 'agencies_responsible_for_title_and_chapter', return_value = ['ABC', 'EFG', 'HIJ']):
+		with patch.object(json_parser, 'agencies_responsible_for_title_and_chapter', return_value = {'ABC', 'EFG', 'HIJ'}):
 			dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
 
 		dict_expected = {
