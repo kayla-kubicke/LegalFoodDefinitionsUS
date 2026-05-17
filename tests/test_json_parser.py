@@ -1,9 +1,6 @@
 # Individual test runner command:
 # 'python3 -m unittest tests/test_json_parser.py'
 
-# (!) Need to comb through all tests before pushing to main.
-# https://www.youtube.com/watch?v=cVuaamn_kwc
-
 # START: imports
 import unittest
 from unittest.mock import patch
@@ -24,7 +21,6 @@ class TestJSONParser(unittest.TestCase):
 
 	# START: Tests
 	# title_and_chapter_found_in_agency_json tests
-	# (!!!) ADD: Expand agencies tested
 	def test_title_and_chapter_found_returns_true_if_title_and_chapter_found(self):
 		agency = TestJSONParser.AGENCIES_DATA['agencies'][0]['children'][0]
 		bool_returned = json_parser.title_and_chapter_found_in_agency_json(agency, 7, 'I')
@@ -41,49 +37,49 @@ class TestJSONParser(unittest.TestCase):
 
 
 	# agencies_responsible_for_title_and_chapter tests
-	def test_agencies_responsible_for_title_and_chapter_returns_array_expected_if_match_found_among_children_set_default(self):
+	def test_agencies_responsible_for_title_and_chapter_returns_set_expected_if_match_found_among_children_set_default(self):
 		set_returned = json_parser.agencies_responsible_for_title_and_chapter(21, 'I')
 		set_expected = {'FDA'}
 
 		self.assertEqual(set_returned, set_expected)
 
 
-	def test_agencies_responsible_for_title_and_chapter_returns_array_expected_if_match_found_among_children_list(self):
+	def test_agencies_responsible_for_title_and_chapter_returns_list_expected_if_match_found_among_children_list(self):
 		list_returned = json_parser.agencies_responsible_for_title_and_chapter(21, 'I', json_parser.AuthorObjectType.LIST)
 		list_expected = ['FDA']
 
 		self.assertEqual(list_returned, list_expected)
 
 
-	def test_agencies_responsible_for_title_and_chapter_returns_array_expected_if_match_found_no_children_set_default(self):
+	def test_agencies_responsible_for_title_and_chapter_returns_set_expected_if_match_found_no_children_set_default(self):
 		set_returned = json_parser.agencies_responsible_for_title_and_chapter(50, 'V')
 		set_expected = {'MMC'}
 
 		self.assertEqual(set_returned, set_expected)
 
 
-	def test_agencies_responsible_for_title_and_chapter_returns_array_expected_if_match_found_no_children_list(self):
+	def test_agencies_responsible_for_title_and_chapter_returns_list_expected_if_match_found_no_children_list(self):
 		list_returned = json_parser.agencies_responsible_for_title_and_chapter(50, 'V', json_parser.AuthorObjectType.LIST)
 		list_expected = ['MMC']
 
 		self.assertEqual(list_returned, list_expected)
 
 
-	def test_agencies_responsible_for_title_and_chapter_returns_empty_array_if_no_matches_are_found_set_default(self):
+	def test_agencies_responsible_for_title_and_chapter_returns_empty_set_if_no_matches_are_found_set_default(self):
 		set_returned = json_parser.agencies_responsible_for_title_and_chapter(450, 'I')
 
 		self.assertEqual(set_returned, {'unknown'})
 
 
-	def test_agencies_responsible_for_title_and_chapter_returns_empty_array_if_no_matches_are_found_list(self):
-		array_returned = json_parser.agencies_responsible_for_title_and_chapter(450, 'I', json_parser.AuthorObjectType.LIST)
+	def test_agencies_responsible_for_title_and_chapter_returns_empty_list_if_no_matches_are_found_list(self):
+		list_returned = json_parser.agencies_responsible_for_title_and_chapter(450, 'I', json_parser.AuthorObjectType.LIST)
 
-		self.assertEqual(array_returned, ['unknown'])
+		self.assertEqual(list_returned, ['unknown'])
 	# agencies_responsible_for_title_and_chapter tests
 
 
 	# search_results_dict tests
-	def test_results_found_search_results_dict_returns_expected_author_default_set(self):
+	def test_search_results_dict_returns_expected_author_if_results_found_default_set(self):
 		dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
 
 		expected_dict = {
@@ -104,7 +100,7 @@ class TestJSONParser(unittest.TestCase):
 		self.assertEqual(dict_returned, expected_dict)
 
 
-	def test_results_found_search_results_dict_returns_expected_author_list(self):
+	def test_search_results_dict_returns_expected_author_if_results_found_list(self):
 		dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE, json_parser.AuthorObjectType.LIST)
 
 		expected_dict = {
@@ -125,31 +121,31 @@ class TestJSONParser(unittest.TestCase):
 		self.assertEqual(dict_returned, expected_dict)
 
 
-	def test_no_results_found_search_results_dict_returns_empty_default_set(self):
+	def test_search_results_dict_if_no_results_found_returns_empty_dict_with_default_set(self):
 		dict_returned = json_parser.search_results_dict(TestJSONParser.VERMOUTH_REPSONSE)
 
 		self.assertEqual(dict_returned, {})
 
 
-	def test_no_results_found_search_results_dict_returns_empty_list(self):
+	def test_search_results_dict_if_no_results_found_returns_empty_dict_with_list(self):
 		dict_returned = json_parser.search_results_dict(TestJSONParser.VERMOUTH_REPSONSE, json_parser.AuthorObjectType.LIST)
 
 		self.assertEqual(dict_returned, {})
 
 
-	def test_search_results_dict_empty_dict_returns_empty_with_default_set_param(self):
+	def test_search_results_dict_empty_dict_returns_empty_dict_with_default_set(self):
 		dict_returned = json_parser.search_results_dict({})
 
 		self.assertEqual(dict_returned, {})
 
 
-	def test_search_results_dict_empty_dict_returns_empty_with_list_param(self):
+	def test_search_results_dict_empty_dict_returns_empty_dict_with_list(self):
 		dict_returned = json_parser.search_results_dict({}, json_parser.AuthorObjectType.LIST)
 
 		self.assertEqual(dict_returned, {})
 
 
-	def test_search_results_dict_returns_expected_dict_for_agency_array_containing_over_two_results(self):
+	def test_search_results_dict_returns_expected_dict_for_agency_object_containing_over_two_results_default_set(self):
 		with patch.object(json_parser, 'agencies_responsible_for_title_and_chapter', return_value = {'ABC', 'EFG', 'HIJ'}):
 			dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
 
@@ -165,6 +161,28 @@ class TestJSONParser(unittest.TestCase):
 		    "result_3": {
 		        "White <strong>chocolate</strong>.": "(a) Description. (1) White <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">\u2026</span>section. White <strong>chocolate</strong> shall be free of coloring material. (2) White <strong>chocolate</strong> contains not<span class=\"elipsis\">\u2026</span>white <strong>chocolate</strong>, and multiplying the quotient by 100. The finished white <strong>chocolate</strong> contains",
 		        "authors": {"ABC", "EFG", "HIJ"}
+		    }
+		}
+
+		self.assertEqual(dict_returned, dict_expected)
+
+
+	def test_search_results_dict_returns_expected_dict_for_agency_object_containing_over_two_results_list(self):
+		with patch.object(json_parser, 'agencies_responsible_for_title_and_chapter', return_value = ['ABC', 'EFG', 'HIJ']):
+			dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
+
+		dict_expected = {
+		    "result_1": {
+		        "Milk <strong>chocolate</strong>.": "(a) Description. (1) Milk <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">\u2026</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more of the optional dairy ingredients<span class=\"elipsis\">\u2026</span>(2) Milk <strong>chocolate</strong> contains not less than 10 percent by weight of <strong>chocolate</strong> liquor complying",
+		        "authors": ["ABC", "EFG", "HIJ"]
+		    },
+		    "result_2": {
+		        "Sweet <strong>chocolate</strong>.": "(a) Description. (1) Sweet <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">\u2026</span>intimately mixing and grinding <strong>chocolate</strong> liquor with one or more optional nutritive carbohydrate<span class=\"elipsis\">\u2026</span>(2) Sweet <strong>chocolate</strong> contains not less than 15 percent by weight of <strong>chocolate</strong> liquor complying",
+		        "authors": ["ABC", "EFG", "HIJ"]
+		    },
+		    "result_3": {
+		        "White <strong>chocolate</strong>.": "(a) Description. (1) White <strong>chocolate</strong> is the solid or semiplastic food prepared by intimately<span class=\"elipsis\">\u2026</span>section. White <strong>chocolate</strong> shall be free of coloring material. (2) White <strong>chocolate</strong> contains not<span class=\"elipsis\">\u2026</span>white <strong>chocolate</strong>, and multiplying the quotient by 100. The finished white <strong>chocolate</strong> contains",
+		        "authors": ["ABC", "EFG", "HIJ"]
 		    }
 		}
 
@@ -189,25 +207,5 @@ class TestJSONParser(unittest.TestCase):
 
 			self.assertEqual(captured_output[0:21], 'Generic error caught:')
 	# search_results_dict tests
-
-
-	# search_results_list tests
-	def test_results_found_search_results_list(self):
-		array_returned = json_parser.search_results_list(TestJSONParser.CHOCOLATE_REPSONSE)
-
-		array_expected = [
-			'Milk <strong>chocolate</strong>.',
-			'Sweet <strong>chocolate</strong>.',
-			'White <strong>chocolate</strong>.'
-		]
-
-		self.assertEqual(array_returned, array_expected)
-
-
-	def test_no_results_found_search_results_list(self):
-		array_returned = json_parser.search_results_list(TestJSONParser.VERMOUTH_REPSONSE)
-
-		self.assertEqual(array_returned, [])
-	# search_results_list tests
 	# END: Tests
 # END: TestJSONParser Class
