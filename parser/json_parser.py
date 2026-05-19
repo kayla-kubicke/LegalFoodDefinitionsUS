@@ -18,8 +18,8 @@ class JSONParser:
 
 	# START: Constructor
 	# UPDATE: Refactor class
-	# def __init__(self, author_object_type: AuthorObjectType = AuthorObjectType.SET):
-	# 	self.author_object_type = author_object_type
+	def __init__(self, author_object_type: AuthorObjectType = AuthorObjectType.SET):
+		self.author_object_type = author_object_type
 	# END: Constructor
 
 	# START: Methods
@@ -40,11 +40,11 @@ class JSONParser:
 
 	# RETURNS a list of matching agencies, if empty no matching agencies
 	# were found
-	def agencies_responsible_for_title_and_chapter(title, chapter, author_object_type: AuthorObjectType = AuthorObjectType.SET):
+	def agencies_responsible_for_title_and_chapter(self, title, chapter):
 		agencies = example_handler.example_response('agency_data', 'agencies')
 		aotDict = JSONParser.AUTHOR_OBJECT_TYPE_DICT
-		# 'Selects' returned_object's type.
-		author_object = aotDict[author_object_type][type]
+		# Determines author_object's type.
+		author_object = aotDict[self.author_object_type][type]
 
 		if len(author_object) != 0:
 			author_object.clear()
@@ -54,13 +54,13 @@ class JSONParser:
 			if agency['children'] != []:
 				for child in agency['children']:
 					if JSONParser.title_and_chapter_found_in_agency_json(child, title, chapter):
-						getattr(author_object, aotDict[author_object_type]['insert_method'])(child['short_name'])
+						getattr(author_object, aotDict[self.author_object_type]['insert_method'])(child['short_name'])
 			else:
 				if JSONParser.title_and_chapter_found_in_agency_json(agency, title, chapter):
-					getattr(author_object, aotDict[author_object_type]['insert_method'])(agency['short_name'])
+					getattr(author_object, aotDict[self.author_object_type]['insert_method'])(agency['short_name'])
 
 		if len(author_object) == 0:
-			getattr(author_object, aotDict[author_object_type]['insert_method'])('unknown')
+			getattr(author_object, aotDict[self.author_object_type]['insert_method'])('unknown')
 
 		return author_object
 
@@ -68,7 +68,7 @@ class JSONParser:
 	# RETURNS
 		# Successful: dict object containing search results
 		# Unsuccessful: outputs information about error encountered
-	def search_results_dict(response, author_object_type: AuthorObjectType = AuthorObjectType.SET):
+	def search_results_dict(self, response):
 		if response == {}:
 			return {}
 
@@ -77,7 +77,7 @@ class JSONParser:
 			index = 1
 
 			for result in response['results']:
-				agency_object = JSONParser.agencies_responsible_for_title_and_chapter(int(result['hierarchy']['title']), result['hierarchy']['chapter'], author_object_type)
+				agency_object = self .agencies_responsible_for_title_and_chapter(int(result['hierarchy']['title']), result['hierarchy']['chapter'])
 				search_results_dict[f'result_{index}'] = {result['headings']['section']: result['full_text_excerpt'], 'authors': agency_object}
 
 				index += 1

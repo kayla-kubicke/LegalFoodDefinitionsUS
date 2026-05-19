@@ -38,49 +38,56 @@ class TestJSONParser(unittest.TestCase):
 
 	# agencies_responsible_for_title_and_chapter tests
 	def test_agencies_responsible_for_title_and_chapter_returns_set_expected_if_match_found_among_children_set_default(self):
-		set_returned = json_parser.agencies_responsible_for_title_and_chapter(21, 'I')
+		json_parser_object = json_parser()
+		set_returned = json_parser_object.agencies_responsible_for_title_and_chapter(21, 'I')
 		set_expected = {'FDA'}
 
 		self.assertEqual(set_returned, set_expected)
 
 
 	def test_agencies_responsible_for_title_and_chapter_returns_list_expected_if_match_found_among_children_list(self):
-		list_returned = json_parser.agencies_responsible_for_title_and_chapter(21, 'I', json_parser.AuthorObjectType.LIST)
+		json_parser_object = json_parser(json_parser.AuthorObjectType.LIST)
+		list_returned = json_parser_object.agencies_responsible_for_title_and_chapter(21, 'I')
 		list_expected = ['FDA']
 
 		self.assertEqual(list_returned, list_expected)
 
 
 	def test_agencies_responsible_for_title_and_chapter_returns_set_expected_if_match_found_no_children_set_default(self):
-		set_returned = json_parser.agencies_responsible_for_title_and_chapter(50, 'V')
+		json_parser_object = json_parser()
+		set_returned = json_parser_object.agencies_responsible_for_title_and_chapter(50, 'V')
 		set_expected = {'MMC'}
 
 		self.assertEqual(set_returned, set_expected)
 
 
 	def test_agencies_responsible_for_title_and_chapter_returns_list_expected_if_match_found_no_children_list(self):
-		list_returned = json_parser.agencies_responsible_for_title_and_chapter(50, 'V', json_parser.AuthorObjectType.LIST)
+		json_parser_object = json_parser(json_parser.AuthorObjectType.LIST)
+		list_returned = json_parser_object.agencies_responsible_for_title_and_chapter(50, 'V')
 		list_expected = ['MMC']
 
 		self.assertEqual(list_returned, list_expected)
 
 
 	def test_agencies_responsible_for_title_and_chapter_returns_empty_set_if_no_matches_are_found_set_default(self):
-		set_returned = json_parser.agencies_responsible_for_title_and_chapter(450, 'I')
+		json_parser_object = json_parser()
+		set_returned = json_parser_object.agencies_responsible_for_title_and_chapter(450, 'I')
 
 		self.assertEqual(set_returned, {'unknown'})
 
 
 	def test_agencies_responsible_for_title_and_chapter_returns_empty_list_if_no_matches_are_found_list(self):
-		list_returned = json_parser.agencies_responsible_for_title_and_chapter(450, 'I', json_parser.AuthorObjectType.LIST)
+		json_parser_object = json_parser(json_parser.AuthorObjectType.LIST)
+		list_returned = json_parser_object.agencies_responsible_for_title_and_chapter(450, 'I')
 
 		self.assertEqual(list_returned, ['unknown'])
 	# agencies_responsible_for_title_and_chapter tests
 
 
-	# search_results_dict tests
+# 	# search_results_dict tests
 	def test_search_results_dict_returns_expected_author_if_results_found_default_set(self):
-		dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
+		json_parser_object = json_parser()
+		dict_returned = json_parser_object.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
 
 		expected_dict = {
 			"result_1": {
@@ -101,7 +108,8 @@ class TestJSONParser(unittest.TestCase):
 
 
 	def test_search_results_dict_returns_expected_author_if_results_found_list(self):
-		dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE, json_parser.AuthorObjectType.LIST)
+		json_parser_object = json_parser(json_parser.AuthorObjectType.LIST)
+		dict_returned = json_parser_object.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
 
 		expected_dict = {
 			"result_1": {
@@ -122,32 +130,37 @@ class TestJSONParser(unittest.TestCase):
 
 
 	def test_search_results_dict_if_no_results_found_returns_empty_dict_with_default_set(self):
-		dict_returned = json_parser.search_results_dict(TestJSONParser.VERMOUTH_REPSONSE)
+		json_parser_object = json_parser()
+		dict_returned = json_parser_object.search_results_dict(TestJSONParser.VERMOUTH_REPSONSE)
 
 		self.assertEqual(dict_returned, {})
 
 
 	def test_search_results_dict_if_no_results_found_returns_empty_dict_with_list(self):
-		dict_returned = json_parser.search_results_dict(TestJSONParser.VERMOUTH_REPSONSE, json_parser.AuthorObjectType.LIST)
+		json_parser_object = json_parser(json_parser.AuthorObjectType.LIST)
+		dict_returned = json_parser_object.search_results_dict(TestJSONParser.VERMOUTH_REPSONSE)
 
 		self.assertEqual(dict_returned, {})
 
 
 	def test_search_results_dict_empty_dict_returns_empty_dict_with_default_set(self):
-		dict_returned = json_parser.search_results_dict({})
+		json_parser_object = json_parser()
+		dict_returned = json_parser_object.search_results_dict({})
 
 		self.assertEqual(dict_returned, {})
 
 
 	def test_search_results_dict_empty_dict_returns_empty_dict_with_list(self):
-		dict_returned = json_parser.search_results_dict({}, json_parser.AuthorObjectType.LIST)
+		json_parser_object = json_parser(json_parser.AuthorObjectType.LIST)
+		dict_returned = json_parser_object.search_results_dict({})
 
 		self.assertEqual(dict_returned, {})
 
 
 	def test_search_results_dict_returns_expected_dict_for_agency_object_containing_over_two_results_default_set(self):
-		with patch.object(json_parser, 'agencies_responsible_for_title_and_chapter', return_value = {'ABC', 'EFG', 'HIJ'}):
-			dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
+		json_parser_object = json_parser()
+		with patch.object(json_parser_object, 'agencies_responsible_for_title_and_chapter', return_value = {'ABC', 'EFG', 'HIJ'}):
+			dict_returned = json_parser_object.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
 
 		dict_expected = {
 		    "result_1": {
@@ -168,8 +181,9 @@ class TestJSONParser(unittest.TestCase):
 
 
 	def test_search_results_dict_returns_expected_dict_for_agency_object_containing_over_two_results_list(self):
-		with patch.object(json_parser, 'agencies_responsible_for_title_and_chapter', return_value = ['ABC', 'EFG', 'HIJ']):
-			dict_returned = json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
+		json_parser_object = json_parser(json_parser.AuthorObjectType.LIST)
+		with patch.object(json_parser_object, 'agencies_responsible_for_title_and_chapter', return_value = ['ABC', 'EFG', 'HIJ']):
+			dict_returned = json_parser_object.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
 
 		dict_expected = {
 		    "result_1": {
@@ -189,23 +203,45 @@ class TestJSONParser(unittest.TestCase):
 		self.assertEqual(dict_returned, dict_expected)
 
 
-	def test_search_results_dict_handles_exception(self):
-		with patch.object(json_parser, 'search_results_dict', side_effect = Exception('Generic exception')):
+	def test_search_results_dict_handles_exception_with_default_set(self):
+		json_parser_object = json_parser()
+		with patch.object(json_parser_object, 'search_results_dict', side_effect = Exception('Generic exception')):
 			with self.assertRaises(Exception):
-					json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
+					json_parser_object.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
 
 
+	def test_search_results_dict_handles_exception_with_list(self):
+		json_parser_object = json_parser(json_parser.AuthorObjectType.LIST)
+		with patch.object(json_parser_object, 'search_results_dict', side_effect = Exception('Generic exception')):
+			with self.assertRaises(Exception):
+					json_parser_object.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
 
-	def test_search_results_dict_outputs_expected_when_exception_encountered(self):
-		with patch.object(json_parser, 'agencies_responsible_for_title_and_chapter', side_effect = Exception('Generic exception')):
+
+	def test_search_results_dict_outputs_expected_when_exception_encountered_with_default_set(self):
+		json_parser_object = json_parser()
+		with patch.object(json_parser_object, 'agencies_responsible_for_title_and_chapter', side_effect = Exception('Generic exception')):
 			string_buffer = io.StringIO()
 
 			with redirect_stdout(string_buffer):
-				json_parser.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
+				json_parser_object.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
 
 			captured_output = string_buffer.getvalue()
 
 			self.assertEqual(captured_output[0:21], 'Generic error caught:')
+
+
+	def test_search_results_dict_outputs_expected_when_exception_encountered_with_list(self):
+		json_parser_object = json_parser(json_parser.AuthorObjectType.LIST)
+		with patch.object(json_parser_object, 'agencies_responsible_for_title_and_chapter', side_effect = Exception('Generic exception')):
+			string_buffer = io.StringIO()
+
+			with redirect_stdout(string_buffer):
+				json_parser_object.search_results_dict(TestJSONParser.CHOCOLATE_REPSONSE)
+
+			captured_output = string_buffer.getvalue()
+
+			self.assertEqual(captured_output[0:21], 'Generic error caught:')
+	# https://www.youtube.com/watch?v=H0WK6nwwxN8
 	# search_results_dict tests
 	# END: Tests
 # END: TestJSONParser Class

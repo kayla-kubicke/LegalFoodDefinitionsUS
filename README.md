@@ -20,10 +20,6 @@ In the US, food labels are not required to indicate if the label includes terms 
 Even proactive consumers commonly misunderstand food labels. The term 'free range' was [unregulated until 2014](https://certifiedhumane.org/free-range-and-pasture-raised-officially-defined-by-hfac-for-certified-humane-label/). The terms 'shade-grown' and ['sourdough'](https://www.marthastewart.com/real-sourdough-vs-fake-sourdough-11891186) remain unregulated. 
 
 
-Dev Notes
----
-
-05/03: Buidling notes; some pseudocode in future. Adding testing for untested lines.
 
 
 Configuration
