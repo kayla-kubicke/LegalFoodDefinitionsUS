@@ -241,7 +241,6 @@ class TestJSONParser(unittest.TestCase):
 			captured_output = string_buffer.getvalue()
 
 			self.assertEqual(captured_output[0:21], 'Generic error caught:')
-	# https://www.youtube.com/watch?v=H0WK6nwwxN8
 	# search_results_dict tests
 	# END: Tests
 # END: TestJSONParser Class
