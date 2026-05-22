@@ -50,7 +50,7 @@ class ApiHandler:
 	# Successful: dict object
 	# Unsuccessful:
 		# If response is returned but status code != 200: raises RuntimeError
-		# If an error is encountered during request: raises RequestException
+		# (!!!) FIX: If an error is encountered during request: raises RequestException
 	def simple_call(query):
 		try:
 			# Object type: requests.models.Repsonse
@@ -60,14 +60,18 @@ class ApiHandler:
 				'&' + f'{ApiHandler.PAGINATE_BY}' + 'results')
 
 			if simpleResponse.status_code == 200:
-				# Object type: dict
-				return simpleResponse.json()
+				return simpleResponse.json() # Object type: dict
 			elif type(simpleResponse.status_code) == int:
 				raise RuntimeError(f'Status code: {simpleResponse.status_code} returned. Process stopped.')
 
-		# Generic exception raised if any error is encountered during request.
+		# Generic requests exception raised if any error is encountered during request.
 		except requests.exceptions.RequestException as error:
-			print(f'Generic exception caught: {error}')
-		# (?): Does this need a another non-requests generic exception?
+			print(f'requests exception caught: {error}')
+		# Interrupts the RuntimeError raise; is there a way to delicately handle this situation?
+		# Seems the solution involves a nested try/except; looks super gross.
+		# Maybe this is just a poor design? Hm...
+		# https://www.youtube.com/watch?v=rt1nlqJP2Ls
+		# except Exception as error:
+		# 	print(f'Generic exception caught: {error}')
 	# END: Methods
 # END: ApiHandler Class
