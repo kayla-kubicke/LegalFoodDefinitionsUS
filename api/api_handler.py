@@ -49,8 +49,8 @@ class ApiHandler:
 	# RETURNS
 	# Successful: dict object
 	# Unsuccessful:
-		# If response is returned but status code != 200: raises RuntimeError
-		# (!!!) FIX: If an error is encountered during request: raises RequestException
+		# If response is returned but status code != 200:
+		# If an error is encountered during request:
 	def simple_call(query):
 		try:
 			# Object type: requests.models.Repsonse
@@ -61,17 +61,21 @@ class ApiHandler:
 
 			if simpleResponse.status_code == 200:
 				return simpleResponse.json() # Object type: dict
-			elif type(simpleResponse.status_code) == int:
-				raise RuntimeError(f'Status code: {simpleResponse.status_code} returned. Process stopped.')
+			else:
+				# https://www.youtube.com/watch?v=HVmMAUc3r-0
+				# I know laughing at this poor mom shocked by a machiavellian chatbot engaging
+				# in ruthless surveillance capitalism with her child is wrong, but I don't
+				# want to be right.
+				#
+				# This is the cleanest way... I think. Just need to let the user know
+				# the server is not responding as expected. No real reason to actually raise.
+				print(f'Status code: {simpleResponse.status_code} returned. Process stopped.')
+				return
 
-		# Generic requests exception raised if any error is encountered during request.
 		except requests.exceptions.RequestException as error:
 			print(f'requests exception caught: {error}')
-		# Interrupts the RuntimeError raise; is there a way to delicately handle this situation?
-		# Seems the solution involves a nested try/except; looks super gross.
-		# Maybe this is just a poor design? Hm...
-		# https://www.youtube.com/watch?v=rt1nlqJP2Ls
-		# except Exception as error:
-		# 	print(f'Generic exception caught: {error}')
+		except Exception as error:
+			print(f'Generic exception caught: {error}')
+			# https://www.youtube.com/watch?v=4Yj1sSSnXnk
 	# END: Methods
 # END: ApiHandler Class

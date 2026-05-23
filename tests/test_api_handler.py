@@ -40,11 +40,16 @@ class TestApiHandler(unittest.TestCase):
 
 
 	@patch('requests.get')
-	def test_simple_call_non_200_raises_exception(self, mock_response):
+	def test_simple_call_non_200_terminates_with_expected_output(self, mock_response):
 		mock_response.return_value.status_code = 404
+		string_buffer = io.StringIO()
 
-		with self.assertRaises(RuntimeError):
-			api_handler.simple_call(mock_response)
+		with redirect_stdout(string_buffer):
+			captured_output = api_handler.simple_call(mock_response)
+
+		captured_output = string_buffer.getvalue()
+
+		self.assertEqual(captured_output[0:16], 'Status code: 404')
 
 
 	@patch('requests.get')
@@ -60,17 +65,16 @@ class TestApiHandler(unittest.TestCase):
 		self.assertEqual(captured_output[0:26], 'requests exception caught:')
 
 
-	# Fails.
-	# @patch('requests.get')
-	# def test_simple_call_unsucessful_raises_exception(self, mock_response):
-	# 	mock_response.side_effect = Exception('Generic exception')
-	# 	string_buffer = io.StringIO()
+	@patch('requests.get')
+	def test_simple_call_unsucessful_raises_exception(self, mock_response):
+		mock_response.side_effect = Exception('Generic exception')
+		string_buffer = io.StringIO()
 
-	# 	with redirect_stdout(string_buffer):
-	# 		captured_output = api_handler.simple_call(mock_response)
+		with redirect_stdout(string_buffer):
+			captured_output = api_handler.simple_call(mock_response)
 
-	# 	captured_output = string_buffer.getvalue()
+		captured_output = string_buffer.getvalue()
 
-	# 	self.assertEqual(captured_output[0:25], 'Generic exception caught:')
+		self.assertEqual(captured_output[0:25], 'Generic exception caught:')
 	# END: Tests
 # END: TestApiHandler Class
