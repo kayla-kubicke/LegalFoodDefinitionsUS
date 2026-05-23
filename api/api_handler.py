@@ -45,37 +45,32 @@ class ApiHandler:
 
 		return return_string
 
-	# A simple call to api
+	# A search results call to api
 	# RETURNS
 	# Successful: dict object
 	# Unsuccessful:
 		# If response is returned but status code != 200:
 		# If an error is encountered during request:
-	def simple_call(query):
+	def search_results_call(query):
 		try:
-			# Object type: requests.models.Repsonse
-			simpleResponse = requests.get(f'{ApiHandler.ECFR}{ApiHandler.SEARCH}{ApiHandler.QUERY}' + query + '&'
-				f'{ApiHandler.format_agency_parameter(ApiHandler.slug_array)}' + f'{ApiHandler.PER_PAGE}' + '3' +
-				'&' + f'{ApiHandler.PAGE}' + '1' + '&' + f'{ApiHandler.ORDER}' + 'relevance' +
-				'&' + f'{ApiHandler.PAGINATE_BY}' + 'results')
+			# ADD: Send query to StringModifier
+			# Forgot to fix this after I realized the formatting was redundant.
+			searchResultsResponse = requests.get(ApiHandler.ECFR + ApiHandler.SEARCH + ApiHandler.QUERY + query + '&' +
+				ApiHandler.format_agency_parameter(ApiHandler.slug_array) + ApiHandler.PER_PAGE + '3' +
+				'&' + ApiHandler.PAGE + '1' + '&' + ApiHandler.ORDER + 'relevance' +
+				'&' + ApiHandler.PAGINATE_BY + 'results')
 
-			if simpleResponse.status_code == 200:
-				return simpleResponse.json() # Object type: dict
+			if searchResultsResponse.status_code == 200:
+				return searchResultsResponse.json() # Object type: dict
 			else:
-				# https://www.youtube.com/watch?v=HVmMAUc3r-0
-				# I know laughing at this poor mom shocked by a machiavellian chatbot engaging
-				# in ruthless surveillance capitalism with her child is wrong, but I don't
-				# want to be right.
-				#
-				# This is the cleanest way... I think. Just need to let the user know
-				# the server is not responding as expected. No real reason to actually raise.
-				print(f'Status code: {simpleResponse.status_code} returned. Process stopped.')
+				print(f'Status code: {searchResultsResponse.status_code} returned. Process stopped.')
 				return
 
 		except requests.exceptions.RequestException as error:
 			print(f'requests exception caught: {error}')
 		except Exception as error:
 			print(f'Generic exception caught: {error}')
-			# https://www.youtube.com/watch?v=4Yj1sSSnXnk
 	# END: Methods
 # END: ApiHandler Class
+
+# print(ApiHandler.search_results_call('chocolate'))
