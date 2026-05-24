@@ -1,4 +1,5 @@
 import requests
+from api.query_modifier import QueryModifier as query_modifier
 
 # START: ApiHandler Class
 class ApiHandler:
@@ -6,7 +7,6 @@ class ApiHandler:
 	ECFR = 'https://www.ecfr.gov'
 	SEARCH = '/api/search/v1/results?'
 	QUERY = 'query='
-	# SPACE = %20 # Move to query_builder later.
 
 	# Agency slug list
 	USDA = 'agriculture-department' # Legal and non-binding guidance
@@ -53,8 +53,8 @@ class ApiHandler:
 		# If an error is encountered during request:
 	def search_results_call(query):
 		try:
-			# ADD: Send query to StringModifier
-			# Forgot to fix this after I realized the formatting was redundant.
+			query = query_modifier.pad_query(query)
+
 			searchResultsResponse = requests.get(ApiHandler.ECFR + ApiHandler.SEARCH + ApiHandler.QUERY + query + '&' +
 				ApiHandler.format_agency_parameter(ApiHandler.slug_array) + ApiHandler.PER_PAGE + '3' +
 				'&' + ApiHandler.PAGE + '1' + '&' + ApiHandler.ORDER + 'relevance' +
@@ -72,5 +72,3 @@ class ApiHandler:
 			print(f'Generic exception caught: {error}')
 	# END: Methods
 # END: ApiHandler Class
-
-# print(ApiHandler.search_results_call('chocolate'))
