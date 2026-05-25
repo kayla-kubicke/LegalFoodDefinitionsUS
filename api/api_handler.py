@@ -3,6 +3,18 @@ from api.query_modifier import QueryModifier as query_modifier
 
 # START: ApiHandler Class
 class ApiHandler:
+	# Maybe make this a parent class and the children calls?
+	# https://docs.python.org/3/tutorial/classes.html#inheritance
+	# Hm... yeah, I think that's the next step.
+	# Just make it as flexible as possible.
+	#
+	# Children:
+	# search_results
+	# correction - includes revisions, so I can grab most recent date data
+	# count - if a I build a spliter, can call to get count for split/combo query
+		# so user can select split or combo
+	# Basic agency call? Do I need this?
+
 	# START: Constants
 	ECFR = 'https://www.ecfr.gov'
 	SEARCH = '/api/search/v1/results?'
@@ -41,7 +53,7 @@ class ApiHandler:
 		return_string = ''
 		param = 'agency_slugs%5B%5D='
 		for slug in slug_array:
-			return_string = f'{return_string}' + f'{param}' + f'{slug}' + '&'
+			return_string = return_string + param + slug + '&'
 
 		return return_string
 
