@@ -1,4 +1,5 @@
 import requests
+import api.api_constants as api_constants
 from api.query_modifier import QueryModifier as query_modifier
 
 # START: ApiHandler Class
@@ -15,37 +16,11 @@ class ApiHandler:
 		# so user can select split or combo
 	# Basic agency call? Do I need this?
 
-	# START: Constants
-	ECFR = 'https://www.ecfr.gov'
-	SEARCH = '/api/search/v1/results?'
-	QUERY = 'query='
-
-	# Agency slug list
-	USDA = 'agriculture-department' # Legal and non-binding guidance
-	EPA = 'environmental-protection-agency' # Pesticide-related results
-	FDA = 'food-and-drug-administration' # Legal and non-binding guidance
-	FWS = 'fish-and-wildlife-service' # Wild foods definitions and non-binding guidance
-	ATF ='alcohol-tobacco-firearms-and-explosives-bureau' # Booze
-	MMC = 'marine-mammal-commission' # Wild foods definitions and non-binding guidance
-	slug_array = [USDA, FDA, EPA, FWS, ATF, MMC]
-
-	# START: Date parameters
-	# DATE = 'date='
-	# LAST_MOD_AFTER = 'last_modified_after='
-	# LAST_MOD_ON_OR_AFTER = 'last_modified_on_or_after='
-	# LAST_MOD_BEFORE = 'last_modified_before='
-	# LAST_MOD_ON_OR_BEFORE = 'last_modified_on_or_before='
-	# END: Date parameters
-
-	# START: Page parameters
-	PER_PAGE = 'per_page='
-	PAGE = 'page='
-	ORDER = 'order='
-	# Confirm by date returns most recent first.
-	# NOTE:'date' requires one of the last_modified_* options.
-	PAGINATE_BY = 'paginate_by='
-	# END: Page parameters
-	# END: Constants
+	# START: Constructor
+	# https://www.youtube.com/watch?v=qqi-8nv5ngk
+	# def __init__(self, service, search_type):
+		# /api/{service}/v1/{search_type}... may have extra params
+	# END: Constructor
 
 	# START: Methods
 	# RETURNS formated agency slug parameter string
@@ -67,10 +42,10 @@ class ApiHandler:
 		try:
 			query = query_modifier.pad_query(query)
 
-			searchResultsResponse = requests.get(ApiHandler.ECFR + ApiHandler.SEARCH + ApiHandler.QUERY + query + '&' +
-				ApiHandler.format_agency_parameter(ApiHandler.slug_array) + ApiHandler.PER_PAGE + '3' +
-				'&' + ApiHandler.PAGE + '1' + '&' + ApiHandler.ORDER + 'relevance' +
-				'&' + ApiHandler.PAGINATE_BY + 'results')
+			searchResultsResponse = requests.get(api_constants.ECFR + api_constants.SEARCH + api_constants.QUERY + query + '&' +
+				ApiHandler.format_agency_parameter(api_constants.SLUG_ARRAY) + api_constants.PER_PAGE + '3' +
+				'&' + api_constants.PAGE + '1' + '&' + api_constants.ORDER + 'relevance' +
+				'&' + api_constants.PAGINATE_BY + 'results')
 
 			if searchResultsResponse.status_code == 200:
 				return searchResultsResponse.json() # Object type: dict

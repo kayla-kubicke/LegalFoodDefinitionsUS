@@ -4,7 +4,6 @@
 class QueryModifier:
 	SPACE = '%20'
 
-	# https://kidpix.app/
 	# What do I need to do?
 	# Remove excess spaces.
 	# Remove non-alpha characters? Can't see why a query would use non-alphas.

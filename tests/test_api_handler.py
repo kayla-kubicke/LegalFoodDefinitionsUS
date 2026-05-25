@@ -5,6 +5,7 @@
 import unittest
 from unittest.mock import patch
 from api.api_handler import ApiHandler as api_handler
+import api.api_constants as api_constants
 import requests
 import io
 from contextlib import redirect_stdout
@@ -15,9 +16,9 @@ class TestApiHandler(unittest.TestCase):
 	# format_agency_parameter test(s)
 	def test_format_agency_parameter_returns_expected_string(self):
 		test_slug_array = [
-			api_handler.USDA, api_handler.EPA,
-			api_handler.FDA, api_handler.FWS,
-			api_handler.ATF, api_handler.MMC
+			api_constants.USDA, api_constants.EPA,
+			api_constants.FDA, api_constants.FWS,
+			api_constants.ATF, api_constants.MMC
 		]
 		test_string = api_handler.format_agency_parameter(test_slug_array)
 
