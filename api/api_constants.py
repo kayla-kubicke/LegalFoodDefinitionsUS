@@ -1,7 +1,9 @@
 ECFR = 'https://www.ecfr.gov'
-
+# REMOVE/UPDATE after refactor
 SEARCH = '/api/search/v1/results?'
 QUERY = 'query='
+# REMOVE/UPDATE after refactor
+SPACE = '%20'
 
 # START: Agency slug list
 USDA = 'agriculture-department'

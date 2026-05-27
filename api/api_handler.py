@@ -1,28 +1,41 @@
 import requests
+# from enum import Enum
 import api.api_constants as api_constants
 from api.query_modifier import QueryModifier as query_modifier
 
 # START: ApiHandler Class
 class ApiHandler:
-	# Maybe make this a parent class and the children calls?
 	# https://docs.python.org/3/tutorial/classes.html#inheritance
-	# Hm... yeah, I think that's the next step.
-	# Just make it as flexible as possible.
 	#
 	# Children:
-	# search_results
-	# correction - includes revisions, so I can grab most recent date data
+	# (search) search_results
+	# (admin) correction - includes revisions, so I can grab most recent date data
 	# count - if a I build a spliter, can call to get count for split/combo query
 		# so user can select split or combo
 	# Basic agency call? Do I need this?
 
+	# START: Enums
+	# service Enum
+		# admin, search, versioner
+	# END: Enums
+
 	# START: Constructor
-	# https://www.youtube.com/watch?v=qqi-8nv5ngk
-	# def __init__(self, service, search_type):
-		# /api/{service}/v1/{search_type}... may have extra params
+	# def __init__(self, service):
+		# /api/{service}/v1/{search_type}...
+		#
+		# self.service = service
 	# END: Constructor
 
+	# START: Proposed Methods
+	# generic call
+	# build get
+	# That's it?
+	# https://www.youtube.com/watch?v=URQ6E5gGNCI
+	# END: Proposed Methods
+
+	# Migrate this stuff later.
 	# START: Methods
+	# Move to SearchResultsApiHandler
 	# RETURNS formated agency slug parameter string
 	def format_agency_parameter(slug_array):
 		return_string = ''
