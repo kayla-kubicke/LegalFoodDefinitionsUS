@@ -3,7 +3,7 @@ from api.example_handler import ExampleHandler as example_handler
 
 # START: JSONParser Class
 class JSONParser:
-	# Inner class AuthorObjectType is used to restrict the object type
+	# Inner class AuthorObjectType restricts the object type
 	# of the 'authors' value inside the search results object.
 	class AuthorObjectType(Enum):
 		SET = 1

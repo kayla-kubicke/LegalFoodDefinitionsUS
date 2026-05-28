@@ -1,6 +1,6 @@
 ECFR = 'https://www.ecfr.gov'
 # REMOVE/UPDATE after refactor
-SEARCH = '/api/search/v1/results?'
+SEARCH = '/api/search/v1/results?' # NOTE: Same var in ApiHandler.
 QUERY = 'query='
 # REMOVE/UPDATE after refactor
 SPACE = '%20'
