@@ -1,5 +1,25 @@
+# import requests
+# from enum import Enum
+# import api.api_constants as api_constants
+# from api.query_modifier import QueryModifier as query_modifier
+
 # (!) Update methods.
 # class SearchApiHandler(ApiHandler):
+	# START: Enum
+	# class SearchType(Enum):
+		# RESULTS = 1
+		# COUNT = 2
+		# SUMMARY = 3
+		# COUNTS = 4 # Requires another url option
+		# SUGGESTIONS = 5
+	# END: Enum
+
+	# START: Constructor
+	# def __init__(self, service: ServiceType, ):
+		# super().__init__(self, service: ServiceType)
+		# 
+	# END: Constructor
+
 	# # START: Methods
 	# # Move to SearchResultsApiHandler
 	# # RETURNS formated agency slug parameter string

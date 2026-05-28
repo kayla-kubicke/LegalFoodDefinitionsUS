@@ -1,18 +1,18 @@
-import requests
+# import requests
+from abc import ABC, abstractmethod
 from enum import Enum
-import api.api_constants as api_constants
-from api.query_modifier import QueryModifier as query_modifier
+# import api.api_constants as api_constants
+# from api.query_modifier import QueryModifier as query_modifier
 
 # START: ApiHandler Class
-class ApiHandler:
-	# Considering...
-	# @abstractmethod
+class ApiHandler(ABC):
+	# https://docs.python.org/3/library/abc.html
 
 	# Inner class ServiceType provides all possible services.
 	class ServiceType(Enum):
 		SEARCH = 1
 		ADMIN = 2
-		VERSIONER = 3 # Don't think I'll ever use this.
+		VERSIONER = 3
 	# END: Enums
 
 	# START: Constructor
@@ -22,16 +22,16 @@ class ApiHandler:
 	# END: Constructor
 
 	# START: Proposed Methods
-	# https://www.youtube.com/watch?v=MHCmE4ABnNs
-	# Any real benefit of splitting build and call responsibility? Hm...
-	# Maybe will see benefits when building unique url in children.
+	@abstractmethod
+	def api_call(query):
+		...
 
-	# generic call
-	# def api_call(query):
+	# I'll just keep it for now.
+	# RETURNS URL string
+	@abstractmethod
+	def build_get():
+		...
 
-	# build get
-	# RETURNS URL string?
-	# def build_get():
-
+	# https://www.youtube.com/watch?v=hD06abPpJn8
 	# END: Proposed Methods
 # END: ApiHandler Class
