@@ -6,8 +6,6 @@ from enum import Enum
 
 # START: ApiHandler Class
 class ApiHandler(ABC):
-	# https://docs.python.org/3/library/abc.html
-
 	# Inner class ServiceType provides all possible services.
 	class ServiceType(Enum):
 		SEARCH = 1
@@ -23,15 +21,14 @@ class ApiHandler(ABC):
 
 	# START: Proposed Methods
 	@abstractmethod
-	def api_call(query):
+	def api_call(self, query):
 		...
 
 	# I'll just keep it for now.
 	# RETURNS URL string
 	@abstractmethod
-	def build_get():
+	def build_url(self):
 		...
 
-	# https://www.youtube.com/watch?v=hD06abPpJn8
 	# END: Proposed Methods
 # END: ApiHandler Class
