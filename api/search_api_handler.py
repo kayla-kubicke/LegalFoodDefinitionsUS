@@ -16,8 +16,8 @@ class SearchApiHandler(api_handler):
 	# END: Enum
 
 	# START: Constructor
-	# Just saw it, would be happy to see it again.
-	# https://www.youtube.com/watch?v=rnfTmSAnS3c
+	# Have to build on a different machine for a while; this is a test commit.
+	# I hope this is pointed correctly... :|
 	def __init__(self, service: api_handler.ServiceType, search_type: SearchType):
 		# Can I move the params around so I can make a service default?
 		# Is the api_handler/self set up correct?
