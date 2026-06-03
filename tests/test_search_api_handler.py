@@ -41,8 +41,6 @@ class TestSearchApiHandler(unittest.TestCase):
 		mock_response.return_value.status_code = 200
 		mock_response.return_value.json.return_value = {'Example key': 'Example value'}
 
-		# I know I need to update the first argument. And I know getting this
-		# to pass is kinda meaningless; just refactoring in small steps.
 		search_api_handler_object = search_api_handler(api_handler.ServiceType.SEARCH, search_api_handler.SearchType.RESULTS)
 		object_returned = search_api_handler_object.search_results_call(mock_response)
 		self.assertIsInstance(object_returned, dict)

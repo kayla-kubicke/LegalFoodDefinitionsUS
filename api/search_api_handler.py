@@ -16,8 +16,6 @@ class SearchApiHandler(api_handler):
 	# END: Enum
 
 	# START: Constructor
-	# Have to build on a different machine for a while; this is a test commit.
-	# I hope this is pointed correctly... :|
 	def __init__(self, service: api_handler.ServiceType, search_type: SearchType):
 		# Can I move the params around so I can make a service default?
 		# Is the api_handler/self set up correct?
@@ -36,8 +34,13 @@ class SearchApiHandler(api_handler):
 
 		return return_string
 
-	def build_url(self):
-		return 'whatevers2009'
+	def build_url(self, query):
+		url = '''api_constants.ECFR + api_constants.SEARCH + api_constants.QUERY + query + '&' +
+				SearchApiHandler.format_agency_parameter(api_constants.SLUG_ARRAY) + api_constants.PER_PAGE + '3' +
+				'&' + api_constants.PAGE + '1' + '&' + api_constants.ORDER + 'relevance' +
+				'&' + api_constants.PAGINATE_BY + 'results'\\'''
+
+		return url
 
 	def api_call(self, query):
 		return 'whatevers2009'
@@ -53,10 +56,15 @@ class SearchApiHandler(api_handler):
 		try:
 			query = query_modifier.pad_query(query)
 
-			searchResultsResponse = requests.get(api_constants.ECFR + api_constants.SEARCH + api_constants.QUERY + query + '&' +
-				SearchApiHandler.format_agency_parameter(api_constants.SLUG_ARRAY) + api_constants.PER_PAGE + '3' +
-				'&' + api_constants.PAGE + '1' + '&' + api_constants.ORDER + 'relevance' +
-				'&' + api_constants.PAGINATE_BY + 'results')
+			# UPDATE: Code passes on other machine; commit may contain mistakes, but unlikely.
+			# Will set up evironment on this one eventually... just hate building
+			# on this machine.
+			# searchResultsResponse = requests.get(api_constants.ECFR + api_constants.SEARCH + api_constants.QUERY + query + '&' +
+			# 	SearchApiHandler.format_agency_parameter(api_constants.SLUG_ARRAY) + api_constants.PER_PAGE + '3' +
+			# 	'&' + api_constants.PAGE + '1' + '&' + api_constants.ORDER + 'relevance' +
+			# 	'&' + api_constants.PAGINATE_BY + 'results')
+
+			searchResultsResponse = requests.get(self.build_url(query))
 
 			if searchResultsResponse.status_code == 200:
 				return searchResultsResponse.json() # Object type: dict
