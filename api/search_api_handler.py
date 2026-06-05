@@ -35,6 +35,9 @@ class SearchApiHandler(api_handler):
 		return return_string
 
 	def build_url(self, query):
+		# "https://www.ecfr.gov/api/search/v1/results?query=chocolate&per_page=20&page=1&order=relevance&paginate_by=results"
+		# Deciding if I want to update build_url(...) a bit or move on to unit tests and other classes.
+
 		url = '''api_constants.ECFR + api_constants.SEARCH + api_constants.QUERY + query + '&' +
 				SearchApiHandler.format_agency_parameter(api_constants.SLUG_ARRAY) + api_constants.PER_PAGE + '3' +
 				'&' + api_constants.PAGE + '1' + '&' + api_constants.ORDER + 'relevance' +
@@ -56,9 +59,6 @@ class SearchApiHandler(api_handler):
 		try:
 			query = query_modifier.pad_query(query)
 
-			# UPDATE: Code passes on other machine; commit may contain mistakes, but unlikely.
-			# Will set up evironment on this one eventually... just hate building
-			# on this machine.
 			# searchResultsResponse = requests.get(api_constants.ECFR + api_constants.SEARCH + api_constants.QUERY + query + '&' +
 			# 	SearchApiHandler.format_agency_parameter(api_constants.SLUG_ARRAY) + api_constants.PER_PAGE + '3' +
 			# 	'&' + api_constants.PAGE + '1' + '&' + api_constants.ORDER + 'relevance' +
