@@ -35,6 +35,15 @@ class TestSearchApiHandler(unittest.TestCase):
 	# format_agency_parameter test(s)
 
 
+	# build_url test(s)
+	def test_build_url_returns_expected_object(self):
+		search_api_handler_object = search_api_handler(api_handler.ServiceType.SEARCH, search_api_handler.SearchType.RESULTS)
+		object_returned = search_api_handler_object.build_url('example_query')
+
+		self.assertIsInstance(object_returned, str)
+	# build_url test(s)
+
+
 	# search_results_call tests
 	@patch('requests.get')
 	def test_search_results_call_successful_returns_expected_object(self, mock_response):
