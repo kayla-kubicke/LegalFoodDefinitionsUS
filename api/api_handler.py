@@ -29,6 +29,5 @@ class ApiHandler(ABC):
 	@abstractmethod
 	def build_url(self):
 		...
-
 	# END: Proposed Methods
 # END: ApiHandler Class

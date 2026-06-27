@@ -35,9 +35,9 @@ class SearchApiHandler(api_handler):
 		return return_string
 
 	def build_url(self, query):
-		# "https://www.ecfr.gov/api/search/v1/results?query=chocolate&per_page=20&page=1&order=relevance&paginate_by=results"
-		# Deciding if I want to update build_url(...) a bit or move on to unit tests and other classes.
-
+		# I'm back.
+		# Looks like my tiny adds were fine. Now what was I doing?
+		# https://www.youtube.com/watch?v=B_r_DTYDjkk
 		url = '''api_constants.ECFR + api_constants.SEARCH + api_constants.QUERY + query + '&' +
 				SearchApiHandler.format_agency_parameter(api_constants.SLUG_ARRAY) + api_constants.PER_PAGE + '3' +
 				'&' + api_constants.PAGE + '1' + '&' + api_constants.ORDER + 'relevance' +
@@ -45,24 +45,15 @@ class SearchApiHandler(api_handler):
 
 		return url
 
-	def api_call(self, query):
-		return 'whatevers2009'
-
 	# A search results call to api
 	# RETURNS
 	# Successful: dict object
 	# Unsuccessful:
 		# If response is returned but status code != 200:
 		# If an error is encountered during request:
-	def search_results_call(self, query):
-	# # def api_call(self, query):
+	def api_call(self, query):
 		try:
 			query = query_modifier.pad_query(query)
-
-			# searchResultsResponse = requests.get(api_constants.ECFR + api_constants.SEARCH + api_constants.QUERY + query + '&' +
-			# 	SearchApiHandler.format_agency_parameter(api_constants.SLUG_ARRAY) + api_constants.PER_PAGE + '3' +
-			# 	'&' + api_constants.PAGE + '1' + '&' + api_constants.ORDER + 'relevance' +
-			# 	'&' + api_constants.PAGINATE_BY + 'results')
 
 			searchResultsResponse = requests.get(self.build_url(query))
 
@@ -76,3 +67,5 @@ class SearchApiHandler(api_handler):
 			print(f'requests exception caught: {error}')
 		except Exception as error:
 			print(f'Generic exception caught: {error}')
+	# https://www.youtube.com/watch?v=A4OYERIEpYA
+	# I absolutely hate touching straw with bare skin.
