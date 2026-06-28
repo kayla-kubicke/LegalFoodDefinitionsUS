@@ -4,9 +4,19 @@ import api.api_constants as api_constants
 from api.api_handler import ApiHandler as api_handler
 from api.query_modifier import QueryModifier as query_modifier
 
-# (!) Update methods.
 class SearchApiHandler(api_handler):
 	# START: Enum
+		# Search Results: '.../results'
+		# Result Count: '.../count' # NOTE: Different than counts
+		# Summary Details: '...summary'
+		#
+		# Count by Dates: '.../counts/daily'
+		# Count by Title: '.../counts/titles'
+		# Count by Hierarchy: '.../counts/hierarchy'
+		#
+		# Suggestions: '.../suggestions'
+		#
+		# Best way to deal with this? Just another dict?
 	class SearchType(Enum):
 		RESULTS = 1
 		COUNT = 2
@@ -16,9 +26,9 @@ class SearchApiHandler(api_handler):
 	# END: Enum
 
 	# START: Constructor
+	# UPDATE: service needs default after (?) string added or?
 	def __init__(self, service: api_handler.ServiceType, search_type: SearchType):
 		# Can I move the params around so I can make a service default?
-		# Is the api_handler/self set up correct?
 		self.service = self.ServiceType.SEARCH
 		self.search_type = search_type
 	# END: Constructor
@@ -34,10 +44,8 @@ class SearchApiHandler(api_handler):
 
 		return return_string
 
+	# Best way to set params given enum/url situation?
 	def build_url(self, query):
-		# I'm back.
-		# Looks like my tiny adds were fine. Now what was I doing?
-		# https://www.youtube.com/watch?v=B_r_DTYDjkk
 		url = '''api_constants.ECFR + api_constants.SEARCH + api_constants.QUERY + query + '&' +
 				SearchApiHandler.format_agency_parameter(api_constants.SLUG_ARRAY) + api_constants.PER_PAGE + '3' +
 				'&' + api_constants.PAGE + '1' + '&' + api_constants.ORDER + 'relevance' +
@@ -67,5 +75,3 @@ class SearchApiHandler(api_handler):
 			print(f'requests exception caught: {error}')
 		except Exception as error:
 			print(f'Generic exception caught: {error}')
-	# https://www.youtube.com/watch?v=A4OYERIEpYA
-	# I absolutely hate touching straw with bare skin.

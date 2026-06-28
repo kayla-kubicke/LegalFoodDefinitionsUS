@@ -7,6 +7,11 @@ from enum import Enum
 # START: ApiHandler Class
 class ApiHandler(ABC):
 	# Inner class ServiceType provides all possible services.
+		# Admin Service: /api/admin/v1/...
+		# Search Service: /api/search/v1/...
+		# Versioner Service: /api/versioner/v1/...
+		#
+		# Add dict?
 	class ServiceType(Enum):
 		SEARCH = 1
 		ADMIN = 2
