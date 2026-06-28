@@ -11,12 +11,21 @@ class ApiHandler(ABC):
 		# Search Service: /api/search/v1/...
 		# Versioner Service: /api/versioner/v1/...
 		#
-		# Add dict?
-	class ServiceType(Enum):
-		SEARCH = 1
-		ADMIN = 2
-		VERSIONER = 3
+		# Could use StrEnum or this supposed convention?
+	# class ServiceType(Enum):
+	# 	SEARCH = 1
+	# 	ADMIN = 2
+	# 	VERSIONER = 3
 	# END: Enums
+
+	class ServiceType(str, Enum):
+		SEARCH = 'search'
+		ADMIN = 'admin'
+		VERSIONER = 'versioner'
+
+	# SERVICE_TYPE_DICT = {
+
+	# }
 
 	# START: Constructor
 	# /api/{service}/v1/{search_type}...

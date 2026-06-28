@@ -16,14 +16,26 @@ class SearchApiHandler(api_handler):
 		#
 		# Suggestions: '.../suggestions'
 		#
-		# Best way to deal with this? Just another dict?
-	class SearchType(Enum):
-		RESULTS = 1
-		COUNT = 2
-		SUMMARY = 3
-		COUNTS = 4 # Requires another url option
-		SUGGESTIONS = 5
+		# (???)
+	# class SearchType(Enum):
+	# 	RESULTS = 1
+	# 	COUNT = 2
+	# 	SUMMARY = 3
+	# 	COUNTS = 4 # Requires another url option
+	# 	SUGGESTIONS = 5
 	# END: Enum
+
+	class SearchType(Enum):
+		RESULTS = 'results'
+		COUNT = 'count'
+		SUMMARY = 'summary'
+		COUNTS = 'counts' # But this requires another url option anyway, so...
+		SUGGESTIONS = 'suggestions'
+
+	# SEARCH_TYPE_DICT = {
+
+	# }
+	# https://www.youtube.com/watch?v=bwuPAfGo9Wk
 
 	# START: Constructor
 	# UPDATE: service needs default after (?) string added or?
