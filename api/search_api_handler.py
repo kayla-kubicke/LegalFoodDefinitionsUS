@@ -25,7 +25,7 @@ class SearchApiHandler(api_handler):
 	# 	SUGGESTIONS = 5
 	# END: Enum
 
-	class SearchType(str, Enum): # Oops.
+	class SearchType(str, Enum):
 		RESULTS = 'results'
 		COUNT = 'count'
 		SUMMARY = 'summary'
@@ -37,14 +37,9 @@ class SearchApiHandler(api_handler):
 	# }
 
 	# START: Constructor
-	# UPDATE: service needs default after (?) string added or?
-	# https://www.youtube.com/watch?v=seYNANIHXSw
-	def __init__(self, service: api_handler.ServiceType = api_handler.ServiceType.SEARCH.value):#, search_type: SearchType):
-		# Can I move the params around so I can make a service default?
-		# self.service = self.ServiceType.SEARCH
-		# self.service = service
-		# super().__init__(service) # NO. Ahhh, how do I set up this default? # f'{api_handler.ServiceType.SEARCH.value}'
-		# self.search_type = search_type
+	def __init__(self, search_type: SearchType, service: api_handler.ServiceType = api_handler.ServiceType.SEARCH.value):
+		self.service = service
+		self.search_type = search_type
 	# END: Constructor
 
 	# START: Methods
