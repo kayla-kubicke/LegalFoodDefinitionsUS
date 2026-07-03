@@ -15,21 +15,11 @@ class SearchApiHandler(api_handler):
 		# Count by Hierarchy: '.../counts/hierarchy'
 		#
 		# Suggestions: '.../suggestions'
-		#
-		# (???)
-	# class SearchType(Enum):
-	# 	RESULTS = 1
-	# 	COUNT = 2
-	# 	SUMMARY = 3
-	# 	COUNTS = 4 # Requires another url option
-	# 	SUGGESTIONS = 5
-	# END: Enum
-
 	class SearchType(str, Enum):
 		RESULTS = 'results'
 		COUNT = 'count'
 		SUMMARY = 'summary'
-		COUNTS = 'counts' # But this requires another url option anyway, so... better to make dict or something?
+		COUNTS = 'counts' # Maybe just make extra enums? Not scalable, but doubt API will grow too much...
 		SUGGESTIONS = 'suggestions'
 
 	# SEARCH_TYPE_DICT = {
@@ -37,9 +27,10 @@ class SearchApiHandler(api_handler):
 	# }
 
 	# START: Constructor
-	def __init__(self, search_type: SearchType, service: api_handler.ServiceType = api_handler.ServiceType.SEARCH.value):
-		self.service = service
-		self.search_type = search_type
+	def __init__(self, search_type: SearchType, service: api_handler.ServiceType = api_handler.ServiceType.SEARCH):
+		# self.service = service.value # Type check in parent? Or just let python be python?
+		super().__init__(service) # Better?
+		self.search_type = search_type.value
 	# END: Constructor
 
 	# START: Methods
@@ -53,14 +44,22 @@ class SearchApiHandler(api_handler):
 
 		return return_string
 
-	# Best way to set params given enum/url situation?
 	def build_url(self, query):
-		url = '''api_constants.ECFR + api_constants.SEARCH + api_constants.QUERY + query + '&' +
-				SearchApiHandler.format_agency_parameter(api_constants.SLUG_ARRAY) + api_constants.PER_PAGE + '3' +
-				'&' + api_constants.PAGE + '1' + '&' + api_constants.ORDER + 'relevance' +
-				'&' + api_constants.PAGINATE_BY + 'results'\\'''
+		# url = '''api_constants.ECFR + api_constants.SEARCH + api_constants.QUERY + query + '&' +
+		# 		SearchApiHandler.format_agency_parameter(api_constants.SLUG_ARRAY) + api_constants.PER_PAGE + '3' +
+		# 		'&' + api_constants.PAGE + '1' + '&' + api_constants.ORDER + 'relevance' +
+		# 		'&' + api_constants.PAGINATE_BY + 'results'\\'''
+
+		# ADD: Dummy url test
+
+		url = f'''api_constants.ECFR + '/api/' + {self.service} + '/v1/' + {self.search_type} + query + '&' +
+			SearchApiHandler.format_agency_parameter(api_constants.SLUG_ARRAY) + api_constants.PER_PAGE + '3' +
+			'&' + api_constants.PAGE + '1' + '&' + api_constants.ORDER + 'relevance' +
+			'&' + api_constants.PAGINATE_BY + 'results'\\'''
 
 		return url
+	# <3 <3 <3
+	# https://www.youtube.com/watch?v=RoaOFFCSegc
 
 	# A search results call to api
 	# RETURNS
