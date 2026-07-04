@@ -41,6 +41,14 @@ class TestSearchApiHandler(unittest.TestCase):
 		object_returned = search_api_handler_object.build_url('example_query')
 
 		self.assertIsInstance(object_returned, str)
+
+	def test_build_url_returns_expected_url(self):
+		search_api_handler_object = search_api_handler(search_api_handler.SearchType.RESULTS)
+		url_returned = search_api_handler_object.build_url('chocolate')
+
+		url_expected = 'https://www.ecfr.gov/api/search/v1/results?query=chocolate&per_page=5&page=1&order=relevance&paginate_by=results'
+
+		self.assertEqual(url_returned[0:60], url_expected[0:60])
 	# build_url test(s)
 
 

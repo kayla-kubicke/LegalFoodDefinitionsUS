@@ -45,21 +45,11 @@ class SearchApiHandler(api_handler):
 		return return_string
 
 	def build_url(self, query):
-		# url = '''api_constants.ECFR + api_constants.SEARCH + api_constants.QUERY + query + '&' +
-		# 		SearchApiHandler.format_agency_parameter(api_constants.SLUG_ARRAY) + api_constants.PER_PAGE + '3' +
-		# 		'&' + api_constants.PAGE + '1' + '&' + api_constants.ORDER + 'relevance' +
-		# 		'&' + api_constants.PAGINATE_BY + 'results'\\'''
-
-		# ADD: Dummy url test
-
-		url = f'''api_constants.ECFR + '/api/' + {self.service} + '/v1/' + {self.search_type} + query + '&' +
-			SearchApiHandler.format_agency_parameter(api_constants.SLUG_ARRAY) + api_constants.PER_PAGE + '3' +
-			'&' + api_constants.PAGE + '1' + '&' + api_constants.ORDER + 'relevance' +
-			'&' + api_constants.PAGINATE_BY + 'results'\\'''
+		# url = f'{api_constants.ECFR}/api/{self.service}/v1/{self.search_type}?query={query}&{SearchApiHandler.format_agency_parameter(api_constants.SLUG_ARRAY)}{api_constants.PER_PAGE}3&{api_constants.PAGE}1&{api_constants.ORDER}relevance&{api_constants.PAGINATE_BY}results'
+		url = f'{api_constants.ECFR}/api/{self.service}/v1/{self.search_type}?query={query}&{api_constants.PER_PAGE}3&{api_constants.PAGE}1&{api_constants.ORDER}relevance&{api_constants.PAGINATE_BY}results'
 
 		return url
-	# <3 <3 <3
-	# https://www.youtube.com/watch?v=RoaOFFCSegc
+	# https://www.youtube.com/@FoundFootageFest
 
 	# A search results call to api
 	# RETURNS
