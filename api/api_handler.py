@@ -6,14 +6,13 @@ from enum import Enum
 
 # START: ApiHandler Class
 class ApiHandler(ABC):
-	# Inner class ServiceType provides all possible services.
-		# Admin Service: /api/admin/v1/...
-		# Search Service: /api/search/v1/...
-		# Versioner Service: /api/versioner/v1/...
+	# START: Enums
+	# Inner class ServiceType provides all possible services
 	class ServiceType(str, Enum):
 		SEARCH = 'search'
 		ADMIN = 'admin'
 		VERSIONER = 'versioner'
+	# END: Enums
 
 	# START: Constructor
 	# /api/{service}/v1/{search_type}...

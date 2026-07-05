@@ -5,31 +5,22 @@ from api.api_handler import ApiHandler as api_handler
 from api.query_modifier import QueryModifier as query_modifier
 
 class SearchApiHandler(api_handler):
-	# START: Enum
-		# Search Results: '.../results'
-		# Result Count: '.../count' # NOTE: Different than counts
-		# Summary Details: '...summary'
-		#
-		# Count by Dates: '.../counts/daily'
-		# Count by Title: '.../counts/titles'
-		# Count by Hierarchy: '.../counts/hierarchy'
-		#
-		# Suggestions: '.../suggestions'
+	# START: Enums
 	class SearchType(str, Enum):
 		RESULTS = 'results'
 		COUNT = 'count'
 		SUMMARY = 'summary'
-		COUNTS = 'counts' # Maybe just make extra enums? Not scalable, but doubt API will grow too much...
+		COUNTS = 'counts'
+		COUNTS_DATES = 'counts/daily'
+		COUNTS_TITLE = 'counts/titles'
+		COUNTS_HIERARCHY = 'counts/hierarchy'
 		SUGGESTIONS = 'suggestions'
-
-	# SEARCH_TYPE_DICT = {
-
-	# }
+	# https://www.youtube.com/watch?v=MhQ5678cJU8
+	# END: Enums
 
 	# START: Constructor
 	def __init__(self, search_type: SearchType, service: api_handler.ServiceType = api_handler.ServiceType.SEARCH):
-		# self.service = service.value # Type check in parent? Or just let python be python?
-		super().__init__(service) # Better?
+		super().__init__(service)
 		self.search_type = search_type.value
 	# END: Constructor
 
@@ -45,11 +36,11 @@ class SearchApiHandler(api_handler):
 		return return_string
 
 	def build_url(self, query):
+		# This one includes slug array. Need to keep working on this.
 		# url = f'{api_constants.ECFR}/api/{self.service}/v1/{self.search_type}?query={query}&{SearchApiHandler.format_agency_parameter(api_constants.SLUG_ARRAY)}{api_constants.PER_PAGE}3&{api_constants.PAGE}1&{api_constants.ORDER}relevance&{api_constants.PAGINATE_BY}results'
 		url = f'{api_constants.ECFR}/api/{self.service}/v1/{self.search_type}?query={query}&{api_constants.PER_PAGE}3&{api_constants.PAGE}1&{api_constants.ORDER}relevance&{api_constants.PAGINATE_BY}results'
 
 		return url
-	# https://www.youtube.com/@FoundFootageFest
 
 	# A search results call to api
 	# RETURNS

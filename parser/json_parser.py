@@ -5,7 +5,6 @@ from api.example_handler import ExampleHandler as example_handler
 class JSONParser:
 	# Inner class AuthorObjectType restricts the object type
 	# of the 'authors' value inside the search results object.
-	# (???) Update to use the (str, Enum) convention? No clear benefit.
 	class AuthorObjectType(Enum):
 		SET = 1
 		LIST = 2
