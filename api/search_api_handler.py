@@ -15,7 +15,6 @@ class SearchApiHandler(api_handler):
 		COUNTS_TITLE = 'counts/titles'
 		COUNTS_HIERARCHY = 'counts/hierarchy'
 		SUGGESTIONS = 'suggestions'
-	# https://www.youtube.com/watch?v=MhQ5678cJU8
 	# END: Enums
 
 	# START: Constructor
@@ -36,9 +35,7 @@ class SearchApiHandler(api_handler):
 		return return_string
 
 	def build_url(self, query):
-		# This one includes slug array. Need to keep working on this.
-		# url = f'{api_constants.ECFR}/api/{self.service}/v1/{self.search_type}?query={query}&{SearchApiHandler.format_agency_parameter(api_constants.SLUG_ARRAY)}{api_constants.PER_PAGE}3&{api_constants.PAGE}1&{api_constants.ORDER}relevance&{api_constants.PAGINATE_BY}results'
-		url = f'{api_constants.ECFR}/api/{self.service}/v1/{self.search_type}?query={query}&{api_constants.PER_PAGE}3&{api_constants.PAGE}1&{api_constants.ORDER}relevance&{api_constants.PAGINATE_BY}results'
+		url = f'{api_constants.ECFR}/api/{self.service}/v1/{self.search_type}?query={query}&{SearchApiHandler.format_agency_parameter(api_constants.SLUG_ARRAY)}{api_constants.PER_PAGE}3&{api_constants.PAGE}1&{api_constants.ORDER}relevance&{api_constants.PAGINATE_BY}results'
 
 		return url
 
