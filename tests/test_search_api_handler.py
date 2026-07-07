@@ -46,14 +46,9 @@ class TestSearchApiHandler(unittest.TestCase):
 		search_api_handler_object = search_api_handler(api_handler.ServiceType.SEARCH, search_api_handler.SearchType.RESULTS)
 		url_returned = search_api_handler_object.build_url('chocolate')
 
-		# url_expected = 'https://www.ecfr.gov/api/search/v1/results?query=chocolate&per_page=5&page=1&order=relevance&paginate_by=results'
 		url_expected = 'https://www.ecfr.gov/api/results/v1/search?query=chocolate&agency_slugs%5B%5D=agriculture-department&agency_slugs%5B%5D=food-and-drug-administration&agency_slugs%5B%5D=environmental-protection-agency&agency_slugs%5B%5D=fish-and-wildlife-service&agency_slugs%5B%5D=alcohol-tobacco-firearms-and-explosives-bureau&agency_slugs%5B%5D=marine-mammal-commission&per_page=3&page=1&order=relevance&paginate_by=results'
 
 		self.assertEqual(url_returned[0:60], url_expected[0:60])
-	# If you need a little Christmas in July cheer:
-	# https://www.youtube.com/watch?v=3RFWnJ_iVdo
-	# She truly is the spirit animal of every alcoholic boomer mom that just got back
-	# from work.
 	# build_url test(s)
 
 
