@@ -28,7 +28,4 @@ class AdminApiHandler(api_handler):
 		return 'dummy value'
 
 	def api_call(self, query):
-		return 'dummy value'
-	# https://www.youtube.com/watch?v=Vf8ee-gccpc
-	# I f'ing love the badlands.
-	# (So hot though!)
+		return super().api_call(query)

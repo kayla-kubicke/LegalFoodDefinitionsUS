@@ -1,8 +1,8 @@
-# import requests
-from abc import ABC, abstractmethod
+import requests
 from enum import Enum
-# import api.api_constants as api_constants
-# from api.query_modifier import QueryModifier as query_modifier
+from abc import ABC, abstractmethod
+import api.api_constants as api_constants
+from api.query_modifier import QueryModifier as query_modifier
 
 # START: ApiHandler Class
 class ApiHandler(ABC):
@@ -20,15 +20,30 @@ class ApiHandler(ABC):
 		self.service = service.value
 	# END: Constructor
 
-	# START: Proposed Methods
-	@abstractmethod
-	def api_call(self, query):
-		...
-
-	# I'll just keep it for now.
-	# RETURNS URL string
-	@abstractmethod
+	# START: Methods
 	def build_url(self):
 		...
-	# END: Proposed Methods
+
+	# RETURNS
+	# Successful: dict object
+	# Unsuccessful:
+		# If response is returned but status code != 200:
+		# If an error is encountered during request:
+	def api_call(self, query):
+		try:
+			query = query_modifier.pad_query(query)
+
+			searchResultsResponse = requests.get(self.build_url(query))
+
+			if searchResultsResponse.status_code == 200:
+				return searchResultsResponse.json() # Object type: dict
+			else:
+				print(f'Status code: {searchResultsResponse.status_code} returned. Process stopped.')
+				return
+
+		except requests.exceptions.RequestException as error:
+			print(f'requests exception caught: {error}')
+		except Exception as error:
+			print(f'Generic exception caught: {error}')
+	# END: Methods
 # END: ApiHandler Class
