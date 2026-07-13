@@ -12,9 +12,10 @@ class AdminApiHandler(api_handler):
 	# .../v1/corrections.json
 	# .../v1/corrections/title/{title}.json #NOTE: Title is an int
 	class AdminType(str, Enum):
-		AGENCIES = 'agencies.json'
-		CORRECTIONS = 'corrections.json'
-		# CORRECTIONS_TITLE = ''
+		AGENCIES = 'agencies'
+		CORRECTIONS = 'corrections'
+		CORRECTIONS_TITLE = 'corrections/title'
+		DOT_JSON = '.json' # Do I need this?
 	# END: Enums
 
 	# START: Constructor
