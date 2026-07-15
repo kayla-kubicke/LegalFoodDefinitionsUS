@@ -12,8 +12,6 @@ import io
 from contextlib import redirect_stdout
 # END: imports
 
-# UPDATE: Need to test all Enums...
-
 # START: TestSearchApiHandler Class
 class TestSearchApiHandler(unittest.TestCase):
 	# format_agency_parameter test(s)
@@ -45,11 +43,11 @@ class TestSearchApiHandler(unittest.TestCase):
 
 		self.assertIsInstance(object_returned, str)
 
-	def test_build_url_returns_expected_url(self):
+	def test_build_url_returns_expected_url_results(self):
 		search_api_handler_object = search_api_handler(search_api_handler.SearchType.RESULTS)
 		url_returned = search_api_handler_object.build_url('chocolate')
 
-		url_expected = 'https://www.ecfr.gov/api/search/v1/results?query=chocolate&agency_slugs%5B%5D=agriculture-department&agency_slugs%5B%5D=food-and-drug-administration&agency_slugs%5B%5D=environmental-protection-agency&agency_slugs%5B%5D=fish-and-wildlife-service&agency_slugs%5B%5D=alcohol-tobacco-firearms-and-explosives-bureau&agency_slugs%5B%5D=marine-mammal-commission&per_page=3&page=1&order=relevance&paginate_by=results'
+		url_expected = 'https://www.ecfr.gov/api/search/v1/results?query=chocolate&agency_slugs'
 
 		self.assertEqual(url_returned[0:60], url_expected[0:60])
 	# build_url test(s)
@@ -117,11 +115,11 @@ class TestSearchApiHandler(unittest.TestCase):
 
 		self.assertIsInstance(object_returned, str)
 
-	def test_build_url_returns_expected_url(self):
+	def test_build_url_returns_expected_url_count(self):
 		search_api_handler_object = search_api_handler(search_api_handler.SearchType.COUNT)
 		url_returned = search_api_handler_object.build_url('chocolate')
 
-		url_expected = 'https://www.ecfr.gov/api/search/v1/count?query=chocolate&agency_slugs%5B%5D=agriculture-department&agency_slugs%5B%5D=food-and-drug-administration&agency_slugs%5B%5D=environmental-protection-agency&agency_slugs%5B%5D=fish-and-wildlife-service&agency_slugs%5B%5D=alcohol-tobacco-firearms-and-explosives-bureau&agency_slugs%5B%5D=marine-mammal-commission&per_page=3&page=1&order=relevance&paginate_by=results'
+		url_expected = 'https://www.ecfr.gov/api/search/v1/count?query=chocolate&agency_slugs'
 
 		self.assertEqual(url_returned[0:60], url_expected[0:60])
 	# build_url test(s)
@@ -189,11 +187,11 @@ class TestSearchApiHandler(unittest.TestCase):
 
 		self.assertIsInstance(object_returned, str)
 
-	def test_build_url_returns_expected_url(self):
+	def test_build_url_returns_expected_url_summary(self):
 		search_api_handler_object = search_api_handler(search_api_handler.SearchType.SUMMARY)
 		url_returned = search_api_handler_object.build_url('chocolate')
 
-		url_expected = 'https://www.ecfr.gov/api/search/v1/summary?query=chocolate&agency_slugs%5B%5D=agriculture-department&agency_slugs%5B%5D=food-and-drug-administration&agency_slugs%5B%5D=environmental-protection-agency&agency_slugs%5B%5D=fish-and-wildlife-service&agency_slugs%5B%5D=alcohol-tobacco-firearms-and-explosives-bureau&agency_slugs%5B%5D=marine-mammal-commission&per_page=3&page=1&order=relevance&paginate_by=results'
+		url_expected = 'https://www.ecfr.gov/api/search/v1/summary?query=chocolate&agency_slugs'
 
 		self.assertEqual(url_returned[0:60], url_expected[0:60])
 	# build_url test(s)
@@ -261,11 +259,11 @@ class TestSearchApiHandler(unittest.TestCase):
 
 		self.assertIsInstance(object_returned, str)
 
-	def test_build_url_returns_expected_url(self):
+	def test_build_url_returns_expected_url_counts_dates(self):
 		search_api_handler_object = search_api_handler(search_api_handler.SearchType.COUNTS_DATES)
 		url_returned = search_api_handler_object.build_url('chocolate')
 
-		url_expected = 'https://www.ecfr.gov/api/search/v1/counts/daily?query=chocolate&agency_slugs%5B%5D=agriculture-department&agency_slugs%5B%5D=food-and-drug-administration&agency_slugs%5B%5D=environmental-protection-agency&agency_slugs%5B%5D=fish-and-wildlife-service&agency_slugs%5B%5D=alcohol-tobacco-firearms-and-explosives-bureau&agency_slugs%5B%5D=marine-mammal-commission&per_page=3&page=1&order=relevance&paginate_by=results'
+		url_expected = 'https://www.ecfr.gov/api/search/v1/counts/daily?query=chocolate&agency_slugs'
 
 		self.assertEqual(url_returned[0:60], url_expected[0:60])
 	# build_url test(s)
@@ -326,11 +324,218 @@ class TestSearchApiHandler(unittest.TestCase):
 	# END: COUNTS_DATES Enum
 
 	# START: COUNTS_TITLE Enum
+	# build_url test(s)
+	def test_build_url_returns_expected_object_counts_title(self):
+		search_api_handler_object = search_api_handler(search_api_handler.SearchType.COUNTS_TITLE)
+		object_returned = search_api_handler_object.build_url('example_query')
+
+		self.assertIsInstance(object_returned, str)
+
+	def test_build_url_returns_expected_url_counts_title(self):
+		search_api_handler_object = search_api_handler(search_api_handler.SearchType.COUNTS_TITLE)
+		url_returned = search_api_handler_object.build_url('chocolate')
+
+		url_expected = 'https://www.ecfr.gov/api/search/v1/counts/titles?query=chocolate&agency_slugs'
+
+		self.assertEqual(url_returned[0:60], url_expected[0:60])
+	# build_url test(s)
+
+
+	# api_call tests
+	@patch('requests.get')
+	def test_api_call_successful_returns_expected_object_counts_title(self, mock_response):
+		mock_response.return_value.status_code = 200
+		mock_response.return_value.json.return_value = {'Example key': 'Example value'}
+
+		search_api_handler_object = search_api_handler(search_api_handler.SearchType.COUNTS_TITLE)
+		object_returned = search_api_handler_object.api_call(mock_response)
+		self.assertIsInstance(object_returned, dict)
+
+
+	@patch('requests.get')
+	def test_api_call_non_200_terminates_with_expected_output_counts_title(self, mock_response):
+		mock_response.return_value.status_code = 404
+		string_buffer = io.StringIO()
+
+		with redirect_stdout(string_buffer):
+			search_api_handler_object = search_api_handler(search_api_handler.SearchType.COUNTS_TITLE)
+			captured_output = search_api_handler_object.api_call(mock_response)
+
+		captured_output = string_buffer.getvalue()
+
+		self.assertEqual(captured_output[0:16], 'Status code: 404')
+
+
+	@patch('requests.get')
+	def test_api_call_unsucessful_requests_call_raises_exception_counts_title(self, mock_response):
+		mock_response.side_effect = requests.exceptions.RequestException
+		string_buffer = io.StringIO()
+
+		with redirect_stdout(string_buffer):
+			search_api_handler_object = search_api_handler(search_api_handler.SearchType.COUNTS_TITLE)
+			captured_output = search_api_handler_object.api_call(mock_response)
+
+		captured_output = string_buffer.getvalue()
+
+		self.assertEqual(captured_output[0:26], 'requests exception caught:')
+
+
+	@patch('requests.get')
+	def test_api_call_unsucessful_raises_exception_counts_title(self, mock_response):
+		mock_response.side_effect = Exception('Generic exception')
+		string_buffer = io.StringIO()
+
+		with redirect_stdout(string_buffer):
+			search_api_handler_object = search_api_handler(search_api_handler.SearchType.COUNTS_TITLE)
+			captured_output = search_api_handler_object.api_call(mock_response)
+
+		captured_output = string_buffer.getvalue()
+
+		self.assertEqual(captured_output[0:25], 'Generic exception caught:')
+	# api_call tests
 	# END: COUNTS_TITLE Enum
 
 	# START:COUNTS_HIERARCHY Enum
+	# build_url test(s)
+	def test_build_url_returns_expected_object_counts_hierrarchy(self):
+		search_api_handler_object = search_api_handler(search_api_handler.SearchType.COUNTS_HIERARCHY)
+		object_returned = search_api_handler_object.build_url('example_query')
+
+		self.assertIsInstance(object_returned, str)
+
+	def test_build_url_returns_expected_url_counts_hierrarchy(self):
+		search_api_handler_object = search_api_handler(search_api_handler.SearchType.COUNTS_HIERARCHY)
+		url_returned = search_api_handler_object.build_url('chocolate')
+
+		url_expected = 'https://www.ecfr.gov/api/search/v1/counts/hierarchy?query=chocolate&agency_slugs'
+
+		self.assertEqual(url_returned[0:60], url_expected[0:60])
+	# build_url test(s)
+
+
+	# api_call tests
+	@patch('requests.get')
+	def test_api_call_successful_returns_expected_object_counts_hierrarchy(self, mock_response):
+		mock_response.return_value.status_code = 200
+		mock_response.return_value.json.return_value = {'Example key': 'Example value'}
+
+		search_api_handler_object = search_api_handler(search_api_handler.SearchType.COUNTS_HIERARCHY)
+		object_returned = search_api_handler_object.api_call(mock_response)
+		self.assertIsInstance(object_returned, dict)
+
+
+	@patch('requests.get')
+	def test_api_call_non_200_terminates_with_expected_output_counts_hierrarchy(self, mock_response):
+		mock_response.return_value.status_code = 404
+		string_buffer = io.StringIO()
+
+		with redirect_stdout(string_buffer):
+			search_api_handler_object = search_api_handler(search_api_handler.SearchType.COUNTS_HIERARCHY)
+			captured_output = search_api_handler_object.api_call(mock_response)
+
+		captured_output = string_buffer.getvalue()
+
+		self.assertEqual(captured_output[0:16], 'Status code: 404')
+
+
+	@patch('requests.get')
+	def test_api_call_unsucessful_requests_call_raises_exception_counts_hierrarchy(self, mock_response):
+		mock_response.side_effect = requests.exceptions.RequestException
+		string_buffer = io.StringIO()
+
+		with redirect_stdout(string_buffer):
+			search_api_handler_object = search_api_handler(search_api_handler.SearchType.COUNTS_HIERARCHY)
+			captured_output = search_api_handler_object.api_call(mock_response)
+
+		captured_output = string_buffer.getvalue()
+
+		self.assertEqual(captured_output[0:26], 'requests exception caught:')
+
+
+	@patch('requests.get')
+	def test_api_call_unsucessful_raises_exception_counts_hierrarchy(self, mock_response):
+		mock_response.side_effect = Exception('Generic exception')
+		string_buffer = io.StringIO()
+
+		with redirect_stdout(string_buffer):
+			search_api_handler_object = search_api_handler(search_api_handler.SearchType.COUNTS_HIERARCHY)
+			captured_output = search_api_handler_object.api_call(mock_response)
+
+		captured_output = string_buffer.getvalue()
+
+		self.assertEqual(captured_output[0:25], 'Generic exception caught:')
+	# api_call tests
 	# END: COUNTS_HIERARCHY Enum
 
 	# START: SUGGESTIONS Enum
+	# build_url test(s)
+	def test_build_url_returns_expected_object_suggestions(self):
+		search_api_handler_object = search_api_handler(search_api_handler.SearchType.SUGGESTIONS)
+		object_returned = search_api_handler_object.build_url('example_query')
+
+		self.assertIsInstance(object_returned, str)
+
+	def test_build_url_returns_expected_url_suggestions(self):
+		search_api_handler_object = search_api_handler(search_api_handler.SearchType.SUGGESTIONS)
+		url_returned = search_api_handler_object.build_url('chocolate')
+
+		url_expected = 'https://www.ecfr.gov/api/search/v1/suggestions?query=chocolate&agency_slugs'
+
+		self.assertEqual(url_returned[0:60], url_expected[0:60])
+	# build_url test(s)
+
+
+	# api_call tests
+	@patch('requests.get')
+	def test_api_call_successful_returns_expected_object_suggestions(self, mock_response):
+		mock_response.return_value.status_code = 200
+		mock_response.return_value.json.return_value = {'Example key': 'Example value'}
+
+		search_api_handler_object = search_api_handler(search_api_handler.SearchType.SUGGESTIONS)
+		object_returned = search_api_handler_object.api_call(mock_response)
+		self.assertIsInstance(object_returned, dict)
+
+
+	@patch('requests.get')
+	def test_api_call_non_200_terminates_with_expected_output_suggestions(self, mock_response):
+		mock_response.return_value.status_code = 404
+		string_buffer = io.StringIO()
+
+		with redirect_stdout(string_buffer):
+			search_api_handler_object = search_api_handler(search_api_handler.SearchType.SUGGESTIONS)
+			captured_output = search_api_handler_object.api_call(mock_response)
+
+		captured_output = string_buffer.getvalue()
+
+		self.assertEqual(captured_output[0:16], 'Status code: 404')
+
+
+	@patch('requests.get')
+	def test_api_call_unsucessful_requests_call_raises_exception_suggestions(self, mock_response):
+		mock_response.side_effect = requests.exceptions.RequestException
+		string_buffer = io.StringIO()
+
+		with redirect_stdout(string_buffer):
+			search_api_handler_object = search_api_handler(search_api_handler.SearchType.SUGGESTIONS)
+			captured_output = search_api_handler_object.api_call(mock_response)
+
+		captured_output = string_buffer.getvalue()
+
+		self.assertEqual(captured_output[0:26], 'requests exception caught:')
+
+
+	@patch('requests.get')
+	def test_api_call_unsucessful_raises_exception_suggestions(self, mock_response):
+		mock_response.side_effect = Exception('Generic exception')
+		string_buffer = io.StringIO()
+
+		with redirect_stdout(string_buffer):
+			search_api_handler_object = search_api_handler(search_api_handler.SearchType.SUGGESTIONS)
+			captured_output = search_api_handler_object.api_call(mock_response)
+
+		captured_output = string_buffer.getvalue()
+
+		self.assertEqual(captured_output[0:25], 'Generic exception caught:')
+	# api_call tests
 	# END: SUGGESTIONS Enum
 # END: TestSearchApiHandler Class
