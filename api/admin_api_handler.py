@@ -46,28 +46,6 @@ class AdminApiHandler(api_handler):
 	# Unsuccessful:
 		# If response is returned but status code != 200:
 		# If an error is encountered during request:
-	def api_call(self, query):
+	def api_call(self, query = ''):
 		return super().api_call(query)
-
-
-
-	# I need to prioritize whiteboard/data structure stuff.
-	# Consequetly, this project will be placed on the back burner.
-
-	#
-	# Use the following as needed.
-
-	# When the thoughts of your mistakes overwhelm you:
-		# https://www.youtube.com/watch?v=IP9TaFDe7qk
-
-	# When you feel like haunting your own home:
-		# https://www.youtube.com/watch?v=u9FguM9aAM8
-
-	# When the vapid hellscape begins to consume you:
-		# https://www.youtube.com/watch?v=qOM107PIxV8
-
-	# When you're accidentally the villian:
-		# https://www.youtube.com/watch?v=wlI_BgVvtQY
-
-	# When you start to think way too much about the Stranger Situation:
-		# https://www.youtube.com/watch?v=Hm3cf3jsWNw
+	# *no r for Ainsworth

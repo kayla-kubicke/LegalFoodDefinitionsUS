@@ -29,6 +29,13 @@ class ApiHandler(ABC):
 	# Unsuccessful:
 		# If response is returned but status code != 200:
 		# If an error is encountered during request:
+
+	# Ugh... actually, I should remove the query param... remove super and query param, add
+	# placeholder.
+
+	# search uses a query
+	# admin uses a title
+	# versioner uses date and title
 	def api_call(self, query):
 		try:
 			query = query_modifier.pad_query(query)
