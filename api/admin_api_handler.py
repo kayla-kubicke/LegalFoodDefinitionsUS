@@ -21,18 +21,20 @@ class AdminApiHandler(api_handler):
 	# END: Constructor
 
 	# START: Methods
-	# Untested.
 	# title will only be used for CORRECTIONS_TITLE, if needed.
 	# RETURNS URL string
-	def build_url(self, title = ''):
+	def build_url(self, title = ''):# -> str:
 		# For AGENCIES and CORRECTIONS:
 		if (self.admin_type == 'agencies' or self.admin_type == 'corrections') and self.admin_type != 'corrections/title/':
-			# Spot check
 			return f'{api_constants.ECFR}/api/{self.service}/v1/{self.admin_type}.json'
 
 		# For CORRECTIONS_TITLE: Includes {title}
+		# https://www.youtube.com/watch?v=Pa-L5dwDGJ4
+		# All logic below needs to be refined...
 		if isinstance(title, int):
 			title = str(title)
+		# else:
+			# raise
 
 		if self.admin_type == 'corrections/title/' and title == '':
 			raise ValueError('title param required for .../corrections/title/... url')

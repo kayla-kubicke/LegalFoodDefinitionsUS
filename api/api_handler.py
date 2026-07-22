@@ -22,7 +22,7 @@ class ApiHandler(ABC):
 
 	# START: Methods
 	@abstractmethod
-	def build_url(self):
+	def build_url(self): #-> str:
 		...
 
 	# RETURNS
